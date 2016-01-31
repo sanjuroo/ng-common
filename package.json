@@ -6,12 +6,15 @@
     "typings": "utils.d.ts",
     "scripts":
     {
-        "build": "npm run css && npm run tsc",
+        "build": "npm run tsc",
         "clean": "rimraf ./*.d.ts ./*.js ./*.map ./*.log",
         "clean:modules": "rimraf ./node_modules",
         "clean:all": "npm run clean && npm run clean:modules",
         "tsc": "tsc",
-        "tsc:w": "tsc -w"
+        "tsc:w": "tsc -w",
+        "deployPatch": "npm run build && npp -b",
+        "deployMinor": "npm run build && npp",
+        "deployMajor": "npm run build && npp -m"
     },
     "repository":
     {
