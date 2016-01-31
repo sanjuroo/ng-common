@@ -1,0 +1,8 @@
+/.vscode
+/test
+.jsbeautifyrc
+tsconfig.js
+*.ts
+*.scss
+!*.d.ts
+*.map
