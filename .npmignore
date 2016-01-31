@@ -1,7 +1,8 @@
 /.vscode
+/src
 /test
 .jsbeautifyrc
-tsconfig.js
+tsconfig.json
 *.ts
 *.scss
 !*.d.ts
