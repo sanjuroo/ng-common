@@ -6,14 +6,18 @@
     {
         "build": "tsc",
         "build:w": "tsc -w",
-        "clean": "rimraf ./*.d.ts ./*.js ./*.map ./*.log",
+        "clean": "rimraf ./*.d.ts ./*.js ./*.map ./*.log ./bundle",
         "clean:modules": "rimraf ./node_modules",
         "clean:all": "npm run clean && npm run clean:modules",
         "deployPatch": "npp -b",
         "deployMinor": "npp",
         "deployMajor": "npp -m",
         "deployBuildMinor": "npp -p -t \"build\" -s \"build\"",
-        "deployBuildPatch": "npp -p -b -t \"build\" -s \"build\""
+        "deployBuildPatch": "npp -p -b -t \"build\" -s \"build\"",
+        "postpublish": "npm run clean", 
+        "bundle": "tsc --outFile bundle/ng2-utilities.dev.js",
+        "package": "npm run build && npm run bundle"
+        
     },
     "repository":
     {
