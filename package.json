@@ -50,6 +50,6 @@
         "rimraf": "~2.5.1",
         "typescript": "^1.8.0",
         "npm-publish-package": "1.2.0",
-        "npm-angular2-bundle": "1.0.0-alpha.0"
+        "npm-angular2-bundle": "1.0.0-alpha.2"
     }
 }
