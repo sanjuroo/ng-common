@@ -4,15 +4,16 @@
     "description": "Angular 2 module for utilities stuff",
     "scripts":
     {
-        "build": "npm run tsc",
+        "build": "tsc",
+        "build:w": "tsc -w",
         "clean": "rimraf ./*.d.ts ./*.js ./*.map ./*.log",
         "clean:modules": "rimraf ./node_modules",
         "clean:all": "npm run clean && npm run clean:modules",
-        "tsc": "tsc",
-        "tsc:w": "tsc -w",
-        "deployPatch": "npm run build && npp -b",
-        "deployMinor": "npm run build && npp",
-        "deployMajor": "npm run build && npp -m"
+        "deployPatch": "npp -b",
+        "deployMinor": "npp",
+        "deployMajor": "npp -m",
+        "deployBuildMinor": "npp -p -t \"build\" -s \"build\"",
+        "deployBuildPatch": "npp -p -b -t \"build\" -s \"build\""
     },
     "repository":
     {
