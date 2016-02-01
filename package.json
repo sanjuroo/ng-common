@@ -16,8 +16,8 @@
         "deployBuildPatch": "npp -p -b -t \"build\" -s \"build\"",
         "postpublish": "npm run clean", 
         "bundle": "tsc --outFile bundle/ng2-utilities.dev.js",
-        "package": "npm run build && npm run bundle"
-        
+        "bundle:update": "nab bundle/ng2-utilities.dev.js",
+        "bundle:package": "npm run build && npm run bundle && npm run bundle:update"
     },
     "repository":
     {
@@ -49,6 +49,7 @@
     {
         "rimraf": "~2.5.1",
         "typescript": "^1.8.0",
-        "npm-publish-package": "1.2.0"
+        "npm-publish-package": "1.2.0",
+        "npm-angular2-bundle": "1.0.0-alpha.0"
     }
 }

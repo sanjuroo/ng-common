@@ -13,7 +13,7 @@ class RecordViewTuple
 
 export default class ViewTemplate
 {
-    //######################### Public methods #########################
+    //######################### public methods #########################
     
     /**
      * Applies templates changes (addition, moving, removal) in specified viewContainer and calls additional method
@@ -41,7 +41,7 @@ export default class ViewTemplate
         }
     }
     
-    //######################### Private methods #########################
+    //######################### private methods #########################
     
     /**
      * Process removed and moved objects 
