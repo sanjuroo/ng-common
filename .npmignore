@@ -6,5 +6,5 @@ tsconfig.json
 *.ts
 *.scss
 !*.d.ts
-/bundle/ng2-utilities.dev.d.ts
+/bundle/ng2-common.dev.d.ts
 *.map
