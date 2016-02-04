@@ -2,6 +2,7 @@
 /src
 /test
 .jsbeautifyrc
+createPackage.bat
 tsconfig.json
 *.ts
 *.scss
