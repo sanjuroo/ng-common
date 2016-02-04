@@ -17,7 +17,7 @@ export class Content
     /**
      * Html that will be displayed inside element with this directive
      */
-    html: string;
+    html: string = "";
     
     //######################### constructor #########################
     constructor(private _element: ElementRef)
