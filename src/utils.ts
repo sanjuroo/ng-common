@@ -1,5 +1,6 @@
 import {TemplateRef, ViewContainerRef, EmbeddedViewRef} from 'angular2/core';
 import ViewTemplate from './utils.viewTemplate';
+import Encoder from './utils.encoder'; 
 
 /**
  * View template manipulation methods
@@ -16,6 +17,25 @@ export interface IViewTemplate
     applyChanges(changes, template: TemplateRef, viewContainer: ViewContainerRef, doForExisting: (view: EmbeddedViewRef, item: any, index: number, count: number) => void): void;
 }
 
+export interface IEncoder
+{
+    /**
+     * Decode html encoded string
+     * @param  {string} input String to be decoded
+     * @return string  
+     */
+    htmlDecode(input: string): string;
+    
+    
+    /**
+     * Encodes html plain string
+     * @param  {string} input String to be encoded
+     * @param  {boolean} dbl Indication that double encoding should be performed
+     * @returns string
+     */
+    htmlEncode(input:string, dbl?: boolean): string;
+}
+
 /**
  * Utils methods categories
  */
@@ -27,6 +47,11 @@ class Utils
     static get viewTemplate(): IViewTemplate
     {
         return ViewTemplate;
+    }
+    
+    static get encoder(): IEncoder
+    {
+        return new Encoder();
     }
 }
 
