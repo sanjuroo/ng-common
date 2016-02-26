@@ -4,6 +4,7 @@
 .jsbeautifyrc
 createPackage.bat
 tsconfig.json
+typings.json
 *.ts
 *.scss
 !*.d.ts
