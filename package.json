@@ -1,6 +1,6 @@
 {
     "name": "ng2-common",
-    "version": "1.0.1-beta.2",
+    "version": "1.0.1-beta.3",
     "description": "Angular 2 module for common stuff",
     "scripts":
     {
@@ -17,8 +17,8 @@
         "bundle": "tsc --outFile bundle/ng2-common.dev.js",
         "bundle:update": "nab bundle/ng2-common.dev.js",
         "bundle:package": "npm run build && npm run bundle && npm run bundle:update",
-        "deployNext": "npp -p -b -s \"beta\" -t \"latest\"",
-        "deployCurrent": "npm publish" 
+        "deploy-next": "npp -p -b -s \"beta\" -t \"latest\"",
+        "deploy-current": "npm publish" 
     },
     "repository":
     {
