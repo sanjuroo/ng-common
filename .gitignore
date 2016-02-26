@@ -1,5 +1,6 @@
 /node_modules
 /bundle
+/typings
 /directives
 *.d.ts
 *.js
