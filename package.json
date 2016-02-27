@@ -4,6 +4,7 @@
     "description": "Angular 2 module for common stuff",
     "scripts":
     {
+        "prebuild": "typings install",
         "build": "npm run tsc",
         "clean": "rimraf ./*.d.ts ./*.js ./*.map ./*.log ./bundle ./directives",
         "clean:deps": "rimraf ./node_modules ./typings",
@@ -11,8 +12,7 @@
         "tsc": "tsc",
         "tsc:w": "tsc -w --sourceMap",
         "tsc:debug": "tsc --sourceMap",
-        "postinstall": "typings install",
-        "prepublish": "npm run bundle:package",
+        "prepublish": "npm run build && npm run bundle:package",
         "postpublish": "npm run clean",
         "bundle": "tsc --outFile bundle/ng2-common.dev.js",
         "bundle:update": "nab bundle/ng2-common.dev.js",
@@ -52,6 +52,6 @@
         "typescript": "~1.8.2",
         "typings":"^0.6.8",
         "npm-publish-package": "1.2.0",
-        "npm-angular2-bundle": "1.0.0-alpha.2"
+        "npm-angular2-bundle": "1.0.0"
     }
 }
