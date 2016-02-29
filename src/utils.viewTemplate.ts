@@ -1,4 +1,4 @@
-import {TemplateRef, ViewContainerRef, EmbeddedViewRef} from 'angular2/core';
+import {TemplateRef, ViewContainerRef, EmbeddedViewRef, Component} from 'angular2/core';
 import {isPresent, isBlank} from 'angular2/src/facade/lang';
 
 /**
@@ -14,6 +14,26 @@ class RecordViewTuple
 export default class ViewTemplate
 {
     //######################### public methods #########################
+    
+    
+    /**
+     * Compiles template into component for dynamic use
+     * @param  {string} template Template string that will be compiled
+     * @param  {any[]} directives Array of directives that are used within template
+     * @returns Function Component that can be inserted into html
+     */
+    static compileToComponent(template: string, directives: Function[]): Function
+    {
+        @Component(
+        { 
+            selector: 'tmp-fake', 
+            template, 
+            directives
+        })
+        class FakeComponent {};
+        
+        return FakeComponent;
+    }
     
     /**
      * Applies templates changes (addition, moving, removal) in specified viewContainer and calls additional method

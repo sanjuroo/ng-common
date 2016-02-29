@@ -16,7 +16,7 @@
         "postpublish": "npm run clean",
         "bundle": "tsc --outFile bundle/ng2-common.dev.js",
         "bundle:update": "nab bundle/ng2-common.dev.js",
-        "bundle:package": "npm run build && npm run bundle && npm run bundle:update",
+        "bundle:package": "npm run clean && npm run build && npm run bundle && npm run bundle:update",
         "deploy-next": "npp -p -b -s \"beta\" -t \"next\"",
         "deploy-current": "npm publish" 
     },
