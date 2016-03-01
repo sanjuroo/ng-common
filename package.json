@@ -1,12 +1,12 @@
 {
     "name": "ng2-common",
-    "version": "1.0.1-beta.4",
+    "version": "1.0.1",
     "description": "Angular 2 module for common stuff",
     "scripts":
     {
         "prebuild": "typings install",
         "build": "npm run tsc",
-        "clean": "rimraf ./*.d.ts ./*.js ./*.map ./*.log ./bundle ./directives",
+        "clean": "rimraf ./*.d.ts ./*.js ./*.map ./*.log ./bundle ./directives ./decorators",
         "clean:deps": "rimraf ./node_modules ./typings",
         "clean:all": "npm run clean && npm run clean:deps",
         "tsc": "tsc",
@@ -17,8 +17,8 @@
         "bundle": "tsc --outFile bundle/ng2-common.dev.js",
         "bundle:update": "nab bundle/ng2-common.dev.js",
         "bundle:package": "npm run clean && npm run build && npm run bundle && npm run bundle:update",
-        "deploy-next": "npp -p -b -s \"beta\" -t \"next\"",
-        "deploy-current": "npm publish" 
+        "deploy-stable": "npp -b",
+        "deploy-next": "npp -p -b -s \"beta\" -t \"next\""
     },
     "repository":
     {
