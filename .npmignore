@@ -1,13 +1,11 @@
 /.vscode
 /src
-/test
 /typings
 .jsbeautifyrc
-createPackage.bat
 tsconfig.json
 typings.json
 *.ts
-*.scss
+*.map
+*.log
 !*.d.ts
 /bundle/ng2-common.dev.d.ts
-*.map
