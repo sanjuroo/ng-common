@@ -1,1 +1,1 @@
-export * from './directives/content.directive';
+export {Content} from './directives/content.directive';

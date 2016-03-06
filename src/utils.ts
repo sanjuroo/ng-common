@@ -3,6 +3,7 @@ import {RouteDefinition} from 'angular2/router';
 import ViewTemplate from './utils.viewTemplate';
 import Encoder from './utils.encoder';
 import RouterHelper from './utils.routerHelper';
+import Common from './utils.common';
 
 /**
  * View template manipulation methods
@@ -63,6 +64,28 @@ export interface IRouterHelper
 }
 
 /**
+ * Common utility methods
+ */
+export interface ICommon
+{
+    /**
+     * Extends one object with additional properties from second object
+     * @param  {Object} extendedObject Object to be extended
+     * @param  {Object} extendingObject Object that will be used for extending
+     * @returns Object Extended extendedObject with properties from extendingObject
+     */
+    extend(extendedObject: Object, extendingObject: Object): Object;
+    
+    /**
+     * Merges properties of two separate object into new third one
+     * @param  {Object} source1 First source object 
+     * @param  {Object} source2 Second source object
+     * @returns Object Object containing properties from source1 and source2 objects
+     */
+    merge(source1: Object, source2: Object): Object;
+}
+
+/**
  * Utils methods categories
  */
 class Utils
@@ -89,6 +112,14 @@ class Utils
     static get routerHelper(): IRouterHelper
     {
         return RouterHelper;
+    }
+    
+    /**
+     * Common utility methods
+     */
+    static get common(): ICommon
+    {
+        return Common;
     }
 }
 
