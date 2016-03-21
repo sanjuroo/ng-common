@@ -22,10 +22,12 @@ export interface IViewTemplate
     /**
      * Compiles template into component for dynamic use
      * @param  {string} template Template string that will be compiled
-     * @param  {any[]} directives Array of directives that are used within template
+     * @param  {Function[]} directives Array of directives that are used within template
+     * @param  {Function[]} pipes Array of pipes that are used within template
+     * @param  {any} data Data object passed to template
      * @returns Function Component that can be inserted into html
      */
-    compileToComponent(template: string, directives: Function[]): Function
+    compileToComponent(template: string, directives: Function[], pipes: Function[], data?: any): Function
 }
 
 /**

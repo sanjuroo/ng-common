@@ -3,6 +3,7 @@
 /typings
 /decorators
 /directives
+/types
 *.d.ts
 *.js
 *.map

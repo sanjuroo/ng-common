@@ -1,12 +1,12 @@
 {
     "name": "ng2-common",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Angular 2 module for common stuff",
     "scripts":
     {
         "prebuild": "typings install",
         "build": "npm run tsc",
-        "clean": "rimraf ./*.d.ts ./*.js ./*.map ./*.log ./bundle ./directives ./decorators",
+        "clean": "rimraf ./*.d.ts ./*.js ./*.map ./*.log ./bundle ./directives ./decorators ./types",
         "clean:deps": "rimraf ./node_modules ./typings",
         "clean:all": "npm run clean && npm run clean:deps",
         "tsc": "tsc",
