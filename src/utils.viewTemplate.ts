@@ -24,7 +24,7 @@ export default class ViewTemplate
      * @param  {any} data Data object passed to template
      * @returns Function Component that can be inserted into html
      */
-    static compileToComponent(template: string, directives: Function[], pipes: Function[], data: any = null): Function
+    public static compileToComponent(template: string, directives: Function[], pipes: Function[], data: any = null): Function
     {
         @Component(
         {
@@ -48,7 +48,7 @@ export default class ViewTemplate
      * @param  {ViewContainerRef} viewContainer View container that is going to be expanded
      * @param  {(view:EmbeddedViewRef,item:any,index:number,count:number)=>void} doForExisting Callback called when new items were added into container and additional operation are required on new views
      */
-    static applyChanges(changes, template: TemplateRef, viewContainer: ViewContainerRef, doForExisting: (view: EmbeddedViewRef, item: any, index: number, count: number) => void)
+    public static applyChanges(changes, template: TemplateRef, viewContainer: ViewContainerRef, doForExisting: (view: EmbeddedViewRef, item: any, index: number, count: number) => void)
     {
         var recordViewTuples = [];
 

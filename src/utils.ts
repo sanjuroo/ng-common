@@ -85,6 +85,13 @@ export interface ICommon
      * @returns Object Object containing properties from source1 and source2 objects
      */
     merge(source1: Object, source2: Object): Object;
+    
+    /**
+     * Generates random string consisting from lowercase letters
+     * @param  {number} length Length of generated string
+     * @returns number Generated string
+     */
+    generateId(length: number)
 }
 
 /**

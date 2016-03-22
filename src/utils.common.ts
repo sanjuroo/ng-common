@@ -12,7 +12,7 @@ export default class Common
      * @param  {Object} extendingObject Object that will be used for extending
      * @returns Object Extended extendedObject with properties from extendingObject
      */
-    static extend(extendedObject: Object, extendingObject: Object): Object
+    public static extend(extendedObject: Object, extendingObject: Object): Object
     {
         for (var attrname in extendingObject) 
         { 
@@ -28,7 +28,7 @@ export default class Common
      * @param  {Object} source2 Second source object
      * @returns Object Object containing properties from source1 and source2 objects
      */
-    static merge(source1: Object, source2: Object): Object
+    public static merge(source1: Object, source2: Object): Object
     {
         var resultObj = {};
         
@@ -43,5 +43,22 @@ export default class Common
         }
         
         return resultObj;
+    }
+    
+    /**
+     * Generates random string consisting from lowercase letters
+     * @param  {number} length Length of generated string
+     * @returns number Generated string
+     */
+    public static generateId(length: number)
+    {
+        var result = "";
+        
+        for(var x = 0; x < length; x++)
+        {
+            result += String.fromCharCode(Math.round(Math.random() * 25 + 97));
+        }
+        
+        return result;
     }
 }

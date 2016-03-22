@@ -10,7 +10,7 @@ export default class RouterHelper
      * @param  {any[]} components Array of components to be used for extraction
      * @returns RouteDefinition Extracted routes
      */
-    static extractRoutes(components: any[]): RouteDefinition[]
+    public static extractRoutes(components: any[]): RouteDefinition[]
     {
         var result: RouteDefinition[] = [];
         
