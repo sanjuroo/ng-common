@@ -4,6 +4,7 @@ import ViewTemplate from './utils.viewTemplate';
 import Encoder from './utils.encoder';
 import RouterHelper from './utils.routerHelper';
 import Common from './utils.common';
+import Cookies from './utils.cookies';
 
 /**
  * View template manipulation methods
@@ -95,6 +96,40 @@ export interface ICommon
 }
 
 /**
+ * Class Cookie - functions to deal with Cookies
+ */
+export interface ICookies
+{
+    /**
+     * Retrieves a single cookie by it's name
+     *
+     * @param  {string} name Identification of the Cookie
+     * @returns The Cookie's value
+     */
+    getCookie(name: string): any;
+    
+    /**
+     * Save the Cookie
+     *
+     * @param  {string} name Cookie's identification
+     * @param  {any} value Cookie's value
+     * @param  {number} expires Cookie's expiration date in days from now. If it's undefined the cookie is a session Cookie
+     * @param  {string} path Path relative to the domain where the cookie should be avaiable. Default /
+     * @param  {string} domain Domain where the cookie should be avaiable. Default current domain
+     */
+    setCookie(name: string, value: any, expires?: number, path?: string, domain?: string);
+    
+    /**
+     * Removes specified Cookie
+     *
+     * @param  {string} name Cookie's identification
+     * @param  {string} path Path relative to the domain where the cookie should be avaiable. Default /
+     * @param  {string} domain Domain where the cookie should be avaiable. Default current domain
+     */
+    deleteCookie(name: string, path ? : string, domain ? : string)
+}
+
+/**
  * Utils methods categories
  */
 class Utils
@@ -129,6 +164,14 @@ class Utils
     static get common(): ICommon
     {
         return Common;
+    }
+    
+    /**
+     * Class Cookie - functions to deal with Cookies
+     */
+    static get cookies(): ICookies
+    {
+        return Cookies
     }
 }
 
