@@ -1,3 +1,4 @@
+import {AbstractControl} from 'angular2/common';
 import {TemplateRef, ViewContainerRef, EmbeddedViewRef} from 'angular2/core';
 import {RouteDefinition} from 'angular2/router';
 import ViewTemplate from './utils.viewTemplate';
@@ -5,6 +6,7 @@ import Encoder from './utils.encoder';
 import RouterHelper from './utils.routerHelper';
 import Common from './utils.common';
 import Cookies from './utils.cookies';
+import Forms from './utils.forms';
 
 /**
  * View template manipulation methods
@@ -28,7 +30,7 @@ export interface IViewTemplate
      * @param  {any} data Data object passed to template
      * @returns Function Component that can be inserted into html
      */
-    compileToComponent(template: string, directives: Function[], pipes: Function[], data?: any): Function
+    compileToComponent(template: string, directives: Function[], pipes: Function[], data?: any): Function;
 }
 
 /**
@@ -92,7 +94,7 @@ export interface ICommon
      * @param  {number} length Length of generated string
      * @returns number Generated string
      */
-    generateId(length: number)
+    generateId(length: number);
 }
 
 /**
@@ -126,7 +128,19 @@ export interface ICookies
      * @param  {string} path Path relative to the domain where the cookie should be avaiable. Default /
      * @param  {string} domain Domain where the cookie should be avaiable. Default current domain
      */
-    deleteCookie(name: string, path ? : string, domain ? : string)
+    deleteCookie(name: string, path ? : string, domain ? : string);
+}
+
+/**
+ * Utility methods form angular 2 forms
+ */
+export interface IForms
+{
+    /**
+     * Sets all controls state to pristine
+     * @param  {{[controlName:string]:AbstractControl}} controls Array of controls that are going to be set
+     */
+    setPristine(controls: {[controlName: string]: AbstractControl}): void;
 }
 
 /**
@@ -171,7 +185,15 @@ class Utils
      */
     static get cookies(): ICookies
     {
-        return Cookies
+        return Cookies;
+    }
+    
+    /**
+     * Utility methods form angular 2 forms
+     */
+    static get forms(): IForms
+    {
+        return Forms;
     }
 }
 
