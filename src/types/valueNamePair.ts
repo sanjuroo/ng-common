@@ -1,7 +1,7 @@
 /**
  * Value name pair data 
  */
-export class ValueNamePair
+export interface ValueNamePair
 {
     /**
      * Value of the pair
