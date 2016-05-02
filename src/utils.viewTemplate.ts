@@ -1,4 +1,4 @@
-import {TemplateRef, ViewContainerRef, EmbeddedViewRef, Component} from 'angular2/core';
+import {TemplateRef, ViewContainerRef, ViewRef, Component} from 'angular2/core';
 import {isPresent, isBlank} from 'angular2/src/facade/lang';
 
 /**
@@ -6,7 +6,7 @@ import {isPresent, isBlank} from 'angular2/src/facade/lang';
  */
 class RecordViewTuple
 {
-    constructor(public record: any, public view: EmbeddedViewRef)
+    constructor(public record: any, public view: ViewRef)
     {
     }
 }
@@ -48,7 +48,7 @@ export default class ViewTemplate
      * @param  {ViewContainerRef} viewContainer View container that is going to be expanded
      * @param  {(view:EmbeddedViewRef,item:any,index:number,count:number)=>void} doForExisting Callback called when new items were added into container and additional operation are required on new views
      */
-    public static applyChanges(changes, template: TemplateRef, viewContainer: ViewContainerRef, doForExisting: (view: EmbeddedViewRef, item: any, index: number, count: number) => void)
+    public static applyChanges(changes, template: TemplateRef, viewContainer: ViewContainerRef, doForExisting: (view: ViewRef, item: any, index: number, count: number) => void)
     {
         var recordViewTuples = [];
 
