@@ -1,4 +1,4 @@
-import {RouteDefinition} from 'angular2/router';
+import {RouteDefinition} from '@angular/router-deprecated';
 
 /**
  * Extended type with route definition

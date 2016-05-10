@@ -1,5 +1,5 @@
-import {RouteDecoratedComponent} from './decorators/componentRoute.decorator';
-import {RouteDefinition} from 'angular2/router';
+import {RouteDecoratedComponent} from '../decorators/componentRoute.decorator';
+import {RouteDefinition} from '@angular/router-deprecated';
 
 export default class RouterHelper
 {

@@ -1,6 +1,5 @@
-import {AbstractControl} from 'angular2/common';
-import {TemplateRef, ViewContainerRef, EmbeddedViewRef} from 'angular2/core';
-import {RouteDefinition} from 'angular2/router';
+import {AbstractControl} from '@angular/common';
+import {RouteDefinition} from '@angular/router-deprecated';
 import ViewTemplate from './utils.viewTemplate';
 import Encoder from './utils.encoder';
 import RouterHelper from './utils.routerHelper';
@@ -13,15 +12,6 @@ import Forms from './utils.forms';
  */
 export interface IViewTemplate
 {
-    /**
-     * Applies templates changes (addition, moving, removal) in specified viewContainer and calls additional method
-     * @param  {any} changes Changes obtained from call of IterableDiffer.diff()
-     * @param  {TemplateRef} template Template that is going to be added if new items are in collection
-     * @param  {ViewContainerRef} viewContainer View container that is going to be expanded
-     * @param  {(view:EmbeddedViewRef,item:any,index:number,count:number)=>void} doForExisting Callback called when new items were added into container and additional operation are required on new views
-     */
-    applyChanges(changes, template: TemplateRef, viewContainer: ViewContainerRef, doForExisting: (view: EmbeddedViewRef, item: any, index: number, count: number) => void): void;
-
     /**
      * Compiles template into component for dynamic use
      * @param  {string} template Template string that will be compiled
@@ -197,4 +187,4 @@ class Utils
     }
 }
 
-export default Utils;
+export {Utils};

@@ -1,6 +1,6 @@
-import {Injectable} from 'angular2/core';
-import {Router} from 'angular2/router';
-import {isPresent} from 'angular2/src/facade/lang';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router-deprecated';
+import {isPresent} from '@angular/core/src/facade/lang';
 
 /**
  * Special implementation of router that allows routing with sending complex data to routed component

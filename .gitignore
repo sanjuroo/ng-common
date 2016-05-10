@@ -1,8 +1,7 @@
 /node_modules
-/bundle
 /typings
 /decorators
-/directives
+/utils
 /services
 /types
 *.d.ts
