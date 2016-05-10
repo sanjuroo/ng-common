@@ -8,7 +8,7 @@
     {
         "prebuild": "typings install",
         "build": "npm run tsc",
-        "clean": "rimraf ./*.d.ts ./index.js ./*.map ./*.log ./utils ./decorators ./types ./services",
+        "clean": "rimraf ./*.d.ts ./index.js ./index.dev.js ./index.min.js ./*.map ./*.log ./utils ./decorators ./types ./services",
         "clean:deps": "rimraf ./node_modules ./typings",
         "clean:all": "npm run clean && npm run clean:deps",
         "tsc": "tsc",
@@ -17,8 +17,8 @@
         "prepublish": "npm run bundle:package",
         "postpublish": "npm run clean",
         "republish": "npm unpublish --force && npm publish",
-        "bundle": "tsc --outFile bundle/ng2-common.dev.js",
-        "bundle:update": "nab bundle/ng2-common.dev.js && uglifyjs -o bundle/ng2-common.min.js -- bundle/ng2-common.dev.js",
+        "bundle": "tsc --outFile ./index.dev.js",
+        "bundle:update": "nab ./index.dev.js && uglifyjs -o ./index.min.js -- ./index.dev.js",
         "bundle:package": "npm run clean && npm run build && npm run bundle && npm run bundle:update",
         "deploy-stable": "npp -b",
         "deploy-next": "npp -p -b -s \"beta\" -t \"next\""
