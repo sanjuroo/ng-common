@@ -64,6 +64,13 @@ export interface IRouterHelper
 export interface ICommon
 {
     /**
+     * Reverse current string and returns new reverse string
+     * @param  {string} str String to be reversed
+     * @returns string Reverse string
+     */
+    reverseString(str: string): string;
+    
+    /**
      * Extends one object with additional properties from second object
      * @param  {Object} extendedObject Object to be extended
      * @param  {Object} extendingObject Object that will be used for extending

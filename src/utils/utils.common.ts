@@ -6,6 +6,16 @@ export default class Common
 {
     //######################### public methods #########################
     
+    /**
+     * Reverse current string and returns new reverse string
+     * @param  {string} str String to be reversed
+     * @returns string Reverse string
+     */
+    public static reverseString(str: string): string
+    {
+        return str.split("").reverse().join("");
+    }
+    
      /**
      * Extends one object with additional properties from second object
      * @param  {Object} extendedObject Object to be extended
