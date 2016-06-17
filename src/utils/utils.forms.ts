@@ -1,6 +1,6 @@
 import {AbstractControl} from '@angular/common';
-import {StringMapWrapper} from '@angular/common/src/facade/collection';
-import {isPresent} from '@angular/common/src/facade/lang';
+import {StringMapWrapper} from '@angular/core/src/facade/collection';
+import {isPresent} from '@angular/core/src/facade/lang';
 
 /**
  * Utility methods form angular 2 forms
