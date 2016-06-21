@@ -23,7 +23,7 @@ export default class RouterHelper
         {
             if('routeValue' in component)
             {
-                result.push((<RouteDecoratedComponent>component).routeDefinitionValue);
+                result.push((<RouteDecoratedComponent>component).routeValue);
             }
         });
         

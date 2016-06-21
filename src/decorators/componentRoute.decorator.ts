@@ -8,7 +8,7 @@ export interface RouteDecoratedComponent
     /**
      * Definition of route that is assigned to this type
      */
-    routeDefinitionValue: Route;
+    routeValue: Route;
 }
 
 /**
