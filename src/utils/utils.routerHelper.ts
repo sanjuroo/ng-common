@@ -1,5 +1,5 @@
 import {RouteDecoratedComponent} from '../decorators/componentRoute.decorator';
-import {RouteDefinition} from '@angular/router-deprecated';
+import {Route} from '@angular/router';
 
 export default class RouterHelper
 {
@@ -10,9 +10,9 @@ export default class RouterHelper
      * @param  {any[]} components Array of components to be used for extraction
      * @returns RouteDefinition Extracted routes
      */
-    public static extractRoutes(components: any[]): RouteDefinition[]
+    public static extractRoutes(components: any[]): Route[]
     {
-        var result: RouteDefinition[] = [];
+        var result: Route[] = [];
         
         if(!components)
         {
@@ -21,7 +21,7 @@ export default class RouterHelper
         
         components.forEach(component =>
         {
-            if('routeDefinitionValue' in component)
+            if('routeValue' in component)
             {
                 result.push((<RouteDecoratedComponent>component).routeDefinitionValue);
             }

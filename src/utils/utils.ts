@@ -1,5 +1,5 @@
 import {AbstractControl} from '@angular/common';
-import {RouteDefinition} from '@angular/router-deprecated';
+import {Route} from '@angular/router';
 import ViewTemplate from './utils.viewTemplate';
 import Encoder from './utils.encoder';
 import RouterHelper from './utils.routerHelper';
@@ -55,7 +55,7 @@ export interface IRouterHelper
      * @param  {any[]} components Array of components to be used for extraction
      * @returns RouteDefinition Extracted routes
      */
-    extractRoutes(components: any[]): RouteDefinition[];
+    extractRoutes(components: any[]): Route[];
 }
 
 /**

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Router} from '@angular/router-deprecated';
+import {Router, Event} from '@angular/router';
 import {isPresent} from '@angular/core/src/facade/lang';
 
 /**
@@ -62,23 +62,24 @@ export class DataRouter
     //######################### constructor #########################
     constructor(private _router: Router)
     {
-        this._router.subscribe(next =>
+        this._router.events.subscribe(next =>
         {
-            if(isPresent(this._valuePromiseResolver) && isPresent(this._nextUrlPath))
-            {
-                if(this._nextUrlPath == next)
-                {
-                    this._valuePromiseResolver(this._nextValue);
-                }
-                else
-                {
-                    this._valuePromiseResolver(null);
-                }
-            }
-            else if(isPresent(this._valuePromiseResolver))
-            {
-                this._valuePromiseResolver(null);
-            }
+            //TODO - updated for latest router
+            // if(isPresent(this._valuePromiseResolver) && isPresent(this._nextUrlPath))
+            // {
+            //     if(this._nextUrlPath == next)
+            //     {
+            //         this._valuePromiseResolver(this._nextValue);
+            //     }
+            //     else
+            //     {
+            //         this._valuePromiseResolver(null);
+            //     }
+            // }
+            // else if(isPresent(this._valuePromiseResolver))
+            // {
+            //     this._valuePromiseResolver(null);
+            // }
             
             this._nextUrlPath = null;
             this._nextValue = null;
@@ -101,7 +102,7 @@ export class DataRouter
     public navigate(linkParams: any[], routeData: any): Promise<any>
     {
         this._nextValue = routeData;
-        this._nextUrlPath = this._router.registry.generate(linkParams, []).toUrlPath()
+        this._nextUrlPath = this._router.createUrlTree(linkParams).toString();
 
         return this._router.navigate(linkParams);
     }
