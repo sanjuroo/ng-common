@@ -1,6 +1,6 @@
 {
     "name": "@ng2/common",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Angular 2 module for common stuff",
     "main": "index.js",
     "typings": "index.d.ts",
@@ -45,7 +45,7 @@
         "@angular/common":  "2.0.0-rc.2",
         "@angular/compiler":  "2.0.0-rc.2",
         "@angular/core":  "2.0.0-rc.2",
-        "@angular/router":  "3.0.0-alpha.7",
+        "@angular/router":  "3.0.0-alpha.8",
         "@angular/platform-browser-dynamic": "2.0.0-rc.2",
         "es6-promise": "^3.1.2",
         "es6-shim": "^0.35.0",
