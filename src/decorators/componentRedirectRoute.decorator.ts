@@ -24,9 +24,9 @@ export function ComponentRedirectRoute(redirectFrom: string): ClassDecorator
     {
         let routeDecoratedComponent: RouteDecoratedComponent = <any>target;
 
-        if(isBlank(routeDecoratedComponent))
+        if(isBlank(routeDecoratedComponent.routeValue))
         {
-            console.warn("You can`t use ComponentRedirectRoute earlier than ComponentRoute!");
+            console.warn("Missing 'ComponentRedirectRoute' or wrong order of decorators!");
 
             return target;
         }
