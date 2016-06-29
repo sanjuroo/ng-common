@@ -1,6 +1,18 @@
 import {RouteDecoratedComponent} from '../decorators/componentRoute.decorator';
+import {RedirectRouteDecoratedComponent} from '../decorators/componentRedirectRoute.decorator';
 import {Route} from '@angular/router';
+import {isPresent} from '@angular/core/src/facade/lang';
 
+/**
+ * All types of route decorated components
+ */
+interface RoutesDecoratedComponent extends RouteDecoratedComponent, RedirectRouteDecoratedComponent
+{
+}
+
+/**
+ * Router helper
+ */
 export default class RouterHelper
 {
     //######################### public methods #########################
@@ -19,11 +31,19 @@ export default class RouterHelper
             return result;
         }
         
-        components.forEach(component =>
+        components.forEach((component: RoutesDecoratedComponent) =>
         {
-            if('routeValue' in component)
+            if(isPresent(component.routeValue))
             {
-                result.push((<RouteDecoratedComponent>component).routeValue);
+                result.push(component.routeValue);
+            }
+
+            if(isPresent(component.redirectRouteValues))
+            {
+                component.redirectRouteValues.forEach(route =>
+                {
+                    result.push(route);
+                });
             }
         });
         
