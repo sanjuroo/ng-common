@@ -26,7 +26,7 @@ export function ComponentRedirectRoute(redirectFrom: string): ClassDecorator
 
         if(isBlank(routeDecoratedComponent.routeValue))
         {
-            console.warn("Missing 'ComponentRedirectRoute' or wrong order of decorators!");
+            console.warn("Missing 'ComponentRoute' or wrong order of decorators 'ComponentRoute' and 'ComponentRedirectRoute'!");
 
             return target;
         }
