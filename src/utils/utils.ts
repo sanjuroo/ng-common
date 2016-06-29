@@ -135,9 +135,9 @@ export interface IForms
 {
     /**
      * Sets all controls state to pristine
-     * @param  {{[controlName:string]:AbstractControl}} controls Array of controls that are going to be set
+     * @param  {{[controlName:string]:AbstractControl} | AbstractControl[]} controls Array of controls that are going to be set
      */
-    setPristine(controls: {[controlName: string]: AbstractControl}): void;
+    setPristine(controls: {[controlName: string]: AbstractControl} | AbstractControl[]): void;
 }
 
 /**

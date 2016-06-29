@@ -1,6 +1,6 @@
 import {AbstractControl} from '@angular/common';
 import {StringMapWrapper} from '@angular/core/src/facade/collection';
-import {isPresent} from '@angular/core/src/facade/lang';
+import {isPresent, isArray} from '@angular/core/src/facade/lang';
 
 /**
  * Utility methods form angular 2 forms
@@ -13,14 +13,16 @@ export default class Forms
      * Sets all controls state to pristine
      * @param  {{[controlName:string]:AbstractControl}} controls Array of controls that are going to be set
      */
-    public static setPristine(controls: {[controlName: string]: AbstractControl}): void
+    public static setPristine(controls: {[controlName: string]: AbstractControl} | AbstractControl[]): void
     {
-        StringMapWrapper.forEach(controls, item =>
+        for (var idx in controls)
         {
+            let item: any = controls[idx];
+
             if(isPresent(item._pristine))
             {
                 item._pristine = true;
             }
-        })
+        }
     }
 }
