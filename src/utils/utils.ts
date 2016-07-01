@@ -1,4 +1,5 @@
 import {AbstractControl} from '@angular/common';
+import {Type} from '@angular/core/src/facade/lang';
 import {Route} from '@angular/router';
 import ViewTemplate from './utils.viewTemplate';
 import Encoder from './utils.encoder';
@@ -56,6 +57,14 @@ export interface IRouterHelper
      * @returns RouteDefinition Extracted routes
      */
     extractRoutes(components: any[]): Route[];
+
+    /**
+     * Extracts types of components from routes 
+     * @param  {Route[]} routes Array of routes provided for app
+     * @param  {boolean=false} recursive Indication whether include to result also components of children routes
+     * @returns Type[]
+     */
+    extractComponents(routes: Route[], recursive?: boolean) : Type[]
 }
 
 /**

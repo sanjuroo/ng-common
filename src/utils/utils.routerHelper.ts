@@ -1,7 +1,7 @@
 import {RouteDecoratedComponent} from '../decorators/componentRoute.decorator';
 import {RedirectRouteDecoratedComponent} from '../decorators/componentRedirectRoute.decorator';
 import {Route} from '@angular/router';
-import {isPresent} from '@angular/core/src/facade/lang';
+import {isPresent, Type, isBlank} from '@angular/core/src/facade/lang';
 
 /**
  * All types of route decorated components
@@ -48,5 +48,21 @@ export default class RouterHelper
         });
         
         return result;
+    }
+    
+    /**
+     * Extracts types of components from routes 
+     * @param  {Route[]} routes Array of routes provided for app
+     * @param  {boolean=false} recursive Indication whether include to result also components of children routes
+     * @returns Type[]
+     */
+    public static extractComponents(routes: Route[], recursive: boolean = false) : Type[]
+    {
+        if(isBlank(routes) || routes.length < 1)
+        {
+            return [];
+        }
+
+        return routes.map(route => <Type>route.component);
     }
 }
