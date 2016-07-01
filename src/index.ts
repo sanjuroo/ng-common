@@ -6,4 +6,10 @@ export {Paginator} from './types/paginator';
 export {OrderByDirection} from './types/orderByDirection.enum';
 export {DataRouter, DataRouterData} from './services/routing';
 export {Utils} from './utils/utils';
-export {SlideInOutAnimation, slideInOutAnimationConfig, InOutAnimationsConfig} from './animations/animations';
+export {SlideInOutAnimation,
+        slideInOutAnimationConfig,
+        flyInAnimationConfig,
+        FlyInAnimation,
+        InOutAnimationsConfig,
+        InAnimationsConfig,
+        OutAnimationsConfig} from './animations/animations';

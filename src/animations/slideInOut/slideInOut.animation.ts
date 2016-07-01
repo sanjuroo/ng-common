@@ -74,7 +74,7 @@ export function slideInOutAnimationConfig(configuration: InOutAnimationsConfig):
                         })
                     ]))
         ])
-    ])
+    ]);
 };
 
 /**
@@ -84,4 +84,4 @@ export const SlideInOutAnimation = slideInOutAnimationConfig(
 {
     inTiming: '0.4s ease-in',
     outTiming: '0.4s ease-out'
-})
+});
