@@ -10,6 +10,9 @@ export {SlideInOutAnimation,
         slideInOutAnimationConfig,
         flyInAnimationConfig,
         FlyInAnimation,
+        visibleFlyInOutAnimationConfig,
+        VisibleFlyInOutAnimation,
         InOutAnimationsConfig,
         InAnimationsConfig,
-        OutAnimationsConfig} from './animations/animations';
+        OutAnimationsConfig,
+        VISIBLE} from './animations/animations';
