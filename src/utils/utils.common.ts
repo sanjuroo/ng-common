@@ -71,4 +71,13 @@ export default class Common
         
         return result;
     }
+
+    /**
+     * Converts string in that way that first letter will be lowerCase
+     * @param  {string} text Text to be converted
+     */
+    public static firstToLowerCase(text: string)
+    {
+        return text.charAt(0).toLowerCase() + text.substr(1);
+    }
 }

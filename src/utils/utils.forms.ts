@@ -1,4 +1,4 @@
-import {AbstractControl} from '@angular/common';
+import {AbstractControl} from '@angular/forms';
 import {StringMapWrapper} from '@angular/core/src/facade/collection';
 import {isPresent, isArray} from '@angular/core/src/facade/lang';
 

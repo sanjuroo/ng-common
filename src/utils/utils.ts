@@ -1,4 +1,4 @@
-import {AbstractControl} from '@angular/common';
+import {AbstractControl} from '@angular/forms';
 import {Type} from '@angular/core/src/facade/lang';
 import {Route} from '@angular/router';
 import ViewTemplate from './utils.viewTemplate';
@@ -101,6 +101,12 @@ export interface ICommon
      * @returns number Generated string
      */
     generateId(length: number);
+
+    /**
+     * Converts string in that way that first letter will be lowerCase
+     * @param  {string} text Text to be converted
+     */
+    firstToLowerCase(text: string)
 }
 
 /**
