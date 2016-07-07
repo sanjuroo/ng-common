@@ -1,4 +1,4 @@
-import {AbstractControl} from '@angular/forms';
+import {AbstractControl, NgForm, FormGroupDirective} from '@angular/forms';
 import {Type} from '@angular/core/src/facade/lang';
 import {Route} from '@angular/router';
 import ViewTemplate from './utils.viewTemplate';
@@ -153,6 +153,28 @@ export interface IForms
      * @param  {{[controlName:string]:AbstractControl} | AbstractControl[]} controls Array of controls that are going to be set
      */
     setPristine(controls: {[controlName: string]: AbstractControl} | AbstractControl[]): void;
+
+    /**
+     * Clears flag indicating that form was submitted
+     * @param  {NgForm|FormGroupDirective} form Form which flag should be cleared
+     */
+    clearSubmitted(form: NgForm | FormGroupDirective): void;
+
+    /**
+     * Gets indication whether controls have errors
+     * @param  {NgForm} form Form containing controls
+     * @param  {string[]} controls Array of controls names to be checked for errors
+     */
+    hasError(form: NgForm, controls: string[]): boolean;
+
+
+    /**
+     * Gets indication whether hide alerts or not for control
+     * @param  {NgForm} form Form containing controls
+     * @param  {string} control Controls name that will be checked
+     * @param  {string[]} errors Array of validation errors to be checked for existance
+     */
+    alertHidden(form: NgForm, control: string, errors: string[]): void;
 }
 
 /**
