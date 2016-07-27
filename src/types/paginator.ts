@@ -184,7 +184,7 @@ export class Paginator
     }
 
     /**
-     * Gets indexes for items on current page (1-based indexes)
+     * Gets indexes for items on current page (zero-based indexes)
      * @returns number Array of items indexes
      */
     public getIndexesPerPage(): number[]
