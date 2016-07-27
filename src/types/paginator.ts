@@ -1,5 +1,3 @@
-//TODO - rework comments to JSDOC
-
 /**
  * Class for paging evaluation
  */
@@ -29,25 +27,25 @@ export class Paginator
 
     //######################### public methods #########################
 
-    /// <summary>
-    /// Sets current page number.
-    /// </summary>
-    /// <param name="page">Page number</param>
-    /// <returns><see cref="Paginator"/> provides a fluent interface</returns>
-    public SetPage(page: number): Paginator
+    /**
+     * Sets current page number.
+     * @param  {number} page Page number
+     * @returns Paginator Provides a fluent interface
+     */
+    public setPage(page: number): Paginator
     {
         this._page = page;
 
         return this;
     }
 
-    /// <summary>
-    /// Returns current page number.
-    /// </summary>
-    /// <returns>Current page number</returns>
-    public GetPage(): number
+    /**
+     * Returns current page number.
+     * @returns number Current page number
+     */
+    public getPage(): number
     {
-        return this._base + this.GetPageIndex();
+        return this._base + this.getPageIndex();
     }
 
     /// <summary>
@@ -59,141 +57,157 @@ export class Paginator
         return this._base;
     }
 
-    /// <summary>
-    /// Returns last page number.
-    /// </summary>
-    /// <returns>Number of last page</returns>
-    public GetLastPage(): number
+    /**
+     * Returns last page number.
+     * @returns number Number of last page
+     */
+    public getLastPage(): number
     {
-        return this._base + Math.max(0, this.GetPageCount() - 1);
+        return this._base + Math.max(0, this.getPageCount() - 1);
     }
 
-    /// <summary>
-    /// Sets first page (_base) number.
-    /// </summary>
-    /// <param name="baseVal">Index of base page</param>
-    /// <returns><see cref="Paginator"/> provides a fluent interface</returns>
-    public SetBase(baseVal: number): Paginator
+    /**
+     * Sets first page (base) number.
+     * @param  {number} baseVal Index of base page
+     * @returns Paginator Provides a fluent interface
+     */
+    public setBase(baseVal: number): Paginator
     {
         this._base = baseVal;
 
         return this;
     }
 
-    /// <summary>
-    /// Returns first page (_base) number.
-    /// </summary>
-    /// <returns>Index of base page</returns>
-    public GetBase(): number
+    /**
+     * Returns first page (base) number.
+     * @returns number Index of base page
+     */
+    public getBase(): number
     {
         return this._base;
     }
 
-    /// <summary>
-    /// Gets indication whether is the current page the first one?
-    /// </summary>
-    /// <returns>True if current page is first one</returns>
-    public IsFirst(): boolean
+    /**
+     * Gets indication whether is the current page the first one?
+     * @returns boolean True if current page is first one
+     */
+    public isFirst(): boolean
     {
-        return this.GetPageIndex() == 0;
+        return this.getPageIndex() == 0;
     }
 
-    /// <summary>
-    /// Gets indication whether is the current page the last one?
-    /// </summary>
-    /// <returns>True if current page is last one, otherwise false</returns>
-    public IsLast(): boolean
+    /**
+     * Gets indication whether is the current page the last one?
+     * @returns boolean True if current page is last one, otherwise false
+     */
+    public isLast(): boolean
     {
-        return this.GetPageIndex() == (this.GetPageCount() - 1);
+        return this.getPageIndex() == (this.getPageCount() - 1);
     }
 
-    /// <summary>
-    /// Returns the total number of pages.
-    /// </summary>
-    /// <returns>Total number of pages</returns>
-    public GetPageCount(): number
+    /**
+     * Returns the total number of pages.
+     * @returns number Total number of pages
+     */
+    public getPageCount(): number
     {
         return Math.ceil(this._itemCount / this._itemsPerPage);
     }
 
-    /// <summary>
-    /// Sets the number of items to display on a single page.
-    /// </summary>
-    /// <param name="itemsPerPage">Number of items per page</param>
-    /// <returns><see cref="Paginator"/> provides a fluent interface</returns>
-    public SetItemsPerPage(itemsPerPage: number): Paginator
+    /**
+     * Sets the number of items to display on a single page.
+     * @param  {number} itemsPerPage Number of items per page
+     * @returns Paginator Provides a fluent interface
+     */
+    public setItemsPerPage(itemsPerPage: number): Paginator
     {
         this._itemsPerPage = Math.max(1, itemsPerPage);
         
         return this;
     }
 
-    /// <summary>
-    /// Returns the number of items to display on a single page.
-    /// </summary>
-    /// <returns>Number of items per one page</returns>
-    public GetItemsPerPage(): number
+    /**
+     * Returns the number of items to display on a single page.
+     * @returns number Number of items per one page
+     */
+    public getItemsPerPage(): number
     {
         return this._itemsPerPage;
     }
 
-    /// <summary>
-    /// Sets the total number of items.
-    /// </summary>
-    /// <param name="itemCount">Count of items or -1 for infinity</param>
-    /// <returns><see cref="Paginator"/> provides a fluent interface</returns>
-    public SetItemCount(itemCount: number): Paginator
+    /**
+     * Sets the total number of items.
+     * @param  {number} itemCount Count of items or -1 for infinity
+     * @returns Paginator Provides a fluent interface
+     */
+    public setItemCount(itemCount: number): Paginator
     {
         this._itemCount = itemCount == -1 ? Number.MAX_VALUE : Math.max(0, itemCount);
 
         return this;
     }
 
-    /// <summary>
-    /// Returns the total number of items.
-    /// </summary>
-    /// <returns>Total number of items</returns>
-    public GetItemCount(): number
+    /**
+     * Returns the total number of items.
+     * @returns number Total number of items
+     */
+    public getItemCount(): number
     {
         return this._itemCount;
     }
 
-    /// <summary>
-    /// Returns the absolute index of the first item on current page.
-    /// </summary>
-    /// <returns>Absolute index of first item</returns>
-    public GetOffset(): number
+    /**
+     * Returns the absolute index of the first item on current page.
+     * @returns number Absolute index of first item
+     */
+    public getOffset(): number
     {
-        return this.GetPageIndex() * this._itemsPerPage;
+        return this.getPageIndex() * this._itemsPerPage;
     }
 
-    /// <summary>
-    /// Returns the absolute index of the first item on current page in countdown paging.
-    /// </summary>
-    /// <returns>Countdown offset of first item</returns>
-    public GetCountdownOffset(): number
+    /**
+     * Returns the absolute index of the first item on current page in countdown paging.
+     * @returns number Countdown offset of first item
+     */
+    public getCountdownOffset(): number
     {
-        return Math.max(0, this._itemCount - (this.GetPageIndex() + 1) * this._itemsPerPage);
+        return Math.max(0, this._itemCount - (this.getPageIndex() + 1) * this._itemsPerPage);
     }
 
-    /// <summary>
-    /// Returns the number of items on current page.
-    /// </summary>
-    /// <returns>Number of items on page</returns>
-    public GetLength(): number
+    /**
+     * Returns the number of items on current page.
+     * @returns number Number of items on page
+     */
+    public getLength(): number
     {
-        return Math.min(this._itemsPerPage, this._itemCount - this.GetPageIndex() * this._itemsPerPage);
+        return Math.min(this._itemsPerPage, this._itemCount - this.getPageIndex() * this._itemsPerPage);
     }
 
-    /// <summary>
-    /// Gets list of page numbers with specified dispersion
-    /// </summary>
-    /// <param name="dispersion">Number identifying dispersion</param>
-    /// <returns>Page numbers according specified dispersion</returns>
-    public GetPagesWithDispersion(dispersion: number): number[]
+    /**
+     * Gets indexes for items on current page (1-based indexes)
+     * @returns number Array of items indexes
+     */
+    public getIndexesPerPage(): number[]
     {
-        var currentPage = this.GetPage();
-        var pageCount = this.GetPageCount();
+        let result: number[] = [];
+
+        for(let x = this.getOffset(); x < this.getOffset() + this.getLength(); x++)
+        {
+            result.push(x);
+        }
+
+        return result;
+    }
+
+    /**
+     * Gets list of page numbers with specified dispersion
+     * @param  {number} dispersion Number identifying dispersion
+     * @returns number Page numbers according specified dispersion
+     */
+    public getPagesWithDispersion(dispersion: number): number[]
+    {
+        var currentPage = this.getPage();
+        var pageCount = this.getPageCount();
         var numberOfPages = Math.min(pageCount, Math.max(0, dispersion) * 2 + 1) - 1;
         var startingPage = Math.max(this._base, currentPage - dispersion);
 
@@ -213,15 +227,15 @@ export class Paginator
         return result;
     }
 
-    /// <summary>
-    /// Gets list of page numbers with specified dispersion, pages are trimmed if current page is near beginning or end
-    /// </summary>
-    /// <param name="dispersion">Number identifying dispersion</param>
-    /// <returns>Page numbers according specified dispersion</returns>
-    public GetPagesWithTrimDispersion(dispersion: number): number[]
+    /**
+     * Gets list of page numbers with specified dispersion, pages are trimmed if current page is near beginning or end
+     * @param  {number} dispersion Number identifying dispersion
+     * @returns number Page numbers according specified dispersion
+     */
+    public getPagesWithTrimDispersion(dispersion: number): number[]
     {
-        var currentPage = this.GetPage();
-        var lastPage = this.GetLastPage();
+        var currentPage = this.getPage();
+        var lastPage = this.getLastPage();
         var startingPage = Math.max(this._base, currentPage - dispersion);
         var x, endingPage = Math.min(lastPage, currentPage + dispersion);
 
@@ -235,15 +249,15 @@ export class Paginator
         return result;
     }
 
-    /// <summary>
-    /// Gets list of page numbers generated with uniform distribution
-    /// </summary>
-    /// <param name="numberOfPages">Number of pages that are going to be uniformly distributed between first and last page (including)</param>
-    /// <returns>Uniformly distributed page numbers</returns>
-    public GetPagesWithUniformDistribution(numberOfPages: number): number[]
+    /**
+     * Gets list of page numbers generated with uniform distribution
+     * @param  {number} numberOfPages Number of pages that are going to be uniformly distributed between first and last page (including)
+     * @returns number Uniformly distributed page numbers
+     */
+    public getPagesWithUniformDistribution(numberOfPages: number): number[]
     {
         numberOfPages = Math.max(1, numberOfPages - 1);
-        var pageCount = this.GetPageCount();
+        var pageCount = this.getPageCount();
         numberOfPages = Math.min(numberOfPages, pageCount - 1);
         var step = pageCount / numberOfPages;
         var page = this.GetFirstPage();
@@ -265,12 +279,12 @@ export class Paginator
 
     //######################### protected methods #########################
 
-    /// <summary>
-    /// Returns zero-_based page number.
-    /// </summary>
-    /// <returns>Zero-_based page number</returns>
-    protected GetPageIndex(): number
+    /**
+     * Returns zero-based page number.
+     * @returns number Zero-based page number
+     */
+    protected getPageIndex(): number
     {
-        return Math.min(Math.max(0, this._page - this._base), Math.max(0, this.GetPageCount() - 1));
+        return Math.min(Math.max(0, this._page - this._base), Math.max(0, this.getPageCount() - 1));
     }
 }
