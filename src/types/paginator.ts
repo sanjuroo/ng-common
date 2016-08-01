@@ -191,9 +191,19 @@ export class Paginator
     {
         let result: number[] = [];
 
-        for(let x = this.getOffset(); x < this.getOffset() + this.getLength(); x++)
+        if(isNaN(this.getOffset()))
         {
-            result.push(x);
+            for(let x = 0; x < this.getItemCount(); x++)
+            {
+                result.push(x);
+            }
+        }
+        else
+        {
+            for(let x = this.getOffset(); x < this.getOffset() + this.getLength(); x++)
+            {
+                result.push(x);
+            }
         }
 
         return result;
