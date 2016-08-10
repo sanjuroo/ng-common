@@ -47,7 +47,6 @@ export function ComponentRedirectRoute(redirectFrom: string): ClassDecorator
 
         redirectRouteDecoratedComponent.redirectRouteValues.push(
         {
-            terminal: true,
             path: redirectFrom,
             redirectTo: routeDecoratedComponent.routeValue.path
         });
