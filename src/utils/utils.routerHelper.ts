@@ -53,16 +53,28 @@ export default class RouterHelper
     /**
      * Extracts types of components from routes 
      * @param  {Route[]} routes Array of routes provided for app
-     * @param  {boolean=false} recursive Indication whether include to result also components of children routes
+     * @param  {boolean=true} recursive Indication whether include to result also components of children routes
      * @returns Type[]
      */
-    public static extractComponents(routes: Route[], recursive: boolean = false) : Type[]
+    public static extractComponents(routes: Route[], recursive: boolean = true) : Type[]
     {
         if(isBlank(routes) || routes.length < 1)
         {
             return [];
         }
 
-        return routes.map(route => <Type>route.component);
+        let childrenCompnents = [];
+
+        if(recursive)
+        {
+            let childrenRoutes = routes.filter(route => isPresent(route.children) && route.children.length > 0);
+
+            childrenRoutes.forEach(route => childrenCompnents = childrenCompnents.concat(RouterHelper.extractComponents(route.children)));
+        }
+
+        return routes
+            .filter(route => isPresent(route.component))
+            .map(route => <Type>route.component)
+            .concat(childrenCompnents);
     }
 }

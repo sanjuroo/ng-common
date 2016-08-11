@@ -61,7 +61,7 @@ export interface IRouterHelper
     /**
      * Extracts types of components from routes 
      * @param  {Route[]} routes Array of routes provided for app
-     * @param  {boolean=false} recursive Indication whether include to result also components of children routes
+     * @param  {boolean=true} recursive Indication whether include to result also components of children routes
      * @returns Type[]
      */
     extractComponents(routes: Route[], recursive?: boolean) : Type[]
