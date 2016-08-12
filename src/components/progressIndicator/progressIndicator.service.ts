@@ -1,4 +1,4 @@
-import {Optional} from '@angular/core';
+import {Optional, Injectable} from '@angular/core';
 import {ProgressIndicatorOptions} from './progressIndicatorOptions';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
@@ -6,6 +6,7 @@ import {Subject} from 'rxjs/Subject';
 /**
  * Service that is used for displaying and hiding progress indicator
  */
+@Injectable()
 export class ProgressIndicatorService
 {
     //######################### private fields #########################

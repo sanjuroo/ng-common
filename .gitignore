@@ -3,6 +3,7 @@
 /decorators
 /utils
 /services
+/components
 /types
 *.d.ts
 *.js
