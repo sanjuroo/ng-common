@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Router, Event} from '@angular/router';
+import {Router, NavigationEnd} from '@angular/router';
 import {isPresent} from '@angular/core/src/facade/lang';
 
 /**
@@ -64,22 +64,26 @@ export class DataRouter
     {
         this._router.events.subscribe(next =>
         {
-            //TODO - updated for latest router
-            // if(isPresent(this._valuePromiseResolver) && isPresent(this._nextUrlPath))
-            // {
-            //     if(this._nextUrlPath == next)
-            //     {
-            //         this._valuePromiseResolver(this._nextValue);
-            //     }
-            //     else
-            //     {
-            //         this._valuePromiseResolver(null);
-            //     }
-            // }
-            // else if(isPresent(this._valuePromiseResolver))
-            // {
-            //     this._valuePromiseResolver(null);
-            // }
+            if(!(next instanceof NavigationEnd))
+            {
+                return;
+            }
+
+            if(isPresent(this._valuePromiseResolver) && isPresent(this._nextUrlPath))
+            {
+                if(this._nextUrlPath == next.url)
+                {
+                    this._valuePromiseResolver(this._nextValue);
+                }
+                else
+                {
+                    this._valuePromiseResolver(null);
+                }
+            }
+            else if(isPresent(this._valuePromiseResolver))
+            {
+                this._valuePromiseResolver(null);
+            }
             
             this._nextUrlPath = null;
             this._nextValue = null;
