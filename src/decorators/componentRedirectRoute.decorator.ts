@@ -16,9 +16,10 @@ export interface RedirectRouteDecoratedComponent
 /**
  * Defines redirection route to component`s route on which is this decorator applied
  * @param  {string} redirectFrom Path from which should redirection occur
+ * @param  {boolean} pathMatchFull Indication that full path match should be used, default is true
  * @returns ClassDecorator
  */
-export function ComponentRedirectRoute(redirectFrom: string): ClassDecorator
+export function ComponentRedirectRoute(redirectFrom: string, pathMatchFull?: boolean): ClassDecorator
 {
     return function <TFunction extends Function> (target: TFunction): TFunction
     {
@@ -45,10 +46,16 @@ export function ComponentRedirectRoute(redirectFrom: string): ClassDecorator
                                   });
         }
 
+        if(isBlank(pathMatchFull))
+        {
+            pathMatchFull = true;
+        }
+
         redirectRouteDecoratedComponent.redirectRouteValues.push(
         {
             path: redirectFrom,
-            redirectTo: routeDecoratedComponent.routeValue.path
+            redirectTo: routeDecoratedComponent.routeValue.path,
+            pathMatch: pathMatchFull ? "full" : "prefix"
         });
 
         return target;
