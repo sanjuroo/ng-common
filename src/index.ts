@@ -5,6 +5,8 @@ export {ValueNamePair} from './types/valueNamePair';
 export {Paginator} from './types/paginator';
 export {OrderByDirection} from './types/orderByDirection.enum';
 export {DataRouter, DataRouterData} from './services/routing';
+export {GlobalizationService} from './services/globalization/globalization.service';
+export {NumeralPipe} from './pipes/numeral.pipe';
 export {Utils} from './utils/utils';
 export {ProgressIndicatorOptions} from './components/progressIndicator/progressIndicatorOptions';
 export {ProgressIndicatorService} from './components/progressIndicator/progressIndicator.service';
