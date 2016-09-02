@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Router, NavigationEnd} from '@angular/router';
+import {Router, NavigationEnd, NavigationError} from '@angular/router';
 import {isPresent} from '@angular/core/src/facade/lang';
 
 /**
@@ -9,11 +9,6 @@ import {isPresent} from '@angular/core/src/facade/lang';
 export class DataRouter
 {
     //######################### private fields #########################
-
-    /**
-     * Indication that it is first checking of router data, that means no routing was done
-     */
-    private _isFirst: boolean = true;
 
     /**
      * Value that is going to be used for next routed data
@@ -42,21 +37,10 @@ export class DataRouter
      */
     public get valuePromise(): Promise<any>
     {
-        if(this._isFirst)
+        return this._valuePromise || new Promise(resolve =>
         {
-            this._isFirst = false;
-            this._valuePromise = new Promise(resolve =>
-            {
-                this._valuePromiseResolver = resolve;
-            });
-            
-            return new Promise(resolve =>
-            {
-                resolve(null);
-            });
-        }
-        
-        return this._valuePromise;
+            resolve(null);
+        });
     }
 
     //######################### constructor #########################
@@ -64,12 +48,14 @@ export class DataRouter
     {
         this._router.events.subscribe(next =>
         {
-            if(!(next instanceof NavigationEnd))
+            if(!(next instanceof NavigationEnd) && !(next instanceof NavigationError))
             {
                 return;
             }
 
-            if(isPresent(this._valuePromiseResolver) && isPresent(this._nextUrlPath))
+            let error = next instanceof NavigationError;
+
+            if(isPresent(this._valuePromiseResolver) && isPresent(this._nextUrlPath) && !error)
             {
                 if(this._nextUrlPath == next.url)
                 {
