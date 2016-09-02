@@ -1,5 +1,5 @@
 import {AbstractControl, NgForm, FormGroupDirective} from '@angular/forms';
-import {Type} from '@angular/core/src/facade/lang';
+import {Type} from '@angular/core';
 import {Route} from '@angular/router';
 import ViewTemplate from './utils.viewTemplate';
 import Encoder from './utils.encoder';
@@ -16,12 +16,10 @@ export interface IViewTemplate
     /**
      * Compiles template into component for dynamic use
      * @param  {string} template Template string that will be compiled
-     * @param  {Function[]} directives Array of directives that are used within template
-     * @param  {Function[]} pipes Array of pipes that are used within template
      * @param  {any} data Data object passed to template
      * @returns Function Component that can be inserted into html
      */
-    compileToComponent(template: string, directives: Function[], pipes: Function[], data?: any): Function;
+    compileToComponent(template: string, data?: any): Function;
 }
 
 /**
@@ -64,7 +62,7 @@ export interface IRouterHelper
      * @param  {boolean=true} recursive Indication whether include to result also components of children routes
      * @returns Type[]
      */
-    extractComponents(routes: Route[], recursive?: boolean) : Type[]
+    extractComponents(routes: Route[], recursive?: boolean) : Type<any>[]
 }
 
 /**

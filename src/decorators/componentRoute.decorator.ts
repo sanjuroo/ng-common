@@ -1,3 +1,4 @@
+import {Type} from '@angular/core';
 import {Route} from '@angular/router';
 
 /**
@@ -18,7 +19,7 @@ export interface RouteDecoratedComponent
  */
 export function ComponentRoute(route: Route): ClassDecorator
 {
-    return function <TFunction extends Function> (target: TFunction): TFunction
+    return function <TFunction extends Type<any>> (target: TFunction): TFunction
     {
         route.component = target;
         

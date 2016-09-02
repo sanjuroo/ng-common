@@ -1,7 +1,8 @@
+import {Type} from '@angular/core';
+import {Route} from '@angular/router';
 import {RouteDecoratedComponent} from '../decorators/componentRoute.decorator';
 import {RedirectRouteDecoratedComponent} from '../decorators/componentRedirectRoute.decorator';
-import {Route} from '@angular/router';
-import {isPresent, Type, isBlank} from '@angular/core/src/facade/lang';
+import {isPresent, isBlank} from '@angular/core/src/facade/lang';
 
 /**
  * All types of route decorated components
@@ -56,7 +57,7 @@ export default class RouterHelper
      * @param  {boolean=true} recursive Indication whether include to result also components of children routes
      * @returns Type[]
      */
-    public static extractComponents(routes: Route[], recursive: boolean = true) : Type[]
+    public static extractComponents(routes: Route[], recursive: boolean = true): Type<any>[]
     {
         if(isBlank(routes) || routes.length < 1)
         {
@@ -74,7 +75,7 @@ export default class RouterHelper
 
         return routes
             .filter(route => isPresent(route.component))
-            .map(route => <Type>route.component)
+            .map(route => <Type<any>>route.component)
             .concat(childrenCompnents);
     }
 }
