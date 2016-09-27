@@ -11,7 +11,7 @@
         "moduleResolution": "node",
         "outDir": "."
     },
-    "exclude": 
+    "exclude":
     [
         "node_modules"
     ]
