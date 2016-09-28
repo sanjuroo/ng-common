@@ -2,7 +2,7 @@ import {Pipe, PipeTransform, OnDestroy} from '@angular/core';
 import {GlobalizationService} from '../services/globalization/globalization.service';
 import {isBlank} from '@angular/core/src/facade/lang';
 import {Subscription} from 'rxjs/Subscription';
-import numeral from 'tsnumeraljs';
+import * as numeral from 'numeral';
 
 /**
  * Pipe to transform numbers to regional formatting using numeraljs.

@@ -1,15 +1,4 @@
 /node_modules
-/typings
-/tsTypings
-/components
-/decorators
-/pipes
-/services
-/types
-/utils
+/dist
 
-*.d.ts
-*.js
-*.map
 *.log
-!gulpfile.js
