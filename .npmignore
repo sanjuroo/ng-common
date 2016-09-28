@@ -2,4 +2,5 @@
 /src
 .jsbeautifyrc
 tsconfig.json
+webpack.config.js
 *.log
