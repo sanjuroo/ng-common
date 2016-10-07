@@ -147,16 +147,21 @@ export interface ICookies
 export interface IForms
 {
     /**
-     * Sets all controls state to pristine
-     * @param  {{[controlName:string]:AbstractControl} | AbstractControl[]} controls Array of controls that are going to be set
+     * Gets indication whether controls have errors, with custom indication of submitted
+     * @param  {NgForm} form Form containing controls
+     * @param  {string[]} controls Array of controls names to be checked for errors
+     * @param  {boolean} submitted Indication whether form was submitted
      */
-    setPristine(controls: {[controlName: string]: AbstractControl} | AbstractControl[]): void;
+    hasErrorCustom(form: NgForm, controls: string[], submitted: boolean);
 
     /**
-     * Clears flag indicating that form was submitted
-     * @param  {NgForm|FormGroupDirective} form Form which flag should be cleared
+     * Gets indication whether hide alerts or not for control, with custom indication of submitted
+     * @param  {NgForm} form Form containing controls
+     * @param  {string} control Controls name that will be checked
+     * @param  {boolean} submitted Indication whether form was submitted
+     * @param  {string[]} errors Array of validation errors to be checked for existance
      */
-    clearSubmitted(form: NgForm | FormGroupDirective): void;
+    alertHiddenCustom(form: NgForm, control: string, submitted: boolean, errors: string[]);
 
     /**
      * Gets indication whether controls have errors

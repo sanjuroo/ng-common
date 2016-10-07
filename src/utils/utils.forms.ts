@@ -10,30 +10,53 @@ export default class Forms
     //######################### public methods #########################
     
     /**
-     * Sets all controls state to pristine
-     * @param  {{[controlName:string]:AbstractControl}} controls Array of controls that are going to be set
+     * Gets indication whether controls have errors, with custom indication of submitted
+     * @param  {NgForm} form Form containing controls
+     * @param  {string[]} controls Array of controls names to be checked for errors
+     * @param  {boolean} submitted Indication whether form was submitted
      */
-    public static setPristine(controls: {[controlName: string]: AbstractControl} | AbstractControl[]): void
+    public static hasErrorCustom(form: NgForm, controls: string[], submitted: boolean)
     {
-        for (var idx in controls)
-        {
-            let item: any = controls[idx];
+        let conditionValid = false;
+        let conditionChanged = false;
 
-            if(isPresent(item._pristine))
+        for(var x = 0; x < controls.length; x++)
+        {
+            if(!form.controls[controls[x]])
             {
-                item._pristine = true;
+                return false;
             }
+
+            conditionValid = conditionValid || !form.controls[controls[x]].valid;
+            conditionChanged = conditionChanged || form.controls[controls[x]].dirty;
         }
+
+        return conditionValid && (conditionChanged || submitted);
     }
 
-    
+
     /**
-     * Clears flag indicating that form was submitted
-     * @param  {NgForm|FormGroupDirective} form Form which flag should be cleared
+     * Gets indication whether hide alerts or not for control, with custom indication of submitted
+     * @param  {NgForm} form Form containing controls
+     * @param  {string} control Controls name that will be checked
+     * @param  {boolean} submitted Indication whether form was submitted
+     * @param  {string[]} errors Array of validation errors to be checked for existance
      */
-    public static clearSubmitted(form: NgForm | FormGroupDirective)
+    public static alertHiddenCustom(form: NgForm, control: string, submitted: boolean, errors: string[] = [])
     {
-        (<any>form)._submitted = false;
+        if(!form.controls[control])
+        {
+            return true;
+        }
+
+        let requestedErrors = false;
+
+        errors.forEach(errorType =>
+        {
+            requestedErrors = requestedErrors || (!!form.controls[control].errors && !!form.controls[control].errors[errorType]);
+        });
+
+        return form.controls[control].valid || !requestedErrors || (!form.controls[control].dirty && !submitted);
     }
 
     /**
