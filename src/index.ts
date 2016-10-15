@@ -1,5 +1,6 @@
 export {ComponentRoute} from './decorators/componentRoute.decorator';
 export {ComponentRedirectRoute} from './decorators/componentRedirectRoute.decorator';
+export {HmrData} from './decorators/hmrData.decorator';
 export {Dictionary, StringDictionary} from './types/dictionaries';
 export {ValueNamePair} from './types/valueNamePair';
 export {Paginator} from './types/paginator';
