@@ -3,8 +3,7 @@
  */
 export function HmrData()
 {
-    return function(target: any, propertyKey: string, descriptor: PropertyDescriptor)
+    return function(target: any, propertyKey: string)
     {
-        return descriptor;
     }
 };
