@@ -1,6 +1,6 @@
 {
     "name": "@ng2/common",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "Angular 2 module for common stuff",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -59,9 +59,9 @@
     },
     "devDependencies":
     {
-        "@types/numeral": "~0.0.17",
+        "@types/numeral": "~0.0.18",
         "rimraf": "~2.5.4",
-        "typescript": "2.0.3",
+        "typescript": "2.0.8",
         "webpack": "2.1.0-beta.25",
         "npm-publish-package": "~1.2.0"
     }
