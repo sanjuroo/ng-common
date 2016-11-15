@@ -18,4 +18,20 @@ export {ProgressIndicatorOptions} from './components/progressIndicator/progressI
 export {ProgressIndicatorService} from './components/progressIndicator/progressIndicator.service';
 export {ProgressIndicatorComponent} from './components/progressIndicator/progressIndicator.component';
 export {MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective, NumberInputValidatorDirective, NumberInputControlValueAccessor};
-export const NUMBER_INPUT_DIRECTIVES = [NumberInputControlValueAccessor, NumberInputValidatorDirective, MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective]; 
+export const NUMBER_INPUT_DIRECTIVES = [NumberInputControlValueAccessor, NumberInputValidatorDirective, MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective];
+export {isPresent,
+        isBlank,
+        isBoolean,
+        isNumber,
+        isString,
+        isFunction,
+        isType,
+        isStringMap,
+        isStrictStringMap,
+        isArray,
+        isDate,
+        noop,
+        normalizeBlank,
+        isJsObject,
+        isPrimitive,
+        hasConstructor} from './utils/lang';
