@@ -18,4 +18,5 @@ export {ProgressIndicatorOptions} from './components/progressIndicator/progressI
 export {ProgressIndicatorService} from './components/progressIndicator/progressIndicator.service';
 export {ProgressIndicatorComponent} from './components/progressIndicator/progressIndicator.component';
 export {MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective, NumberInputValidatorDirective, NumberInputControlValueAccessor};
-export const NUMBER_INPUT_DIRECTIVES = [NumberInputControlValueAccessor, NumberInputValidatorDirective, MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective]; 
+export const NUMBER_INPUT_DIRECTIVES = [NumberInputControlValueAccessor, NumberInputValidatorDirective, MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective];
+export {hmrAccept, hmrFinishedNotification} from './utils/utils.hmr';

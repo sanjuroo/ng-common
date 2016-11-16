@@ -1,6 +1,6 @@
 {
     "name": "@ng2/common",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "description": "Angular 2 module for common stuff",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
