@@ -35,3 +35,4 @@ export {isPresent,
         isJsObject,
         isPrimitive,
         hasConstructor} from './utils/lang';
+export {hmrAccept, hmrFinishedNotification} from './utils/utils.hmr';
