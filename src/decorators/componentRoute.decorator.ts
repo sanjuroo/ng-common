@@ -1,5 +1,6 @@
 import {Type} from '@angular/core';
 import {Route} from '@angular/router';
+import {isBlank} from '../utils/lang';
 
 /**
  * Extended type with route definition
@@ -7,9 +8,9 @@ import {Route} from '@angular/router';
 export interface RouteDecoratedComponent
 {
     /**
-     * Definition of route that is assigned to this type
+     * Definition of routes that are assigned to this type
      */
-    routeValue: Route;
+    routeValues: Route[];
 }
 
 /**
@@ -23,14 +24,21 @@ export function ComponentRoute(route: Route): ClassDecorator
     {
         route.component = target;
         
-        Object.defineProperty(target, 
-                              'routeValue', 
-                              {
-                                  enumerable: true,
-                                  configurable: false,
-                                  writable: false,
-                                  value: route
-                              });
+        let routeDecoratedComponent: RouteDecoratedComponent = <any>target;
+
+        if(isBlank(routeDecoratedComponent.routeValues))
+        {
+            Object.defineProperty(target, 
+                                  'routeValues', 
+                                  {
+                                      enumerable: true,
+                                      configurable: false,
+                                      writable: false,
+                                      value: []
+                                  });
+        }
+
+        routeDecoratedComponent.routeValues.push(route);
         
         return target;
     };

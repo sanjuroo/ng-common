@@ -34,9 +34,12 @@ export default class RouterHelper
         
         components.forEach((component: RoutesDecoratedComponent) =>
         {
-            if(isPresent(component.routeValue))
+            if(isPresent(component.routeValues))
             {
-                result.push(component.routeValue);
+                component.routeValues.forEach(route =>
+                {
+                    result.push(route);
+                });
             }
 
             if(isPresent(component.redirectRouteValues))
