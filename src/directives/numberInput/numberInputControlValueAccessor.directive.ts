@@ -1,6 +1,6 @@
 import {Directive, ExistingProvider, forwardRef, Renderer, ElementRef} from '@angular/core';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
-import {isBlank} from '@angular/core/src/facade/lang';
+import {isBlank} from '../../utils/lang';
 
 /**
  * Value accessor provider for number inputs

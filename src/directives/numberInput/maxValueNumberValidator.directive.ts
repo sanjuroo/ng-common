@@ -1,6 +1,6 @@
 import {NG_VALIDATORS, AbstractControl, Validator} from '@angular/forms';
 import {ExistingProvider, Input, forwardRef, Directive, Attribute} from '@angular/core';
-import {isBlank, isPresent} from '@angular/core/src/facade/lang';
+import {isBlank, isPresent} from '../../utils/lang';
 
 /**
  * Validator that is injected with directive MaxValueNumberValidatorDirective

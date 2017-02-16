@@ -1,4 +1,4 @@
-import {isPresent} from '@angular/core/src/facade/lang';
+import {isPresent} from '../../utils/lang';
 
 /**
  * Configuration object that is used by ProgressIndicatorService, overriding its properties allows you to customize configuration

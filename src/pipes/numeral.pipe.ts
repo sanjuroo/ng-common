@@ -1,8 +1,8 @@
 import {Pipe, PipeTransform, OnDestroy} from '@angular/core';
 import {GlobalizationService} from '../services/globalization/globalization.service';
-import {isBlank} from '@angular/core/src/facade/lang';
 import {Subscription} from 'rxjs/Subscription';
 import * as numeral from 'numeral';
+import {isBlank} from '../utils/lang';
 
 /**
  * Pipe to transform numbers to regional formatting using numeraljs.
@@ -20,11 +20,11 @@ export class NumeralPipe implements PipeTransform, OnDestroy
     //######################### constructors #########################
     constructor(globalizationSvc: GlobalizationService)
     {
-        numeral.language(globalizationSvc.getLocale());
+        numeral.locale(globalizationSvc.getLocale());
 
         this._globalizationChangeSubscription = globalizationSvc
             .getLocaleChange()
-            .subscribe(locale => numeral.language(locale));
+            .subscribe(locale => numeral.locale(locale));
     }
  
     //######################### public methods #########################

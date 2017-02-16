@@ -1,6 +1,4 @@
 import {AbstractControl, NgForm} from '@angular/forms';
-import {StringMapWrapper} from '@angular/core/src/facade/collection';
-import {isPresent} from '@angular/core/src/facade/lang';
 
 /**
  * Utility methods form angular 2 forms

@@ -1,5 +1,4 @@
 import {TemplateRef, ViewContainerRef, ViewRef, Component} from '@angular/core';
-import {isPresent, isBlank} from '@angular/core/src/facade/lang';
 
 export default class ViewTemplate
 {

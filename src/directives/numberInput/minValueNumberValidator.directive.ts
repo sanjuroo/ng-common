@@ -1,6 +1,6 @@
 import {NG_VALIDATORS, AbstractControl, Validator} from '@angular/forms';
 import {forwardRef, Directive, Attribute, Input, ExistingProvider} from '@angular/core';
-import {isBlank, isPresent} from '@angular/core/src/facade/lang';
+import {isBlank, isPresent} from '../../utils/lang';
 
 /**
  * Validator that is injected with directive MinValueNumberValidatorDirective

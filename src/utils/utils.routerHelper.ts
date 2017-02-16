@@ -2,7 +2,7 @@ import {Type} from '@angular/core';
 import {Route} from '@angular/router';
 import {RouteDecoratedComponent} from '../decorators/componentRoute.decorator';
 import {RedirectRouteDecoratedComponent} from '../decorators/componentRedirectRoute.decorator';
-import {isPresent, isBlank} from '@angular/core/src/facade/lang';
+import {isPresent, isBlank} from './lang';
 
 /**
  * All types of route decorated components

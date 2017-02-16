@@ -1,4 +1,4 @@
-# Angular 2 module for common stuff
+# Angular module for common stuff
 
-General module for angular 2 
+General module for angular 
 
