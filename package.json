@@ -54,7 +54,7 @@
     },
     "peerDependencies":
     {
-        "numeral": "~1.5.3"
+        "numeral": "~2.0.4"
     },
     "devDependencies":
     {
