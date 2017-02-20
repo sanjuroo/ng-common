@@ -21,21 +21,21 @@ const NUMBER_INPUT_VALUE_ACCESSOR = <ExistingProvider>
     providers: [NUMBER_INPUT_VALUE_ACCESSOR],
     host: 
     {
-        '(change)': '_onChange($event.target.value)',
-        '(input)': '_onChange($event.target.value)',
-        '(blur)': '_onTouched()'
+        '(change)': 'onChange($event.target.value)',
+        '(input)': 'onChange($event.target.value)',
+        '(blur)': 'onTouched()'
     }
 })
 export class NumberInputControlValueAccessor implements ControlValueAccessor
 {
-    //######################### private fields #########################
+    //######################### public fields #########################
     
-    private _onChange = (_: any) => {};
+    public onChange = (_: any) => {};
     
     /**
      * Method that is called when picker was touched
      */
-    private _onTouched = () => {};
+    public onTouched = () => {};
     
     //######################### constructor #########################
     constructor(private _renderer: Renderer, private _elementRef: ElementRef)
@@ -57,7 +57,7 @@ export class NumberInputControlValueAccessor implements ControlValueAccessor
      */
     public registerOnChange(fn: (data: any) => any): void
     {
-        this._onChange = (value: string) => 
+        this.onChange = (value: string) => 
         { 
             if(isBlank(value) || value == '')
             {
@@ -82,6 +82,6 @@ export class NumberInputControlValueAccessor implements ControlValueAccessor
      */
     public registerOnTouched(fn: () => any): void
     {
-        this._onTouched = fn;
+        this.onTouched = fn;
     }
 }
