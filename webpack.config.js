@@ -16,6 +16,7 @@ module.exports = function(options)
         externals:
         [
             "numeral",
+            "extend",
             /^@angular\/.*$/,
             /^rxjs\/.*$/
         ],

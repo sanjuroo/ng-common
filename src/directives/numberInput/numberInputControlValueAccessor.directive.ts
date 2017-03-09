@@ -28,7 +28,7 @@ const NUMBER_INPUT_VALUE_ACCESSOR = <ExistingProvider>
 })
 export class NumberInputControlValueAccessor implements ControlValueAccessor
 {
-    //######################### public fields #########################
+    //######################### public properties #########################
     
     public onChange = (_: any) => {};
     

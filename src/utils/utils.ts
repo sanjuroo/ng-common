@@ -55,14 +55,6 @@ export interface IRouterHelper
      * @returns RouteDefinition Extracted routes
      */
     extractRoutes(components: any[]): Route[];
-
-    /**
-     * Extracts types of components from routes 
-     * @param  {Route[]} routes Array of routes provided for app
-     * @param  {boolean=true} recursive Indication whether include to result also components of children routes
-     * @returns Type[]
-     */
-    extractComponents(routes: Route[], recursive?: boolean) : Type<any>[]
 }
 
 /**
@@ -78,12 +70,12 @@ export interface ICommon
     reverseString(str: string): string;
     
     /**
-     * Extends one object with additional properties from second object
-     * @param  {Object} extendedObject Object to be extended
-     * @param  {Object} extendingObject Object that will be used for extending
-     * @returns Object Extended extendedObject with properties from extendingObject
+     * Extends one object with additional properties from other objects, supports deep extend
+     * @param  {boolean|Object} deepOrObject Object to be extended or indication that deep copy should be performed
+     * @param  {Object[]} objectN Objects that will be used for extending, if deep is used first here is target object
+     * @returns Object Extended object with properties from other objects
      */
-    extend(extendedObject: Object, extendingObject: Object): Object;
+    extend(deepOrObject: boolean | Object, ...objectN: Object[]): Object;
     
     /**
      * Merges properties of two separate object into new third one

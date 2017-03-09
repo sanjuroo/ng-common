@@ -29,11 +29,12 @@ export class MinValueNumberValidatorDirective implements Validator
      */
     private _minValue: number;
 
+    //######################### public properties - inputs #########################
     /**
      * Bound min value that is allowed, which overrides value set to attribute minValue
      */
     @Input()
-    public minValueEx?: number;
+    public minValue?: number;
     
     //######################### constructor #########################
     constructor(@Attribute("minValue") minValue: string)
@@ -57,7 +58,7 @@ export class MinValueNumberValidatorDirective implements Validator
      */
     public validate(control: AbstractControl): {[key: string]: any}
     {
-        let minValue: number = isPresent(this.minValueEx) ? this.minValueEx : this._minValue;        
+        let minValue: number = isPresent(this.minValue) ? this.minValue : this._minValue;        
 
         if(!isNaN(control.value) && isPresent(control.value) && control.value < minValue)
         {

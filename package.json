@@ -1,6 +1,6 @@
 {
     "name": "@anglr/common",
-    "version": "3.0.0-beta.1",
+    "version": "3.0.0-beta.2",
     "description": "Angular module for common stuff",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -39,23 +39,25 @@
     "homepage": "https://gitlab.com/Buko/angular2-utilities#README",
     "dependencies":
     {
-        "@angular/core":  ">=4.0.0-beta.8",
-        "@angular/common":  ">=4.0.0-beta.8",
-        "@angular/forms": ">=4.0.0-beta.8",
-        "@angular/router":  ">=4.0.0-beta.8",
+        "@angular/core":  ">=4.0.0-rc.2",
+        "@angular/common":  ">=4.0.0-rc.2",
+        "@angular/forms": ">=4.0.0-rc.2",
+        "@angular/router":  ">=4.0.0-rc.2",
         "core-js": "~2.4.1",
         "zone.js": "~0.7.7",
         "rxjs": "^5.1.1"
     },
     "peerDependencies":
     {
-        "numeral": "~2.0.4"
+        "numeral": "~2.0.4",
+        "extend": "^3.0.0"
     },
     "devDependencies":
     {
         "@types/numeral": "~0.0.19",
-        "@angular/compiler-cli": ">=4.0.0-beta.8",
-        "@angular/compiler":  ">=4.0.0-beta.8",
+        "@types/extend": "^2.0.30",
+        "@angular/compiler-cli": ">=4.0.0-rc.2",
+        "@angular/compiler":  ">=4.0.0-rc.2",
         "rimraf": "~2.5.4",
         "typescript": "2.1.6",
         "webpack": "2.2.1",

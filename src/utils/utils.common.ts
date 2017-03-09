@@ -1,3 +1,4 @@
+import * as extend from 'extend';
 
 /**
  * Common utility methods
@@ -17,19 +18,14 @@ export default class Common
     }
     
      /**
-     * Extends one object with additional properties from second object
-     * @param  {Object} extendedObject Object to be extended
-     * @param  {Object} extendingObject Object that will be used for extending
-     * @returns Object Extended extendedObject with properties from extendingObject
+     * Extends one object with additional properties from other objects, supports deep extend
+     * @param  {boolean|Object} deepOrObject Object to be extended or indication that deep copy should be performed
+     * @param  {Object[]} objectN Objects that will be used for extending, if deep is used first here is target object
+     * @returns Object Extended object with properties from other objects
      */
-    public static extend(extendedObject: Object, extendingObject: Object): Object
+    public static extend(deepOrObject: boolean | Object, ...objectN: Object[]): Object
     {
-        for (var attrname in extendingObject) 
-        { 
-            extendedObject[attrname] = extendingObject[attrname]; 
-        }
-        
-        return extendedObject;
+        return extend(deepOrObject, objectN);
     }
     
     /**

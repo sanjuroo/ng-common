@@ -69,16 +69,16 @@ export class ProgressIndicatorComponent implements OnDestroy
     //######################### public properties #########################
     
     /**
-     * Applied css classes
-     */
-    public appliedClass: {} = { "progress-indicator": true };
-
-    /**
      * Subscription for changes in ProgressIndicatorService
      */
     private _subscription: Subscription;
     
     //######################### public properties - inputs #########################
+
+    /**
+     * Applied css classes
+     */
+    public appliedClass: {} = { "progress-indicator": true };
     
     /**
      * Sets css classes that will be applied to indicator

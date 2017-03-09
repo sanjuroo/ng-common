@@ -29,11 +29,13 @@ export class MaxValueNumberValidatorDirective implements Validator
      */
     private _maxValue: number;
 
+    //######################### public properties - inputs #########################
+
     /**
      * Bound max value that is allowed, which overrides value set to attribute maxValue
      */
     @Input()
-    public maxValueEx?: number;
+    public maxValue?: number;
     
     //######################### constructor #########################
     constructor(@Attribute("maxValue") maxValue: string)
@@ -57,7 +59,7 @@ export class MaxValueNumberValidatorDirective implements Validator
      */
     public validate(control: AbstractControl): {[key: string]: any}
     {
-        let maxValue: number = isPresent(this.maxValueEx) ? this.maxValueEx : this._maxValue;                
+        let maxValue: number = isPresent(this.maxValue) ? this.maxValue : this._maxValue;                
 
         if(!isNaN(control.value) && isPresent(control.value) && control.value > maxValue)
         {

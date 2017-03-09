@@ -4,7 +4,6 @@ export default class ViewTemplate
 {
     //######################### public methods #########################
 
-
     /**
      * Compiles template into component for dynamic use
      * @param  {string} template Template string that will be compiled

@@ -3,6 +3,8 @@ import {ProgressIndicatorOptions} from './progressIndicatorOptions';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 
+//TODO - running counter move here
+
 /**
  * Service that is used for displaying and hiding progress indicator
  */
