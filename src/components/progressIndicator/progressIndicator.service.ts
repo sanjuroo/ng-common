@@ -46,7 +46,7 @@ export class ProgressIndicatorService
 
     //######################### constructors #########################
     constructor(@Optional() public config: ProgressIndicatorOptions,
-                @Inject(PLATFORM_ID) platformId: string)
+                @Inject(PLATFORM_ID) platformId: Object)
     {
         this._isBrowser = isPlatformBrowser(platformId);
 

@@ -1,3 +1,6 @@
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/first';
+
 import {MaxValueNumberValidatorDirective} from './directives/numberInput/maxValueNumberValidator.directive';
 import {MinValueNumberValidatorDirective} from './directives/numberInput/minValueNumberValidator.directive';
 import {NumberInputValidatorDirective} from './directives/numberInput/numberInputValidator.directive';

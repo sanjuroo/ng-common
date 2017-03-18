@@ -1,3 +1,4 @@
+import {NgModuleRef, ApplicationRef} from "@angular/core";
 import * as extend from 'extend';
 
 /**
@@ -75,5 +76,23 @@ export default class Common
     public static firstToLowerCase(text: string)
     {
         return text.charAt(0).toLowerCase() + text.substr(1);
+    }
+
+    /**
+     * Runs callback function when angular module is bootstrapped and stable
+     * @param {Promise<NgModuleRef<{}>>} moduleRefPromise Promise for module that was bootstrapped
+     * @param {(moduleRef: NgModuleRef<{}>) => void} callback Callback that is called
+     */
+    public static runWhenModuleStable(moduleRefPromise: Promise<NgModuleRef<{}>>, callback: (moduleRef: NgModuleRef<{}>) => void): void
+    {
+        moduleRefPromise.then((moduleRef: NgModuleRef<{}>) => 
+        {
+            const appRef: ApplicationRef = moduleRef.injector.get(ApplicationRef);
+
+            appRef.isStable
+                .filter((isStable: boolean) => isStable)
+                .first()
+                .subscribe(() => callback(moduleRef));
+        });
     }
 }

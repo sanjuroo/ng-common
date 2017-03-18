@@ -1,5 +1,5 @@
 import {AbstractControl, NgForm, FormGroupDirective} from '@angular/forms';
-import {Type} from '@angular/core';
+import {Type, NgModuleRef} from '@angular/core';
 import {Route} from '@angular/router';
 import ViewTemplate from './utils.viewTemplate';
 import Encoder from './utils.encoder';
@@ -96,7 +96,14 @@ export interface ICommon
      * Converts string in that way that first letter will be lowerCase
      * @param  {string} text Text to be converted
      */
-    firstToLowerCase(text: string)
+    firstToLowerCase(text: string);
+
+    /**
+     * Runs callback function when angular module is bootstrapped and stable
+     * @param {Promise<NgModuleRef<{}>>} moduleRefPromise Promise for module that was bootstrapped
+     * @param {(moduleRef: NgModuleRef<{}>) => void} callback Callback that is called
+     */
+    runWhenModuleStable(moduleRefPromise: Promise<NgModuleRef<{}>>, callback: (moduleRef: NgModuleRef<{}>) => void): void;
 }
 
 /**
