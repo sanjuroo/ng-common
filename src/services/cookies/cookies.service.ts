@@ -1,16 +1,39 @@
+import {PLATFORM_ID, Inject} from '@angular/core';
+import {isPlatformBrowser} from '@angular/common';
+
 /**
- * Class Cookie - Holds static functions to deal with Cookies
+ * Class that is used as wrapper for working with cookies
  */
-export default class Cookie
+export class CookieService
 {
+    //######################### private fields #########################
+
+    /**
+     * Indication that current code is running in browser
+     */
+    private _isBrowser: boolean = false;
+
+    //######################### constructor #########################
+    constructor(@Inject(PLATFORM_ID) platformId: Object)
+    {
+        this._isBrowser = isPlatformBrowser(platformId);
+    }
+
+    //######################### public methods #########################
+
     /**
      * Retrieves a single cookie by it's name
      *
      * @param  {string} name Identification of the Cookie
      * @returns The Cookie's value
      */
-    public static getCookie(name: string): any
+    public getCookie(name: string): any
     {
+        if(!this._isBrowser)
+        {
+            return null;
+        }
+
         name = encodeURIComponent(name);
         
         let regexp = new RegExp('(?:^' + name + '|;\\s*' + name + ')=(.*?)(?:;|$)', 'g');
@@ -28,8 +51,13 @@ export default class Cookie
      * @param  {string} path Path relative to the domain where the cookie should be avaiable. Default /
      * @param  {string} domain Domain where the cookie should be avaiable. Default current domain
      */
-    public static setCookie(name: string, value: any, expires?: number, path?: string, domain?: string)
+    public setCookie(name: string, value: any, expires?: number, path?: string, domain?: string)
     {
+        if(!this._isBrowser)
+        {
+            return;
+        }
+
         let cookieStr = encodeURIComponent(name) + '=' + encodeURIComponent(JSON.stringify(value)) + ';';
 
         if (expires)
@@ -58,12 +86,12 @@ export default class Cookie
      * @param  {string} path Path relative to the domain where the cookie should be avaiable. Default /
      * @param  {string} domain Domain where the cookie should be avaiable. Default current domain
      */
-    public static deleteCookie(name: string, path ? : string, domain ? : string)
+    public deleteCookie(name: string, path ? : string, domain ? : string)
     {
         // If the cookie exists
-        if (Cookie.getCookie(name))
+        if (this.getCookie(name))
         {
-            Cookie.setCookie(name, '', -1, path, domain);
+            this.setCookie(name, '', -1, path, domain);
         }
     }
 }

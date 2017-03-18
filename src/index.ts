@@ -25,6 +25,7 @@ export {MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective, Numb
 export const NUMBER_INPUT_DIRECTIVES = [NumberInputControlValueAccessor, NumberInputValidatorDirective, MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective];
 export {CommonModule} from './modules/common.module';
 export {SERVER_BASE_URL} from './types/tokens';
+export {CookieService} from './services/cookies/cookies.service';
 export {isPresent,
         isBlank,
         isBoolean,

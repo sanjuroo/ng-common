@@ -25,6 +25,11 @@ export class ProgressIndicatorService
     private _timeout: any;
 
     /**
+     * Number of running requests
+     */
+    private _runningRequests: number = 0;
+
+    /**
      * Used for invoking event runningChanged
      */
     private _runningChanged: Subject<boolean> = new Subject<boolean>();
@@ -71,7 +76,7 @@ export class ProgressIndicatorService
             return;
         }
 
-        if(!this._timeout)
+        if(!this._timeout && this._runningRequests < 1)
         {
             this._timeout = setTimeout(() =>
             {
@@ -81,6 +86,8 @@ export class ProgressIndicatorService
                 this._timeout = null;
             }, this.config.timeout);
         }
+
+        this._runningRequests++;
     }
 
     /**
@@ -93,9 +100,14 @@ export class ProgressIndicatorService
             return;
         }
 
-        clearTimeout(this._timeout);
-        this._timeout = null;
-        this._onRunning(false);
+        this._runningRequests--;
+
+        if(this._runningRequests < 1)
+        {
+            clearTimeout(this._timeout);
+            this._timeout = null;
+            this._onRunning(false);
+        }
     }
 
     //######################### private methods #########################
