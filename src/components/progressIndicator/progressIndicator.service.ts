@@ -1,4 +1,5 @@
-import {Optional, Injectable} from '@angular/core';
+import {Optional, Injectable, PLATFORM_ID, Inject} from '@angular/core';
+import {isPlatformBrowser} from '@angular/common';
 import {ProgressIndicatorOptions} from './progressIndicatorOptions';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
@@ -12,6 +13,11 @@ import {Subject} from 'rxjs/Subject';
 export class ProgressIndicatorService
 {
     //######################### private fields #########################
+
+    /**
+     * Indication that current code is running in browser
+     */
+    private _isBrowser: boolean = false;
 
     /**
      * Id of running timeout
@@ -39,8 +45,11 @@ export class ProgressIndicatorService
     }
 
     //######################### constructors #########################
-    constructor(@Optional() public config: ProgressIndicatorOptions)
+    constructor(@Optional() public config: ProgressIndicatorOptions,
+                @Inject(PLATFORM_ID) platformId: string)
     {
+        this._isBrowser = isPlatformBrowser(platformId);
+
         if(config && !(config instanceof ProgressIndicatorOptions))
         {
             this.config = null;
@@ -57,6 +66,11 @@ export class ProgressIndicatorService
      */
     public showProgress()
     {
+        if(!this._isBrowser)
+        {
+            return;
+        }
+
         if(!this._timeout)
         {
             this._timeout = setTimeout(() =>
@@ -74,6 +88,11 @@ export class ProgressIndicatorService
      */
     public hideProgress()
     {
+        if(!this._isBrowser)
+        {
+            return;
+        }
+
         clearTimeout(this._timeout);
         this._timeout = null;
         this._onRunning(false);
