@@ -25,7 +25,7 @@ export default class Common
      */
     public static extend(deepOrObject: boolean | Object, ...objectN: Object[]): Object
     {
-        return extend(deepOrObject, objectN);
+        return extend.apply(null, [deepOrObject, ...objectN]);
     }
     
     /**
