@@ -1,15 +1,13 @@
-import {NgModule, ModuleWithProviders} from '@angular/core';
+import {NgModule, ModuleWithProviders, ClassProvider, Type} from '@angular/core';
 import {CommonModule as AngularCommonModule} from '@angular/common';
 import {NumeralPipe} from './../pipes/numeral.pipe';
 import {NumberInputValidatorDirective} from './../directives/numberInput/numberInputValidator.directive';
 import {NumberInputControlValueAccessor} from './../directives/numberInput/numberInputControlValueAccessor.directive';
 import {MinValueNumberValidatorDirective} from './../directives/numberInput/minValueNumberValidator.directive';
 import {MaxValueNumberValidatorDirective} from './../directives/numberInput/maxValueNumberValidator.directive';
-import {ProgressIndicatorComponent} from './../components/progressIndicator/progressIndicator.component';
 import {CookieService} from '../services/cookies/cookies.service';
 import {DataRouter} from "../index";
-
-//TODO - create ProgressIndicatorModule
+import {GlobalizationService} from '../services/globalization/globalization.service';
 
 /**
  * Module for common components, pipes and directives
@@ -17,14 +15,12 @@ import {DataRouter} from "../index";
 @NgModule(
 {
     imports: [AngularCommonModule],
-    declarations: [ProgressIndicatorComponent, 
-                   MaxValueNumberValidatorDirective,
+    declarations: [MaxValueNumberValidatorDirective,
                    MinValueNumberValidatorDirective,
                    NumberInputControlValueAccessor,
                    NumberInputValidatorDirective,
                    NumeralPipe],
-    exports: [ProgressIndicatorComponent,
-              MaxValueNumberValidatorDirective,
+    exports: [MaxValueNumberValidatorDirective,
               MinValueNumberValidatorDirective,
               NumberInputControlValueAccessor,
               NumberInputValidatorDirective,
@@ -35,7 +31,7 @@ export class CommonModule
     //######################### public methods #########################
 
     /**
-     * Returns module with HttpInterceptor providers and custom Http provider that supports InterceptableHttp
+     * Returns module with cookie service and data router
      */
     public static forRoot(): ModuleWithProviders
     {
@@ -45,6 +41,27 @@ export class CommonModule
             [
                 CookieService,
                 DataRouter
+            ]
+        };
+    }
+
+    /**
+     * Returns module with cookie service and data router and globalization service
+     * @param {Type<GlobalizationService>} globalizationService Globalization service type
+     */
+    public static forRootWithGlobalization(globalizationService: Type<GlobalizationService>): ModuleWithProviders
+    {
+        return {
+            ngModule: CommonModule,
+            providers:
+            [
+                CookieService,
+                DataRouter,
+                <ClassProvider>
+                {
+                    provide: GlobalizationService,
+                    useClass: globalizationService
+                }
             ]
         };
     }

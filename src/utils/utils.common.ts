@@ -1,4 +1,5 @@
 import {NgModuleRef, ApplicationRef} from "@angular/core";
+import {enableDebugTools} from '@angular/platform-browser';
 import * as extend from 'extend';
 
 /**
@@ -82,9 +83,12 @@ export default class Common
      * Runs callback function when angular module is bootstrapped and stable
      * @param {Promise<NgModuleRef<{}>>} moduleRefPromise Promise for module that was bootstrapped
      * @param {(moduleRef: NgModuleRef<{}>) => void} callback Callback that is called
+     * @param {boolean} angularProfiler Indication that angular profiler should be enabled
      */
-    public static runWhenModuleStable(moduleRefPromise: Promise<NgModuleRef<{}>>, callback: (moduleRef: NgModuleRef<{}>) => void): void
+    public static runWhenModuleStable(moduleRefPromise: Promise<NgModuleRef<{}>>, callback: (moduleRef: NgModuleRef<{}>) => void, angularProfiler?: boolean): void
     {
+        angularProfiler = angularProfiler || false;
+
         moduleRefPromise.then((moduleRef: NgModuleRef<{}>) => 
         {
             const appRef: ApplicationRef = moduleRef.injector.get(ApplicationRef);
@@ -92,7 +96,15 @@ export default class Common
             appRef.isStable
                 .filter((isStable: boolean) => isStable)
                 .first()
-                .subscribe(() => callback(moduleRef));
+                .subscribe(() => 
+                {
+                    if(angularProfiler)
+                    {
+                        enableDebugTools(appRef.components[0]);
+                    }
+
+                    callback(moduleRef)
+                });
         });
     }
 }
