@@ -101,8 +101,9 @@ export interface ICommon
      * Runs callback function when angular module is bootstrapped and stable
      * @param {Promise<NgModuleRef<{}>>} moduleRefPromise Promise for module that was bootstrapped
      * @param {(moduleRef: NgModuleRef<{}>) => void} callback Callback that is called
+     * @param {boolean} angularProfiler Indication that angular profiler should be enabled
      */
-    runWhenModuleStable(moduleRefPromise: Promise<NgModuleRef<{}>>, callback: (moduleRef: NgModuleRef<{}>) => void): void;
+    runWhenModuleStable(moduleRefPromise: Promise<NgModuleRef<{}>>, callback: (moduleRef: NgModuleRef<{}>) => void, angularProfiler?: boolean): void;
 }
 
 /**

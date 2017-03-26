@@ -1,5 +1,7 @@
-import {PLATFORM_ID, Inject} from '@angular/core';
+import {PLATFORM_ID, Inject, Optional} from '@angular/core';
 import {isPlatformBrowser} from '@angular/common';
+import {SERVER_COOKIE_HEADER} from '../../types/tokens';
+import {isBlank} from '../../utils/lang';
 
 /**
  * Class that is used as wrapper for working with cookies
@@ -14,7 +16,8 @@ export class CookieService
     private _isBrowser: boolean = false;
 
     //######################### constructor #########################
-    constructor(@Inject(PLATFORM_ID) platformId: Object)
+    constructor(@Inject(PLATFORM_ID) platformId: Object,
+                @Optional() @Inject(SERVER_COOKIE_HEADER) private _serverCookies: string)
     {
         this._isBrowser = isPlatformBrowser(platformId);
     }
@@ -29,7 +32,7 @@ export class CookieService
      */
     public getCookie(name: string): any
     {
-        if(!this._isBrowser)
+        if(!this._isBrowser && isBlank(this._serverCookies))
         {
             return null;
         }
@@ -37,7 +40,16 @@ export class CookieService
         name = encodeURIComponent(name);
         
         let regexp = new RegExp('(?:^' + name + '|;\\s*' + name + ')=(.*?)(?:;|$)', 'g');
-        let result = regexp.exec(document.cookie);
+        let result;
+
+        if(isBlank(this._serverCookies))
+        {
+            result = regexp.exec(document.cookie);
+        }
+        else
+        {
+            result = regexp.exec(this._serverCookies);
+        }
         
         return (result === null) ? null : JSON.parse(decodeURIComponent(result[1]));
     }
@@ -86,8 +98,13 @@ export class CookieService
      * @param  {string} path Path relative to the domain where the cookie should be avaiable. Default /
      * @param  {string} domain Domain where the cookie should be avaiable. Default current domain
      */
-    public deleteCookie(name: string, path ? : string, domain ? : string)
+    public deleteCookie(name: string, path?: string, domain?: string)
     {
+        if(!this._isBrowser)
+        {
+            return;
+        }
+
         // If the cookie exists
         if (this.getCookie(name))
         {
