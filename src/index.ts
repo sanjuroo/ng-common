@@ -42,5 +42,6 @@ export {isPresent,
         normalizeBlank,
         isJsObject,
         isPrimitive,
-        hasConstructor} from './utils/lang';
+        hasConstructor,
+        isEmptyObject} from './utils/lang';
 export {hmrAccept, hmrFinishedNotification} from './utils/utils.hmr';

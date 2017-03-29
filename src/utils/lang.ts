@@ -78,3 +78,15 @@ export function hasConstructor(value: Object, type: any): boolean
 {
     return value.constructor === type;
 }
+
+export function isEmptyObject(obj: any)
+{
+    var name;
+
+    for (name in obj) 
+    {
+        return false;
+    }
+    
+    return true;
+}
