@@ -20,7 +20,7 @@ export class StatusCodeService
      */
     public get statusCode(): number | null | undefined
     {
-        return ;
+        return this._statusCode;
     }
 
     //######################### public methods #########################
