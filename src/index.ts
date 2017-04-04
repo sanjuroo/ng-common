@@ -27,6 +27,7 @@ export {CommonModule} from './modules/common.module';
 export {ProgressIndicatorModule} from './modules/progressIndicator.module';
 export {SERVER_BASE_URL, SERVER_AUTH_HEADER, SERVER_COOKIE_HEADER} from './types/tokens';
 export {CookieService} from './services/cookies/cookies.service';
+export {StatusCodeService} from './services/statusCode/statusCode.service';
 export {isPresent,
         isBlank,
         isBoolean,

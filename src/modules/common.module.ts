@@ -6,7 +6,8 @@ import {NumberInputControlValueAccessor} from './../directives/numberInput/numbe
 import {MinValueNumberValidatorDirective} from './../directives/numberInput/minValueNumberValidator.directive';
 import {MaxValueNumberValidatorDirective} from './../directives/numberInput/maxValueNumberValidator.directive';
 import {CookieService} from '../services/cookies/cookies.service';
-import {DataRouter} from "../index";
+import {DataRouter} from "../services/routing/dataRouter";
+import {StatusCodeService} from "../services/statusCode/statusCode.service";
 import {GlobalizationService} from '../services/globalization/globalization.service';
 
 /**
@@ -31,7 +32,7 @@ export class CommonModule
     //######################### public methods #########################
 
     /**
-     * Returns module with cookie service and data router
+     * Returns module with cookie service, status code service and data router
      */
     public static forRoot(): ModuleWithProviders
     {
@@ -40,13 +41,14 @@ export class CommonModule
             providers:
             [
                 CookieService,
-                DataRouter
+                DataRouter,
+                StatusCodeService
             ]
         };
     }
 
     /**
-     * Returns module with cookie service and data router and globalization service
+     * Returns module with cookie service, status code service and data router and globalization service
      * @param {Type<GlobalizationService>} globalizationService Globalization service type
      */
     public static forRootWithGlobalization(globalizationService: Type<GlobalizationService>): ModuleWithProviders
@@ -57,6 +59,7 @@ export class CommonModule
             [
                 CookieService,
                 DataRouter,
+                StatusCodeService,
                 <ClassProvider>
                 {
                     provide: GlobalizationService,
