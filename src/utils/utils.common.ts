@@ -3,6 +3,16 @@ import {enableDebugTools} from '@angular/platform-browser';
 import * as extend from 'extend';
 
 /**
+ * Resolve method for promise APP_STABLE
+ */
+let resolveAsStable: () => void;
+
+/**
+ * Promise that is resoved when application is stable first time if using Utils.common.runWhenModuleStable method
+ */
+export const APP_STABLE: Promise<any> = new Promise<any>(resolve => resolveAsStable = resolve);
+
+/**
  * Common utility methods
  */
 export default class Common
@@ -104,6 +114,7 @@ export default class Common
                     }
 
                     callback(moduleRef)
+                    resolveAsStable();
                 });
         });
     }
