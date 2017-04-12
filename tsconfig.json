@@ -17,6 +17,12 @@
         "types": 
         [
             "numeral"
+        ],
+        "plugins": 
+        [
+            {
+                "name": "@angular/language-service"
+            }
         ]
     },
     "exclude":

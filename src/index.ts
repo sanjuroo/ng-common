@@ -28,6 +28,7 @@ export {ProgressIndicatorModule} from './modules/progressIndicator.module';
 export {SERVER_BASE_URL, SERVER_AUTH_HEADER, SERVER_COOKIE_HEADER} from './types/tokens';
 export {CookieService} from './services/cookies/cookies.service';
 export {StatusCodeService} from './services/statusCode/statusCode.service';
+export {NgComponentOutletEx} from "./directives/ngComponentOutletEx/ngComponentOutletEx.directive";
 export {isPresent,
         isBlank,
         isBoolean,

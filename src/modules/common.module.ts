@@ -9,6 +9,7 @@ import {CookieService} from '../services/cookies/cookies.service';
 import {DataRouter} from "../services/routing/dataRouter";
 import {StatusCodeService} from "../services/statusCode/statusCode.service";
 import {GlobalizationService} from '../services/globalization/globalization.service';
+import {NgComponentOutletEx} from "../directives/ngComponentOutletEx/ngComponentOutletEx.directive";
 
 /**
  * Module for common components, pipes and directives
@@ -20,12 +21,14 @@ import {GlobalizationService} from '../services/globalization/globalization.serv
                    MinValueNumberValidatorDirective,
                    NumberInputControlValueAccessor,
                    NumberInputValidatorDirective,
-                   NumeralPipe],
+                   NumeralPipe,
+                   NgComponentOutletEx],
     exports: [MaxValueNumberValidatorDirective,
               MinValueNumberValidatorDirective,
               NumberInputControlValueAccessor,
               NumberInputValidatorDirective,
-              NumeralPipe]
+              NumeralPipe,
+              NgComponentOutletEx]
 })
 export class CommonModule
 {
