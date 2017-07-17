@@ -1,13 +1,14 @@
 {
     "name": "@anglr/common",
-    "version": "3.0.5",
+    "version": "3.0.6",
     "description": "Angular module for common stuff",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
     "scripts":
     {
         "build": "npm run ngc",
-        "clean": "rimraf dist",
+        "postbuild": "copyfiles -u 2 dist/src/**/*.* dist && copyfiles -u 2 dist/testing/**/*.* testing && rimraf dist/src dist/dist dist/node_modules dist/testing",
+        "clean": "rimraf dist testing tests",
         "clean:deps": "rimraf node_modules",
         "clean:all": "npm run clean && npm run clean:deps",
         "ngc": "ngc",
@@ -18,7 +19,9 @@
         "bundle:min": "webpack --env.minify",
         "bundle:package": "npm run clean && npm run build && npm run bundle && npm run bundle:min",
         "deploy:stable": "npp -b",
-        "deploy:next": "npp -p -b -s \"beta\" -t \"next\""
+        "deploy:next": "npp -p -b -s \"beta\" -t \"next\"",
+        "pretest": "webpack --config webpack.config.tests.js",
+        "test": "karma start karma.conf.js"
     },
     "repository":
     {
@@ -39,30 +42,50 @@
     "homepage": "https://gitlab.com/Buko/angular2-utilities#README",
     "dependencies":
     {
-        "@angular/core":  "^4.0.0",
-        "@angular/common":  "^4.0.0",
-        "@angular/forms": "^4.0.0",
-        "@angular/router":  "^4.0.0",
-        "@angular/platform-browser": "^4.0.0",
+        "@angular/core": "^4.2.0",
+        "@angular/common": "^4.2.0",
+        "@angular/forms": "^4.2.0",
+        "@angular/router": "^4.2.0",
+        "@angular/platform-browser": "^4.2.0",
         "core-js": "~2.4.1",
-        "zone.js": "^0.8.5",
-        "rxjs": "^5.2.0"
+        "zone.js": "^0.8.12",
+        "rxjs": "^5.4.2"
     },
     "peerDependencies":
     {
-        "numeral": "~2.0.4",
-        "extend": "^3.0.0"
+        "numeral": "~2.0.6",
+        "extend": "^3.0.1"
     },
     "devDependencies":
     {
-        "@types/numeral": "~0.0.19",
+        "@types/numeral": "~0.0.21",
         "@types/extend": "^2.0.30",
-        "@angular/compiler-cli": "^4.0.0",
-        "@angular/compiler":  "^4.0.0",
-        "@angular/language-service":  "^4.0.0",
+        "@angular/compiler-cli": "^4.2.0",
+        "@angular/compiler": "^4.2.0",
+        "@angular/language-service": "^4.2.0",
+        "@angular/platform-browser-dynamic": "^4.2.0",
+        "@angular/platform-browser": "^4.2.0",
+        "@types/jasmine": "~2.5.53",
+        "phantomjs-prebuilt": "~2.1.14",
+        "karma-cli": "~1.0.1",
+        "karma": "~1.7.0",
+        "karma-jasmine": "~1.1.0",
+        "karma-phantomjs-launcher": "~1.0.4",
+        "karma-chrome-launcher": "~2.2.0",
+        "karma-webpack": "~2.0.4",
+        "karma-jasmine-html-reporter": "~0.2.2",
+        "jasmine": "~2.6.0",
+        "awesome-typescript-loader": "~3.2.1",
+        "angular2-template-loader": "0.6.2",
+        "raw-loader": "~0.5.1",
+        "sass-loader": "~6.0.6",
+        "css-loader": "~0.28.4",
+        "file-loader": "~0.11.2",
+        "style-loader": "~0.18.2",
         "rimraf": "~2.6.1",
-        "typescript": "2.3.0",
-        "webpack": "2.3.2",
+        "copyfiles": "~1.2.0",
+        "typescript": "2.4.1",
+        "webpack": "3.3.0",
         "npm-publish-package": "~1.2.0"
     }
 }

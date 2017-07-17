@@ -59,10 +59,15 @@ export function ComponentRedirectRoute(redirectFrom: string, redirectTo?: string
             pathMatchFull = true;
         }
 
+        if(isBlank(redirectTo))
+        {
+            redirectTo = routeDecoratedComponent.routeValues[0].path;
+        }
+
         redirectRouteDecoratedComponent.redirectRouteValues.push(
         {
             path: redirectFrom,
-            redirectTo: routeDecoratedComponent.routeValues[0].path,
+            redirectTo: redirectTo,
             pathMatch: pathMatchFull ? "full" : "prefix"
         });
 

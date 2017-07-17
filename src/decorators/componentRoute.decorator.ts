@@ -20,9 +20,9 @@ export interface RouteDecoratedComponent
  */
 export function ComponentRoute(route: Route): ClassDecorator
 {
-    return function <TFunction extends Type<any>> (target: TFunction): TFunction
+    return function <TFunction extends Function> (target: TFunction): TFunction
     {
-        route.component = target;
+        route.component = <any>target;
         
         let routeDecoratedComponent: RouteDecoratedComponent = <any>target;
 
