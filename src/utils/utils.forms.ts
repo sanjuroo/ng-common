@@ -1,4 +1,4 @@
-import {AbstractControl, NgForm} from '@angular/forms';
+import {NgForm, FormGroup} from '@angular/forms';
 
 /**
  * Utility methods form angular 2 forms
@@ -9,11 +9,11 @@ export default class Forms
     
     /**
      * Gets indication whether controls have errors, with custom indication of submitted
-     * @param  {NgForm} form Form containing controls
+     * @param  {NgForm|FormGroup} form Form containing controls
      * @param  {string[]} controls Array of controls names to be checked for errors
      * @param  {boolean} submitted Indication whether form was submitted
      */
-    public static hasErrorCustom(form: NgForm, controls: string[], submitted: boolean)
+    public static hasErrorCustom(form: NgForm|FormGroup, controls: string[], submitted: boolean = true)
     {
         let conditionValid = false;
         let conditionChanged = false;
@@ -35,12 +35,12 @@ export default class Forms
 
     /**
      * Gets indication whether hide alerts or not for control, with custom indication of submitted
-     * @param  {NgForm} form Form containing controls
+     * @param  {NgForm|FormGroup} form Form containing controls
      * @param  {string} control Controls name that will be checked
-     * @param  {boolean} submitted Indication whether form was submitted
      * @param  {string[]} errors Array of validation errors to be checked for existance
+     * @param  {boolean} submitted Indication whether form was submitted
      */
-    public static alertHiddenCustom(form: NgForm, control: string, submitted: boolean, errors: string[] = [])
+    public static alertHiddenCustom(form: NgForm|FormGroup, control: string, errors: string[] = [], submitted: boolean = true)
     {
         if(!form.controls[control])
         {

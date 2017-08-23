@@ -1,6 +1,6 @@
 {
     "name": "@anglr/common",
-    "version": "3.0.6",
+    "version": "3.0.7",
     "description": "Angular module for common stuff",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -20,6 +20,8 @@
         "bundle:package": "npm run clean && npm run build && npm run bundle && npm run bundle:min",
         "deploy:stable": "npp -b",
         "deploy:next": "npp -p -b -s \"beta\" -t \"next\"",
+        "deploy:stable:local": "npp -b --registry http://local:4873",
+        "deploy:next:local": "npp -p -b -s \"beta\" -t \"next\" --registry http://local:4873",
         "pretest": "webpack --config webpack.config.tests.js",
         "test": "karma start karma.conf.js"
     },

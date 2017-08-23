@@ -1,4 +1,4 @@
-import {AbstractControl, NgForm, FormGroupDirective} from '@angular/forms';
+import {NgForm, FormGroup} from '@angular/forms';
 import {Type, NgModuleRef} from '@angular/core';
 import {Route} from '@angular/router';
 import ViewTemplate from './utils.viewTemplate';
@@ -113,20 +113,20 @@ export interface IForms
 {
     /**
      * Gets indication whether controls have errors, with custom indication of submitted
-     * @param  {NgForm} form Form containing controls
+     * @param  {NgForm|FormGroup} form Form containing controls
      * @param  {string[]} controls Array of controls names to be checked for errors
-     * @param  {boolean} submitted Indication whether form was submitted
+     * @param  {boolean} submitted Indication whether form was submitted, defaults to true
      */
-    hasErrorCustom(form: NgForm, controls: string[], submitted: boolean);
+    hasErrorCustom(form: NgForm, controls: string[], submitted?: boolean);
 
     /**
      * Gets indication whether hide alerts or not for control, with custom indication of submitted
-     * @param  {NgForm} form Form containing controls
+     * @param  {NgForm|FormGroup} form Form containing controls
      * @param  {string} control Controls name that will be checked
-     * @param  {boolean} submitted Indication whether form was submitted
      * @param  {string[]} errors Array of validation errors to be checked for existance
+     * @param  {boolean} submitted Indication whether form was submitted, defaults to true
      */
-    alertHiddenCustom(form: NgForm, control: string, submitted: boolean, errors: string[]);
+    alertHiddenCustom(form: NgForm|FormGroup, control: string, errors?: string[], submitted?: boolean);
 
     /**
      * Gets indication whether controls have errors
