@@ -1,6 +1,6 @@
 {
     "name": "@anglr/common",
-    "version": "3.0.7",
+    "version": "3.0.8",
     "description": "Angular module for common stuff",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
