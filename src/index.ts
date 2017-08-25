@@ -9,6 +9,8 @@ import {NumberInputControlValueAccessor} from './directives/numberInput/numberIn
 export {ComponentRoute} from './decorators/componentRoute.decorator';
 export {ComponentRedirectRoute} from './decorators/componentRedirectRoute.decorator';
 export {HmrData} from './decorators/hmrData.decorator';
+export {HmrServiceData} from './decorators/hmrServiceData.decorator';
+export {HmrServiceDataConstructor} from './decorators/hmrServiceDataConstructor.decorator';
 export {Dictionary, StringDictionary} from './types/dictionaries';
 export {ValueNamePair} from './types/valueNamePair';
 export {Paginator} from './types/paginator';
