@@ -115,7 +115,7 @@ export interface IForms
      * Gets indication whether controls have errors, with custom indication of submitted
      * @param  {NgForm|FormGroup} form Form containing controls
      * @param  {string[]} controls Array of controls names to be checked for errors
-     * @param  {boolean} submitted Indication whether form was submitted, defaults to true
+     * @param  {boolean} submitted Indication whether form was submitted, defaults to false
      */
     hasErrorCustom(form: NgForm|FormGroup, controls: string[], submitted?: boolean);
 
@@ -124,7 +124,7 @@ export interface IForms
      * @param  {NgForm|FormGroup} form Form containing controls
      * @param  {string} control Controls name that will be checked
      * @param  {string[]} errors Array of validation errors to be checked for existance
-     * @param  {boolean} submitted Indication whether form was submitted, defaults to true
+     * @param  {boolean} submitted Indication whether form was submitted, defaults to false
      */
     alertHiddenCustom(form: NgForm|FormGroup, control: string, errors?: string[], submitted?: boolean);
 

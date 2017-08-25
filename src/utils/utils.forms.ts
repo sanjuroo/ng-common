@@ -13,7 +13,7 @@ export default class Forms
      * @param  {string[]} controls Array of controls names to be checked for errors
      * @param  {boolean} submitted Indication whether form was submitted
      */
-    public static hasErrorCustom(form: NgForm|FormGroup, controls: string[], submitted: boolean = true)
+    public static hasErrorCustom(form: NgForm|FormGroup, controls: string[], submitted: boolean = false)
     {
         let conditionValid = false;
         let conditionChanged = false;
@@ -40,7 +40,7 @@ export default class Forms
      * @param  {string[]} errors Array of validation errors to be checked for existance
      * @param  {boolean} submitted Indication whether form was submitted
      */
-    public static alertHiddenCustom(form: NgForm|FormGroup, control: string, errors: string[] = [], submitted: boolean = true)
+    public static alertHiddenCustom(form: NgForm|FormGroup, control: string, errors: string[] = [], submitted: boolean = false)
     {
         if(!form.controls[control])
         {
