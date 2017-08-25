@@ -3,7 +3,7 @@
  */
 export function HmrServiceData()
 {
-    return function(target: {__hmrProperties: string[]}, propertyKey: string)
+    return function(target: any, propertyKey: string)
     {
     }
 };
