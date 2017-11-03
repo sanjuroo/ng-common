@@ -6,6 +6,7 @@ import {PlatformRef} from '@angular/core';
  */
 export function hmrAccept(platform: PlatformRef)
 {
+    console.log(platform);
 }
 
 /**

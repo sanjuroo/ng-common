@@ -15,7 +15,7 @@ export class NumeralPipe implements PipeTransform, OnDestroy
     /**
      * Subscription for globalization changes
      */
-    private _globalizationChangeSubscription: Subscription;
+    private _globalizationChangeSubscription: Subscription|null;
 
     //######################### constructors #########################
     constructor(globalizationSvc: GlobalizationService)

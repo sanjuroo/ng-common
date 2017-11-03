@@ -50,7 +50,7 @@ export class ProgressIndicatorService
     }
 
     //######################### constructors #########################
-    constructor(@Optional() public config: ProgressIndicatorOptions,
+    constructor(@Optional() public config: ProgressIndicatorOptions|null,
                 @Inject(PLATFORM_ID) platformId: Object)
     {
         this._isBrowser = isPlatformBrowser(platformId);
@@ -84,7 +84,7 @@ export class ProgressIndicatorService
 
                 clearTimeout(this._timeout);
                 this._timeout = null;
-            }, this.config.timeout);
+            }, (this.config as ProgressIndicatorOptions).timeout);
         }
 
         this._runningRequests++;

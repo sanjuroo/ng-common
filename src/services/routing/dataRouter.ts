@@ -18,7 +18,7 @@ export class DataRouter
     /**
      * Url path of next route
      */
-    private _nextUrlPath: string = null;
+    private _nextUrlPath: string|null = null;
 
     /**
      * Resolver function that is used for resolving routed value
@@ -28,7 +28,7 @@ export class DataRouter
     /**
      * Promise that resolves into value for current route
      */
-    private _valuePromise: Promise<any> = null;
+    private _valuePromise: Promise<any>|null = null;
 
     //######################### public properties #########################
 

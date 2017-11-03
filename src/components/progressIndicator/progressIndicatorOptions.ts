@@ -17,7 +17,7 @@ export class ProgressIndicatorOptions
     {
         if(isPresent(timeout))
         {
-            this.timeout = timeout;
+            this.timeout = timeout as number;
         }
     }
 }

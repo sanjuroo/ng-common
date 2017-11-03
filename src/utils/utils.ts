@@ -1,5 +1,5 @@
 import {NgForm, FormGroup} from '@angular/forms';
-import {Type, NgModuleRef} from '@angular/core';
+import {NgModuleRef} from '@angular/core';
 import {Route} from '@angular/router';
 import ViewTemplate from './utils.viewTemplate';
 import Encoder from './utils.encoder';
@@ -78,24 +78,24 @@ export interface ICommon
     
     /**
      * Merges properties of two separate object into new third one
-     * @param  {Object} source1 First source object 
-     * @param  {Object} source2 Second source object
+     * @param  {{[key: string]: any}} source1 First source object 
+     * @param  {{[key: string]: any}} source2 Second source object
      * @returns Object Object containing properties from source1 and source2 objects
      */
-    merge(source1: Object, source2: Object): Object;
+    merge(source1: {[key: string]: any}, source2: {[key: string]: any}): Object;
     
     /**
      * Generates random string consisting from lowercase letters
      * @param  {number} length Length of generated string
      * @returns number Generated string
      */
-    generateId(length: number);
+    generateId(length: number): string;
 
     /**
      * Converts string in that way that first letter will be lowerCase
      * @param  {string} text Text to be converted
      */
-    firstToLowerCase(text: string);
+    firstToLowerCase(text: string): string;
 
     /**
      * Runs callback function when angular module is bootstrapped and stable
@@ -117,7 +117,7 @@ export interface IForms
      * @param  {string[]} controls Array of controls names to be checked for errors
      * @param  {boolean} submitted Indication whether form was submitted, defaults to false
      */
-    hasErrorCustom(form: NgForm|FormGroup, controls: string[], submitted?: boolean);
+    hasErrorCustom(form: NgForm|FormGroup, controls: string[], submitted?: boolean): boolean;
 
     /**
      * Gets indication whether hide alerts or not for control, with custom indication of submitted
@@ -126,7 +126,7 @@ export interface IForms
      * @param  {string[]} errors Array of validation errors to be checked for existance
      * @param  {boolean} submitted Indication whether form was submitted, defaults to false
      */
-    alertHiddenCustom(form: NgForm|FormGroup, control: string, errors?: string[], submitted?: boolean);
+    alertHiddenCustom(form: NgForm|FormGroup, control: string, errors?: string[], submitted?: boolean): boolean;
 
     /**
      * Gets indication whether controls have errors

@@ -1,4 +1,4 @@
-import {TemplateRef, ViewContainerRef, ViewRef, Component} from '@angular/core';
+import {Component} from '@angular/core';
 
 export default class ViewTemplate
 {

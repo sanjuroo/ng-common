@@ -67,14 +67,14 @@ export class NgComponentOutletEx<TComponent> implements OnChanges, OnDestroy
      * Occurs when component is created or destroyed, it can send instance of component, or null
      */
     @Output()
-    public ngComponentOutletExCreated: EventEmitter<TComponent> = new EventEmitter<TComponent>();
+    public ngComponentOutletExCreated: EventEmitter<TComponent|null> = new EventEmitter<TComponent|null>();
 
     //######################### public properties #########################
 
     /**
      * Instance of dynamically created component 
      */
-    public get component(): TComponent
+    public get component(): TComponent|null
     {
         if(!this._componentRef)
         {

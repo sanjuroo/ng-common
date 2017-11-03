@@ -57,9 +57,9 @@ export class MaxValueNumberValidatorDirective implements Validator
      * @param  {Control} control Control that is being validated
      * @returns {[key: string]: any} validation results
      */
-    public validate(control: AbstractControl): {[key: string]: any}
+    public validate(control: AbstractControl): {[key: string]: any}|null
     {
-        let maxValue: number = isPresent(this.maxValue) ? this.maxValue : this._maxValue;                
+        let maxValue: number = isPresent(this.maxValue) ? <number>this.maxValue : this._maxValue;                
 
         if(!isNaN(control.value) && isPresent(control.value) && control.value > maxValue)
         {

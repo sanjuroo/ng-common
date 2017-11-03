@@ -5,5 +5,6 @@ export function HmrServiceData()
 {
     return function(target: any, propertyKey: string)
     {
+        console.log(target, propertyKey);
     }
 };

@@ -35,7 +35,7 @@ export default class Encoder
 	// When encoding do we convert characters into html or numerical entities
 	EncodeType: string = "entity";  // entity OR numerical
 
-	isEmpty(val)
+	isEmpty(val:any)
     {
 		if(val)
         {
@@ -52,20 +52,20 @@ export default class Encoder
 	arr2: string[] = ['&#160;','&#161;','&#162;','&#163;','&#164;','&#165;','&#166;','&#167;','&#168;','&#169;','&#170;','&#171;','&#172;','&#173;','&#174;','&#175;','&#176;','&#177;','&#178;','&#179;','&#180;','&#181;','&#182;','&#183;','&#184;','&#185;','&#186;','&#187;','&#188;','&#189;','&#190;','&#191;','&#192;','&#193;','&#194;','&#195;','&#196;','&#197;','&#198;','&#199;','&#200;','&#201;','&#202;','&#203;','&#204;','&#205;','&#206;','&#207;','&#208;','&#209;','&#210;','&#211;','&#212;','&#213;','&#214;','&#215;','&#216;','&#217;','&#218;','&#219;','&#220;','&#221;','&#222;','&#223;','&#224;','&#225;','&#226;','&#227;','&#228;','&#229;','&#230;','&#231;','&#232;','&#233;','&#234;','&#235;','&#236;','&#237;','&#238;','&#239;','&#240;','&#241;','&#242;','&#243;','&#244;','&#245;','&#246;','&#247;','&#248;','&#249;','&#250;','&#251;','&#252;','&#253;','&#254;','&#255;','&#34;','&#38;','&#60;','&#62;','&#338;','&#339;','&#352;','&#353;','&#376;','&#710;','&#732;','&#8194;','&#8195;','&#8201;','&#8204;','&#8205;','&#8206;','&#8207;','&#8211;','&#8212;','&#8216;','&#8217;','&#8218;','&#8220;','&#8221;','&#8222;','&#8224;','&#8225;','&#8240;','&#8249;','&#8250;','&#8364;','&#402;','&#913;','&#914;','&#915;','&#916;','&#917;','&#918;','&#919;','&#920;','&#921;','&#922;','&#923;','&#924;','&#925;','&#926;','&#927;','&#928;','&#929;','&#931;','&#932;','&#933;','&#934;','&#935;','&#936;','&#937;','&#945;','&#946;','&#947;','&#948;','&#949;','&#950;','&#951;','&#952;','&#953;','&#954;','&#955;','&#956;','&#957;','&#958;','&#959;','&#960;','&#961;','&#962;','&#963;','&#964;','&#965;','&#966;','&#967;','&#968;','&#969;','&#977;','&#978;','&#982;','&#8226;','&#8230;','&#8242;','&#8243;','&#8254;','&#8260;','&#8472;','&#8465;','&#8476;','&#8482;','&#8501;','&#8592;','&#8593;','&#8594;','&#8595;','&#8596;','&#8629;','&#8656;','&#8657;','&#8658;','&#8659;','&#8660;','&#8704;','&#8706;','&#8707;','&#8709;','&#8711;','&#8712;','&#8713;','&#8715;','&#8719;','&#8721;','&#8722;','&#8727;','&#8730;','&#8733;','&#8734;','&#8736;','&#8743;','&#8744;','&#8745;','&#8746;','&#8747;','&#8756;','&#8764;','&#8773;','&#8776;','&#8800;','&#8801;','&#8804;','&#8805;','&#8834;','&#8835;','&#8836;','&#8838;','&#8839;','&#8853;','&#8855;','&#8869;','&#8901;','&#8968;','&#8969;','&#8970;','&#8971;','&#9001;','&#9002;','&#9674;','&#9824;','&#9827;','&#9829;','&#9830;'];
 
 	// Convert HTML entities into numerical entities
-	HTML2Numerical(s)
+	HTML2Numerical(s:any)
     {
 		return this.swapArrayVals(s, this.arr1, this.arr2);
 	};
 
 	// Convert Numerical entities into HTML entities
-	NumericalToHTML(s)
+	NumericalToHTML(s:any)
     {
 		return this.swapArrayVals(s, this.arr2, this.arr1);
 	};
 
 
 	// Numerically encodes all unicode characters
-	numEncode(s)
+	numEncode(s:any)
     {
 		if(this.isEmpty(s))
         { 
@@ -95,7 +95,7 @@ export default class Encoder
 	};
 
 	// HTML Decode numerical and HTML entities back to original values
-	htmlDecode(s)
+	htmlDecode(s:any)
     {
 		var c,m,d = s;
 
@@ -134,7 +134,7 @@ export default class Encoder
 	};
 
 	// encode an input string into either numerical or HTML entities
-	htmlEncode(s, dbl)
+	htmlEncode(s:any, dbl:any)
     {
 		if(this.isEmpty(s))
         {
@@ -210,7 +210,7 @@ export default class Encoder
 	};
 
 	// Encodes the basic 4 characters used to malform HTML in XSS hacks
-	XSSEncode(s,en)
+	XSSEncode(s:any,en:any)
     {
 		if(!this.isEmpty(s))
         {
@@ -240,7 +240,7 @@ export default class Encoder
 	};
 
 	// returns true if a string contains html or numerical encoded entities
-	hasEncoded(s)
+	hasEncoded(s:any)
     {
 		if(/&#[0-9]{1,5};/g.test(s))
         {
@@ -257,19 +257,19 @@ export default class Encoder
 	};
 
 	// will remove any unicode characters
-	stripUnicode(s)
+	stripUnicode(s:any)
     {
 		return s.replace(/[^\x20-\x7E]/g,"");
 	};
 
 	// corrects any double encoded &amp; entities e.g &amp;amp;
-	correctEncoding(s)
+	correctEncoding(s:any)
     {
 		return s.replace(/(&amp;)(amp;)+/,"$1");
 	};
 
 	// Function to loop through an array swaping each item with the value from another array e.g swap HTML entities with Numericals
-	swapArrayVals(s,arr1,arr2)
+	swapArrayVals(s:any,arr1:any,arr2:any)
     {
 		if(this.isEmpty(s))
         { 
@@ -295,7 +295,7 @@ export default class Encoder
 		return s;
 	};
 
-	inArray( item, arr ) 
+	inArray( item:any, arr:any ) 
     {
 		for ( var i = 0, x = arr.length; i < x; i++ )
         {

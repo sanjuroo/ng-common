@@ -1,4 +1,3 @@
-import {Type} from '@angular/core';
 import {Route} from '@angular/router';
 import {isBlank} from '../utils/lang';
 

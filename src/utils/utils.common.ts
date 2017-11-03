@@ -42,13 +42,13 @@ export default class Common
     
     /**
      * Merges properties of two separate object into new third one
-     * @param  {Object} source1 First source object 
-     * @param  {Object} source2 Second source object
+     * @param  {{[key: string]: any}} source1 First source object 
+     * @param  {{[key: string]: any}} source2 Second source object
      * @returns Object Object containing properties from source1 and source2 objects
      */
-    public static merge(source1: Object, source2: Object): Object
+    public static merge(source1: {[key: string]: any}, source2: {[key: string]: any}): Object
     {
-        var resultObj = {};
+        var resultObj: {[key: string]: any} = {};
         
         for (var attrname in source1) 
         { 

@@ -51,7 +51,7 @@ export default class Forms
 
         errors.forEach(errorType =>
         {
-            requestedErrors = requestedErrors || (!!form.controls[control].errors && !!form.controls[control].errors[errorType]);
+            requestedErrors = requestedErrors || (!!form.controls[control].errors && !!(<{[key: string]: any}>form.controls[control].errors)[errorType]);
         });
 
         return form.controls[control].valid || !requestedErrors || (!form.controls[control].dirty && !submitted);
@@ -99,7 +99,7 @@ export default class Forms
 
         errors.forEach(errorType =>
         {
-            requestedErrors = requestedErrors || (!!form.controls[control].errors && !!form.controls[control].errors[errorType]);
+            requestedErrors = requestedErrors || (!!form.controls[control].errors && !!(<{[key: string]: any}>form.controls[control].errors)[errorType]);
         });
 
         return form.controls[control].valid || !requestedErrors || (!form.controls[control].dirty && !form.submitted);

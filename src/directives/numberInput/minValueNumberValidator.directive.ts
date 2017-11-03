@@ -56,9 +56,9 @@ export class MinValueNumberValidatorDirective implements Validator
      * @param  {Control} control Control that is being validated
      * @returns {[key: string]: any} validation results
      */
-    public validate(control: AbstractControl): {[key: string]: any}
+    public validate(control: AbstractControl): {[key: string]: any}|null
     {
-        let minValue: number = isPresent(this.minValue) ? this.minValue : this._minValue;        
+        let minValue: number = isPresent(this.minValue) ? <number>this.minValue : this._minValue;        
 
         if(!isNaN(control.value) && isPresent(control.value) && control.value < minValue)
         {
