@@ -1,6 +1,7 @@
 import {NgModuleRef, ApplicationRef} from "@angular/core";
 import {enableDebugTools} from '@angular/platform-browser';
 import * as extend from 'extend';
+import {filter, first} from 'rxjs/operators';
 
 /**
  * Resolve method for promise APP_STABLE
@@ -104,8 +105,8 @@ export default class Common
             const appRef: ApplicationRef = moduleRef.injector.get(ApplicationRef);
 
             appRef.isStable
-                .filter((isStable: boolean) => isStable)
-                .first()
+                .pipe(filter((isStable: boolean) => isStable),
+                      first())
                 .subscribe(() => 
                 {
                     if(angularProfiler)
