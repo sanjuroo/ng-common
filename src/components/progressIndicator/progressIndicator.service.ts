@@ -50,14 +50,14 @@ export class ProgressIndicatorService
     }
 
     //######################### constructors #########################
-    constructor(@Optional() public config: ProgressIndicatorOptions|null,
-                @Inject(PLATFORM_ID) platformId: Object)
+    constructor(@Inject(PLATFORM_ID) platformId: Object,
+                @Optional() public config?: ProgressIndicatorOptions)
     {
         this._isBrowser = isPlatformBrowser(platformId);
 
         if(config && !(config instanceof ProgressIndicatorOptions))
         {
-            this.config = null;
+            this.config = undefined;
             console.warn("Provided configuration for 'ProgressIndicatorService' is not of type 'ProgressIndicatorOptions' and will be ignored!");
         }
 
