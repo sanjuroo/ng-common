@@ -2,11 +2,10 @@ import {PlatformRef} from '@angular/core';
 
 /**
  * Enables Webpack Hot Module Replacement, call this at application entry file
- * @param  {PlatformRef} platform Platform used for bootstraping main module
+ * @param  {PlatformRef} _platform Platform used for bootstraping main module
  */
-export function hmrAccept(platform: PlatformRef)
+export function hmrAccept(_platform: PlatformRef)
 {
-    console.log(platform);
 }
 
 /**

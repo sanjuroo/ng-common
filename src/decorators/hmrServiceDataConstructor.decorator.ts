@@ -3,8 +3,7 @@
  */
 export function HmrServiceDataConstructor()
 {
-    return function(target: {new(...args:any[]):{}}): any
+    return function(_target: {new(...args:any[]):{}}): any
     {
-        console.log(target);
     }
 };
