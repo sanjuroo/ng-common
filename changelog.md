@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 4.0.6
+
+- updated `CommonModule`, `StatusCodeService` is now included only for *browser* versions of `forRoot` methods
+
 ## Version 4.0.5
 
 - fixed decorators removed console logs

@@ -35,9 +35,24 @@ export class CommonModule
     //######################### public methods #########################
 
     /**
-     * Returns module with cookie service, status code service and data router
+     * Returns module with cookie service and data router
      */
     public static forRoot(): ModuleWithProviders
+    {
+        return {
+            ngModule: CommonModule,
+            providers:
+            [
+                CookieService,
+                DataRouter
+            ]
+        };
+    }
+
+    /**
+     * Returns module with cookie service, status code service and data router
+     */
+    public static forRootBrowser(): ModuleWithProviders
     {
         return {
             ngModule: CommonModule,
@@ -51,10 +66,31 @@ export class CommonModule
     }
 
     /**
-     * Returns module with cookie service, status code service and data router and globalization service
+     * Returns module with cookie service and data router and globalization service
      * @param {Type<GlobalizationService>} globalizationService Globalization service type
      */
     public static forRootWithGlobalization(globalizationService: Type<GlobalizationService>): ModuleWithProviders
+    {
+        return {
+            ngModule: CommonModule,
+            providers:
+            [
+                CookieService,
+                DataRouter,
+                <ClassProvider>
+                {
+                    provide: GlobalizationService,
+                    useClass: globalizationService
+                }
+            ]
+        };
+    }
+
+    /**
+     * Returns module with cookie service, status code service and data router and globalization service
+     * @param {Type<GlobalizationService>} globalizationService Globalization service type
+     */
+    public static forRootBrowserWithGlobalization(globalizationService: Type<GlobalizationService>): ModuleWithProviders
     {
         return {
             ngModule: CommonModule,
