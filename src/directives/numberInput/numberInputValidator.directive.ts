@@ -1,5 +1,7 @@
-import {NG_VALIDATORS, AbstractControl, Validator} from '@angular/forms';
+import {NG_VALIDATORS, AbstractControl, Validator, ValidationErrors} from '@angular/forms';
 import {ExistingProvider, forwardRef, Directive} from '@angular/core';
+
+import {Validators} from '../../misc';
 
 /**
  * Validator that is injected with directive NumberInputValidatorDirective
@@ -26,17 +28,10 @@ export class NumberInputValidatorDirective implements Validator
     /**
      * Validates input and returns validation result
      * @param  {Control} control Control that is being validated
-     * @returns {[key: string]: any} validation results
+     * @returns {ValidationErrors} validation results
      */
-    public validate(control: AbstractControl): {[key: string]: any}|null
+    public validate(control: AbstractControl): ValidationErrors|null
     {
-        if(isNaN(control.value))
-        {
-            return {
-                "number": true
-            };
-        }
-
-        return null;
+        return Validators.number(control);
     }
 }

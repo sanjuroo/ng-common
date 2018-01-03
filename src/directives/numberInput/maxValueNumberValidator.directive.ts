@@ -1,14 +1,16 @@
-import {NG_VALIDATORS, AbstractControl, Validator} from '@angular/forms';
-import {ExistingProvider, Input, forwardRef, Directive, Attribute} from '@angular/core';
+import {NG_VALIDATORS, AbstractControl, Validator, ValidatorFn, ValidationErrors} from '@angular/forms';
+import {ExistingProvider, Input, forwardRef, Directive, Attribute, OnChanges, SimpleChanges} from '@angular/core';
+
 import {isBlank, isPresent} from '../../utils/lang';
+import {Validators} from '../../misc';
 
 /**
  * Validator that is injected with directive MaxValueNumberValidatorDirective
  */
 const MAX_NUMBER_VALIDATOR = <ExistingProvider>
 {
-    provide: NG_VALIDATORS, 
-    useExisting: forwardRef(() => MaxValueNumberValidatorDirective), 
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => MaxValueNumberValidatorDirective),
     multi: true
 };
 
@@ -20,14 +22,24 @@ const MAX_NUMBER_VALIDATOR = <ExistingProvider>
     selector: "input[number][maxValue][formControlName],input[number][maxValue][formControl],input[number][maxValue][ngModel]",
     providers: [MAX_NUMBER_VALIDATOR]
 })
-export class MaxValueNumberValidatorDirective implements Validator
+export class MaxValueNumberValidatorDirective implements Validator, OnChanges
 {
     //######################### private fields #########################
-    
+
     /**
      * Current max value that is allowed
      */
-    private _maxValue: number;
+    private _maxValue: number|null;
+
+    /**
+     * Function used for validations
+     */
+    private _validator: ValidatorFn;
+
+    /**
+     * Indication whether validator was initialized
+     */
+    private _initialized: boolean = false;
 
     //######################### public properties - inputs #########################
 
@@ -36,20 +48,37 @@ export class MaxValueNumberValidatorDirective implements Validator
      */
     @Input()
     public maxValue?: number;
-    
+
     //######################### constructor #########################
     constructor(@Attribute("maxValue") maxValue: string)
     {
         var value;
-        
+
         if(isBlank(maxValue) || maxValue.length < 1 || isNaN(value = parseFloat(maxValue.replace(",", "."))))
         {
-            throw new Error("'maxValue' was not specified or it is not a number!");
+            value = null;
         }
-        
+
         this._maxValue = value;
     }
-    
+
+    //######################### public methods - implementation of OnChanges #########################
+
+    public ngOnChanges(changes: SimpleChanges): void
+    {
+        if(!this._initialized)
+        {
+            this._initialized = true;
+
+            this._validator = Validators.max(this._maxValue);
+        }
+
+        if ('maxValue' in changes)
+        {
+            this._validator = Validators.max(isPresent(this.maxValue) ? <number>this.maxValue! : this._maxValue);
+        }
+    }
+
     //######################### public methods - implementation of Validator #########################
 
     /**
@@ -57,17 +86,8 @@ export class MaxValueNumberValidatorDirective implements Validator
      * @param  {Control} control Control that is being validated
      * @returns {[key: string]: any} validation results
      */
-    public validate(control: AbstractControl): {[key: string]: any}|null
+    public validate(control: AbstractControl): ValidationErrors|null
     {
-        let maxValue: number = isPresent(this.maxValue) ? <number>this.maxValue : this._maxValue;                
-
-        if(!isNaN(control.value) && isPresent(control.value) && control.value > maxValue)
-        {
-            return {
-                "maxValue": maxValue
-            };
-        }
-
-        return null;
+        return this._validator(control);
     }
 }

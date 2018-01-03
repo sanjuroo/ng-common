@@ -1,14 +1,16 @@
-import {NG_VALIDATORS, AbstractControl, Validator} from '@angular/forms';
-import {forwardRef, Directive, Attribute, Input, ExistingProvider} from '@angular/core';
+import {NG_VALIDATORS, AbstractControl, Validator, ValidatorFn, ValidationErrors} from '@angular/forms';
+import {forwardRef, Directive, Attribute, Input, ExistingProvider, OnChanges, SimpleChanges} from '@angular/core';
+
 import {isBlank, isPresent} from '../../utils/lang';
+import {Validators} from '../../misc';
 
 /**
  * Validator that is injected with directive MinValueNumberValidatorDirective
  */
 const MIN_NUMBER_VALIDATOR = <ExistingProvider>
 {
-    provide: NG_VALIDATORS, 
-    useExisting: forwardRef(() => MinValueNumberValidatorDirective), 
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => MinValueNumberValidatorDirective),
     multi: true
 };
 
@@ -20,14 +22,24 @@ const MIN_NUMBER_VALIDATOR = <ExistingProvider>
     selector: "input[number][minValue][formControlName],input[number][minValue][formControl],input[number][minValue][ngModel]",
     providers: [MIN_NUMBER_VALIDATOR]
 })
-export class MinValueNumberValidatorDirective implements Validator
+export class MinValueNumberValidatorDirective implements Validator, OnChanges
 {
     //######################### private fields #########################
-    
+
     /**
      * Current min value that is allowed
      */
-    private _minValue: number;
+    private _minValue: number|null;
+
+    /**
+     * Function used for validations
+     */
+    private _validator: ValidatorFn;
+
+    /**
+     * Indication whether validator was initialized
+     */
+    private _initialized: boolean = false;
 
     //######################### public properties - inputs #########################
     /**
@@ -35,20 +47,37 @@ export class MinValueNumberValidatorDirective implements Validator
      */
     @Input()
     public minValue?: number;
-    
+
     //######################### constructor #########################
     constructor(@Attribute("minValue") minValue: string)
     {
         var value;
-        
+
         if(isBlank(minValue) || minValue.length < 1 || isNaN(value = parseFloat(minValue.replace(",", "."))))
         {
-            throw new Error("'minValue' was not specified or it is not a number!");
+            value = null;
         }
-        
+
         this._minValue = value;
     }
-    
+
+    //######################### public methods - implementation of OnChanges #########################
+
+    public ngOnChanges(changes: SimpleChanges): void
+    {
+        if(!this._initialized)
+        {
+            this._initialized = true;
+
+            this._validator = Validators.min(this._minValue);
+        }
+
+        if ('minValue' in changes)
+        {
+            this._validator = Validators.min(isPresent(this.minValue) ? <number>this.minValue! : this._minValue);
+        }
+    }
+
     //######################### public methods - implementation of Validator #########################
 
     /**
@@ -56,17 +85,8 @@ export class MinValueNumberValidatorDirective implements Validator
      * @param  {Control} control Control that is being validated
      * @returns {[key: string]: any} validation results
      */
-    public validate(control: AbstractControl): {[key: string]: any}|null
+    public validate(control: AbstractControl): ValidationErrors|null
     {
-        let minValue: number = isPresent(this.minValue) ? <number>this.minValue : this._minValue;        
-
-        if(!isNaN(control.value) && isPresent(control.value) && control.value < minValue)
-        {
-            return {
-                "minValue": minValue
-            };
-        }
-
-        return null;
+        return this._validator(control);
     }
 }

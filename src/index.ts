@@ -29,6 +29,7 @@ export {CookieService} from './services/cookies/cookies.service';
 export {StatusCodeService} from './services/statusCode/statusCode.service';
 export {NgComponentOutletEx} from "./directives/ngComponentOutletEx/ngComponentOutletEx.directive";
 export {APP_STABLE} from "./utils/utils.common";
+export * from './misc';
 export {isPresent,
         isBlank,
         isBoolean,

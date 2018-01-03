@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 4.0.7
+
+- updated all validators for number `NumberInputValidatorDirective`, `MinValueNumberValidatorDirective`, `MaxValueNumberValidatorDirective`, now support null value
+- all number validatos are now available for Reactive Forms using `Validators` class
+
 ## Version 4.0.6
 
 - updated `CommonModule`, `StatusCodeService` is now included only for *browser* versions of `forRoot` methods
