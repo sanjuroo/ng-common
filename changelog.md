@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 4.0.11
+
+- properly provided `IgnoredInterceptorsService` as `HTTP_CLIENT_IGNORE_INTERCEPTOR`
+
 ## Version 4.0.10
 
 - added forgotten export of `HTTP_CLIENT_IGNORE_INTERCEPTOR`
