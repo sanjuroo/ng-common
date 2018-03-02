@@ -1,17 +1,43 @@
-import {NgModuleRef, ApplicationRef} from "@angular/core";
+import {NgModuleRef, ApplicationRef, InjectionToken, FactoryProvider} from "@angular/core";
 import {enableDebugTools} from '@angular/platform-browser';
-import * as extend from 'extend';
 import {filter, first} from 'rxjs/operators';
+import * as extend from 'extend';
 
 /**
- * Resolve method for promise APP_STABLE
+ * Method used for extraction of resolve method for promise
+ * @param {Promise<void>} appStablePromise Promise which contains resolve method that is going to be extracted
  */
-let resolveAsStable: () => void;
+function extractResolve(appStablePromise: Promise<void>): () => void
+{
+    return (appStablePromise as any).__resolve;
+}
 
 /**
- * Promise that is resoved when application is stable first time if using Utils.common.runWhenModuleStable method
+ * Injection token used for obtaining promise that is resolved when application is first time stable
  */
-export const APP_STABLE: Promise<any> = new Promise<any>(resolve => resolveAsStable = resolve);
+export const APP_STABLE: InjectionToken<Promise<void>> = new InjectionToken<Promise<void>>("APP_STABLE");
+
+/**
+ * Factory used for creating APP_STABLE promise
+ */
+export function appStablePromiseFactory()
+{
+    let appStableResolve;
+    let appStablePromise = new Promise(resolve => appStableResolve = resolve);
+
+    (appStablePromise as any).__resolve = appStableResolve;
+
+    return appStablePromise;
+}
+
+/**
+ * Provider used for providing APP_STABLE promise
+ */
+export const APP_STABLE_PROVIDER = <FactoryProvider>
+{
+    provide: APP_STABLE,
+    useFactory: appStablePromiseFactory
+};
 
 /**
  * Common utility methods
@@ -109,13 +135,21 @@ export default class Common
                       first())
                 .subscribe(() => 
                 {
+                    let appStablePromise = moduleRef.injector.get(APP_STABLE);
+
                     if(angularProfiler)
                     {
                         enableDebugTools(appRef.components[0]);
                     }
 
                     callback(moduleRef)
-                    resolveAsStable();
+
+                    if(appStablePromise)
+                    {
+                        let resolveAsStable = extractResolve(appStablePromise);
+
+                        resolveAsStable();
+                    }
                 });
         });
     }

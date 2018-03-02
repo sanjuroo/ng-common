@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 4.0.8
+
+- `APP_STABLE` changed to `InjectionToken` and injecting it returns `Promise<void>`
+
 ## Version 4.0.7
 
 - updated all validators for number `NumberInputValidatorDirective`, `MinValueNumberValidatorDirective`, `MaxValueNumberValidatorDirective`, now support null value

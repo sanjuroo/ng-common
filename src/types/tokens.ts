@@ -14,3 +14,8 @@ export const SERVER_COOKIE_HEADER: InjectionToken<string> = new InjectionToken<s
  * Token is used to transfer server authentication header
  */
 export const SERVER_AUTH_HEADER: InjectionToken<string> = new InjectionToken<string>('serverAuthHeader');
+
+/**
+ * Token used for obtaining scrollmagic controller instance
+ */
+export const SCROLL_MAGIC_CONTROLLER: InjectionToken<ScrollMagic.Controller> = new InjectionToken<ScrollMagic.Controller>("SCROLL_MAGIC_CONTROLLER");

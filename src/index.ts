@@ -28,7 +28,7 @@ export {SERVER_BASE_URL, SERVER_AUTH_HEADER, SERVER_COOKIE_HEADER} from './types
 export {CookieService} from './services/cookies/cookies.service';
 export {StatusCodeService} from './services/statusCode/statusCode.service';
 export {NgComponentOutletEx} from "./directives/ngComponentOutletEx/ngComponentOutletEx.directive";
-export {APP_STABLE} from "./utils/utils.common";
+export {APP_STABLE, APP_STABLE_PROVIDER} from "./utils/utils.common";
 export * from './misc';
 export {isPresent,
         isBlank,
