@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 4.0.12
+
+- removed `HTTP_CLIENT_IGNORE_INTERCEPTOR`
+- now using directly `IgnoredInterceptorsService` for providing `IgnoredInterceptorsService`
+
 ## Version 4.0.11
 
 - properly provided `IgnoredInterceptorsService` as `HTTP_CLIENT_IGNORE_INTERCEPTOR`

@@ -11,7 +11,7 @@ export class IgnoredInterceptorsService
     /**
      * Array of interceptors that will be ignored
      */
-    private _ignoredInterceptors: Type<any>[] = [];
+    private _ignoredInterceptors: {type: Type<any>, url: string}[] = [];
 
     //######################### public methods #########################
 
@@ -24,28 +24,34 @@ export class IgnoredInterceptorsService
     }
 
     /**
-     * Adds interceptor type that should be ignored
+     * Adds interceptor type that should be ignored for specified url
      * @param {Type<TType>} interceptorType Type of interceptor should be ignored
+     * @param {string} url Url of request
      */
-    public addInterceptor<TType>(interceptorType: Type<TType>): void
+    public addInterceptor<TType>(interceptorType: Type<TType>, url: string): void
     {
-        if(!this._ignoredInterceptors.find(itm => itm == interceptorType))
+        if(!this._ignoredInterceptors.find(itm => itm.type == interceptorType && itm.url == url))
         {
-            this._ignoredInterceptors.push(interceptorType);
+            this._ignoredInterceptors.push(
+            {
+                type: interceptorType,
+                url: url
+            });
         }
     }
 
     /**
      * Checks specified interceptor whether is ingored
      * @param {Type<TType>} interceptorType Type of interceptor that is checked whether is ignored
+     * @param {string} url Url of request
      */
-    public isIgnored<TType>(interceptorType: Type<TType>): boolean
+    public isIgnored<TType>(interceptorType: Type<TType>, url: string): boolean
     {
-        let index = this._ignoredInterceptors.indexOf(interceptorType);
+        let item = this._ignoredInterceptors.find(itm => new RegExp(`${itm.url}$`).test(url) && itm.type == interceptorType);
 
-        if(index > -1)
+        if(item)
         {
-            this._ignoredInterceptors.splice(index, 1);
+            this._ignoredInterceptors.splice(this._ignoredInterceptors.indexOf(item), 1);
 
             return true;
         }

@@ -13,7 +13,6 @@ import {GlobalizationService} from '../services/globalization/globalization.serv
 import {NgComponentOutletEx} from "../directives/ngComponentOutletEx/ngComponentOutletEx.directive";
 import {APP_STABLE_PROVIDER} from '../utils/utils.common';
 import {IgnoredInterceptorsService} from '../services/ignoredInterceptors/ignoredInterceptors.service';
-import {HTTP_CLIENT_IGNORE_INTERCEPTOR} from '../types/tokens';
 
 /**
  * Module for common components, pipes and directives
@@ -48,11 +47,7 @@ export class CommonModule
             providers:
             [
                 CookieService,
-                <ClassProvider>
-                {
-                    provide: HTTP_CLIENT_IGNORE_INTERCEPTOR,
-                    useClass: IgnoredInterceptorsService
-                },
+                IgnoredInterceptorsService,
                 DataRouter,
                 APP_STABLE_PROVIDER
             ]
@@ -69,11 +64,7 @@ export class CommonModule
             providers:
             [
                 CookieService,
-                <ClassProvider>
-                {
-                    provide: HTTP_CLIENT_IGNORE_INTERCEPTOR,
-                    useClass: IgnoredInterceptorsService
-                },
+                IgnoredInterceptorsService,
                 DataRouter,
                 APP_STABLE_PROVIDER,
                 StatusCodeService
@@ -92,11 +83,7 @@ export class CommonModule
             providers:
             [
                 CookieService,
-                <ClassProvider>
-                {
-                    provide: HTTP_CLIENT_IGNORE_INTERCEPTOR,
-                    useClass: IgnoredInterceptorsService
-                },
+                IgnoredInterceptorsService,
                 DataRouter,
                 APP_STABLE_PROVIDER,
                 <ClassProvider>
@@ -119,11 +106,7 @@ export class CommonModule
             providers:
             [
                 CookieService,
-                <ClassProvider>
-                {
-                    provide: HTTP_CLIENT_IGNORE_INTERCEPTOR,
-                    useClass: IgnoredInterceptorsService
-                },
+                IgnoredInterceptorsService,
                 DataRouter,
                 APP_STABLE_PROVIDER,
                 StatusCodeService,
