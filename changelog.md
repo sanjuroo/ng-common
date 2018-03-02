@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 4.0.10
+
+- added forgotten export of `HTTP_CLIENT_IGNORE_INTERCEPTOR`
+
 ## Version 4.0.9
 
 - added injection token `HTTP_CLIENT_IGNORE_INTERCEPTOR` for injecting `IgnoredInterceptorsService`
