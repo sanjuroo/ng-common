@@ -1,4 +1,23 @@
 import {Injectable, Type} from "@angular/core";
+import {HttpRequest} from '@angular/common/http'
+
+/**
+ * Contains id of request, used for IgnoredInterceptorsService
+ */
+export interface IgnoredInterceptorId
+{
+    /**
+     * Identification of request
+     */
+    requestId: string;
+}
+
+/**
+ * Http request with request id for IgnoredInterceptorsService
+ */
+export interface HttpRequestIgnoredInterceptorId<TBody> extends HttpRequest<TBody>, IgnoredInterceptorId
+{
+}
 
 /**
  * Service used for disabling specific http client interceptor for one call, if you add interceptor you want to disable before call it will be disabled
@@ -11,7 +30,7 @@ export class IgnoredInterceptorsService
     /**
      * Array of interceptors that will be ignored
      */
-    private _ignoredInterceptors: {type: Type<any>, url: string}[] = [];
+    private _ignoredInterceptors: {type: Type<any>, requestId: string}[] = [];
 
     //######################### public methods #########################
 
@@ -26,16 +45,16 @@ export class IgnoredInterceptorsService
     /**
      * Adds interceptor type that should be ignored for specified url
      * @param {Type<TType>} interceptorType Type of interceptor should be ignored
-     * @param {string} url Url of request
+     * @param {IgnoredInterceptorId} requestId Object containing request id
      */
-    public addInterceptor<TType>(interceptorType: Type<TType>, url: string): void
+    public addInterceptor<TType>(interceptorType: Type<TType>, requestId: IgnoredInterceptorId): void
     {
-        if(!this._ignoredInterceptors.find(itm => itm.type == interceptorType && itm.url == url))
+        if(!this._ignoredInterceptors.find(itm => itm.type == interceptorType && itm.requestId == requestId.requestId))
         {
             this._ignoredInterceptors.push(
             {
                 type: interceptorType,
-                url: url
+                requestId: requestId.requestId
             });
         }
     }
@@ -43,11 +62,16 @@ export class IgnoredInterceptorsService
     /**
      * Checks specified interceptor whether is ingored
      * @param {Type<TType>} interceptorType Type of interceptor that is checked whether is ignored
-     * @param {string} url Url of request
+     * @param {IgnoredInterceptorId} url Object containing request id
      */
-    public isIgnored<TType>(interceptorType: Type<TType>, url: string): boolean
+    public isIgnored<TType>(interceptorType: Type<TType>, requestId: IgnoredInterceptorId): boolean
     {
-        let item = this._ignoredInterceptors.find(itm => new RegExp(`${itm.url}$`).test(url) && itm.type == interceptorType);
+        if(!requestId.requestId)
+        {
+            return false;
+        }
+
+        let item = this._ignoredInterceptors.find(itm => itm.requestId == requestId.requestId && itm.type == interceptorType);
 
         if(item)
         {

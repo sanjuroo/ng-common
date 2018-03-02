@@ -92,17 +92,26 @@ export class ProgressIndicatorService
 
     /**
      * Hides progress indicator
+     * @param {boolean} force Indication that indicator should be hidden even if some processes are running
      */
-    public hideProgress()
+    public hideProgress(force?: boolean)
     {
         if(!this._isBrowser)
         {
             return;
         }
 
-        this._runningRequests--;
+        if(force)
+        {
+            this._runningRequests = 0;
+        }
 
-        if(this._runningRequests < 1)
+        if(this._runningRequests > 0)
+        {
+            this._runningRequests--;
+        }
+
+        if(this._runningRequests < 1 && this._timeout)
         {
             clearTimeout(this._timeout);
             this._timeout = null;

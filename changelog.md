@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 4.0.13
+
+- updated `ProgressIndicatorService` supports force hiding of progress indicator
+- updated `IgnoredInterceptorsService` now using requestId for proper identification of request
+
 ## Version 4.0.12
 
 - removed `HTTP_CLIENT_IGNORE_INTERCEPTOR`
