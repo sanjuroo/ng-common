@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 4.0.9
+
+- added injection token `HTTP_CLIENT_IGNORE_INTERCEPTOR` for injecting `IgnoredInterceptorsService`
+- added `IgnoredInterceptorsService` which allows user to disable specified http client interceptors
+
 ## Version 4.0.8
 
 - `APP_STABLE` changed to `InjectionToken` and injecting it returns `Promise<void>`

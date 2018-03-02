@@ -1,5 +1,7 @@
 import {InjectionToken} from '@angular/core';
 
+import {IgnoredInterceptorsService} from '../services/ignoredInterceptors/ignoredInterceptors.service';
+
 /**
  * Base url used during SSR when using HTTP (example: http://localhost:8888/)
  */
@@ -19,3 +21,8 @@ export const SERVER_AUTH_HEADER: InjectionToken<string> = new InjectionToken<str
  * Token used for obtaining scrollmagic controller instance
  */
 export const SCROLL_MAGIC_CONTROLLER: InjectionToken<ScrollMagic.Controller> = new InjectionToken<ScrollMagic.Controller>("SCROLL_MAGIC_CONTROLLER");
+
+/**
+ * Token used for obtaining class that allows specific http client interceptors to be disabled for call
+ */
+export const HTTP_CLIENT_IGNORE_INTERCEPTOR: InjectionToken<IgnoredInterceptorsService> = new InjectionToken<IgnoredInterceptorsService>("HTTP_CLIENT_IGNORE_INTERCEPTOR");

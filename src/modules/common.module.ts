@@ -12,6 +12,7 @@ import {StatusCodeService} from "../services/statusCode/statusCode.service";
 import {GlobalizationService} from '../services/globalization/globalization.service';
 import {NgComponentOutletEx} from "../directives/ngComponentOutletEx/ngComponentOutletEx.directive";
 import {APP_STABLE_PROVIDER} from '../utils/utils.common';
+import {IgnoredInterceptorsService} from '../services/ignoredInterceptors/ignoredInterceptors.service';
 
 /**
  * Module for common components, pipes and directives
@@ -46,6 +47,7 @@ export class CommonModule
             providers:
             [
                 CookieService,
+                IgnoredInterceptorsService,
                 DataRouter,
                 APP_STABLE_PROVIDER
             ]
@@ -62,6 +64,7 @@ export class CommonModule
             providers:
             [
                 CookieService,
+                IgnoredInterceptorsService,
                 DataRouter,
                 APP_STABLE_PROVIDER,
                 StatusCodeService
@@ -80,6 +83,7 @@ export class CommonModule
             providers:
             [
                 CookieService,
+                IgnoredInterceptorsService,
                 DataRouter,
                 APP_STABLE_PROVIDER,
                 <ClassProvider>
@@ -102,6 +106,7 @@ export class CommonModule
             providers:
             [
                 CookieService,
+                IgnoredInterceptorsService,
                 DataRouter,
                 APP_STABLE_PROVIDER,
                 StatusCodeService,

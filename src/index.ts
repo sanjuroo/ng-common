@@ -24,11 +24,12 @@ export {MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective, Numb
 export const NUMBER_INPUT_DIRECTIVES = [NumberInputControlValueAccessor, NumberInputValidatorDirective, MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective];
 export {CommonModule} from './modules/common.module';
 export {ProgressIndicatorModule} from './modules/progressIndicator.module';
-export {SERVER_BASE_URL, SERVER_AUTH_HEADER, SERVER_COOKIE_HEADER} from './types/tokens';
+export {SERVER_BASE_URL, SERVER_AUTH_HEADER, SERVER_COOKIE_HEADER, SCROLL_MAGIC_CONTROLLER} from './types/tokens';
 export {CookieService} from './services/cookies/cookies.service';
 export {StatusCodeService} from './services/statusCode/statusCode.service';
+export {IgnoredInterceptorsService} from './services/ignoredInterceptors/ignoredInterceptors.service';
 export {NgComponentOutletEx} from "./directives/ngComponentOutletEx/ngComponentOutletEx.directive";
-export {APP_STABLE, APP_STABLE_PROVIDER} from "./utils/utils.common";
+export {APP_STABLE, APP_STABLE_PROVIDER, extractAppStableResolve} from "./utils/utils.common";
 export * from './misc';
 export {isPresent,
         isBlank,

@@ -7,7 +7,7 @@ import * as extend from 'extend';
  * Method used for extraction of resolve method for promise
  * @param {Promise<void>} appStablePromise Promise which contains resolve method that is going to be extracted
  */
-function extractResolve(appStablePromise: Promise<void>): () => void
+export function extractAppStableResolve(appStablePromise: Promise<void>): () => void
 {
     return (appStablePromise as any).__resolve;
 }
@@ -146,7 +146,7 @@ export default class Common
 
                     if(appStablePromise)
                     {
-                        let resolveAsStable = extractResolve(appStablePromise);
+                        let resolveAsStable = extractAppStableResolve(appStablePromise);
 
                         resolveAsStable();
                     }
