@@ -111,7 +111,7 @@ export class ProgressIndicatorService
             this._runningRequests--;
         }
 
-        if(this._runningRequests < 1 && this._timeout)
+        if(this._runningRequests < 1)
         {
             clearTimeout(this._timeout);
             this._timeout = null;

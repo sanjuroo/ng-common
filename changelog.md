@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 4.0.16
+
+- fixed `ProgressIndicatorService`, now hiding again properly
+
 ## Version 4.0.15
 
 - `ProgressInterceptor` moved from `@anglr/http-extensions` to this project
