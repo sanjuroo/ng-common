@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 4.0.14
+
+- `requestId` is made optional
+
 ## Version 4.0.13
 
 - updated `ProgressIndicatorService` supports force hiding of progress indicator

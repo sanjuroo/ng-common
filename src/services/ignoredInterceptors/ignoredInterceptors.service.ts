@@ -9,7 +9,7 @@ export interface IgnoredInterceptorId
     /**
      * Identification of request
      */
-    requestId: string;
+    requestId?: string;
 }
 
 /**
@@ -49,6 +49,11 @@ export class IgnoredInterceptorsService
      */
     public addInterceptor<TType>(interceptorType: Type<TType>, requestId: IgnoredInterceptorId): void
     {
+        if(!requestId.requestId)
+        {
+            return;
+        }
+
         if(!this._ignoredInterceptors.find(itm => itm.type == interceptorType && itm.requestId == requestId.requestId))
         {
             this._ignoredInterceptors.push(
