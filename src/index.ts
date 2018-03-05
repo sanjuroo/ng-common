@@ -49,3 +49,4 @@ export {isPresent,
         hasConstructor,
         isEmptyObject} from './utils/lang';
 export {hmrAccept, hmrFinishedNotification} from './utils/utils.hmr';
+export {PROGRESS_INTERCEPTOR_PROVIDER, ProgressInterceptor} from './interceptors/progressInterceptor/progressInterceptor';

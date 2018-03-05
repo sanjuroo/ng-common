@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 4.0.15
+
+- `ProgressInterceptor` moved from `@anglr/http-extensions` to this project
+- `ProgressInterceptor` can be ignored using `IgnoredInterceptorsService`
+
 ## Version 4.0.14
 
 - `requestId` is made optional
