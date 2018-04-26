@@ -12,6 +12,7 @@ export {Dictionary, StringDictionary} from './types/dictionaries';
 export {ValueNamePair} from './types/valueNamePair';
 export {Paginator} from './types/paginator';
 export {OrderByDirection} from './types/orderByDirection.enum';
+export {nameof} from './types/nameof';
 export {DataRouter} from './services/routing/dataRouter';
 export {DataRouterData} from './services/routing/dataRouterData';
 export {GlobalizationService} from './services/globalization/globalization.service';
