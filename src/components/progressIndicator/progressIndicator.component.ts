@@ -1,6 +1,7 @@
 import {Component, Input, OnDestroy} from '@angular/core';
+import {Subscription} from 'rxjs';
+
 import {ProgressIndicatorService} from './progressIndicator.service';
-import {Subscription} from 'rxjs/Subscription';
 
 /**
  * Component that is used for displaying progress indicator

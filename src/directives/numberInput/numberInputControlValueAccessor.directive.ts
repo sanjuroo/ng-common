@@ -1,5 +1,6 @@
-import {Directive, ExistingProvider, forwardRef, Renderer, ElementRef} from '@angular/core';
+import {Directive, ExistingProvider, forwardRef, Renderer2, ElementRef} from '@angular/core';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
+
 import {isBlank} from '../../utils/lang';
 
 /**
@@ -38,7 +39,7 @@ export class NumberInputControlValueAccessor implements ControlValueAccessor
     public onTouched = () => {};
     
     //######################### constructor #########################
-    constructor(private _renderer: Renderer, private _elementRef: ElementRef)
+    constructor(private _renderer: Renderer2, private _elementRef: ElementRef)
     {
     }
 
@@ -49,7 +50,7 @@ export class NumberInputControlValueAccessor implements ControlValueAccessor
      */
     public writeValue(value: any): void
     {
-        this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', value);
+        this._renderer.setProperty(this._elementRef.nativeElement, 'value', value);
     }
 
     /**

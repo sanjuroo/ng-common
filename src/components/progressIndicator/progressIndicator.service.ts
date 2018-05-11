@@ -1,8 +1,7 @@
 import {Optional, Injectable, PLATFORM_ID, Inject} from '@angular/core';
 import {isPlatformBrowser} from '@angular/common';
 import {ProgressIndicatorOptions} from './progressIndicatorOptions';
-import {Observable} from 'rxjs/Observable';
-import {Subject} from 'rxjs/Subject';
+import {Observable, Subject} from 'rxjs';
 
 //TODO - running counter move here
 
