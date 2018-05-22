@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 5.0.0-beta.2
+ - `ProgressIndicatorService` reworked as *tree-shakeable*
+ - removed `forRoot` methods from `ProgressIndicatorModule`, options for `ProgressIndicatorService` must be overriden directly
+
 ## Version 5.0.0-beta.1
  - aktualizácia balíčkov `Angular` na `6`
  - aktualizácia `Webpack` na verziu `4`

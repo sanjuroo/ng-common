@@ -3,12 +3,10 @@ import {isPlatformBrowser} from '@angular/common';
 import {ProgressIndicatorOptions} from './progressIndicatorOptions';
 import {Observable, Subject} from 'rxjs';
 
-//TODO - running counter move here
-
 /**
  * Service that is used for displaying and hiding progress indicator
  */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ProgressIndicatorService
 {
     //######################### private fields #########################
@@ -83,7 +81,7 @@ export class ProgressIndicatorService
 
                 clearTimeout(this._timeout);
                 this._timeout = null;
-            }, (this.config as ProgressIndicatorOptions).timeout);
+            }, this.config.timeout);
         }
 
         this._runningRequests++;
