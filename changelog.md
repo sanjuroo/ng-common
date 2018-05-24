@@ -3,6 +3,11 @@
 ## Version 5.0.0-beta.2
  - `ProgressIndicatorService` reworked as *tree-shakeable*
  - removed `forRoot` methods from `ProgressIndicatorModule`, options for `ProgressIndicatorService` must be overriden directly
+ - services `StatusCodeService`, `DataRouter`, `IgnoredInterceptorsService`, `CookieService` changed to *tree-shakeable*
+ - *InjectionToken* `APP_STABLE` changed to *tree-shakeable*
+ - removed `forRoot` methods from `CommonModule`, `GlobalizationService` must be provided directly in root
+ - changed `GlobalizationService.getLocale()` to `GlobalizationService.locale` get property
+ - changed `GlobalizationService.getLocaleChange()` to `GlobalizationService.localeChange` get property, with `void` value
 
 ## Version 5.0.0-beta.1
  - aktualizácia balíčkov `Angular` na `6`

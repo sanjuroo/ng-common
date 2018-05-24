@@ -22,7 +22,7 @@ export interface HttpRequestIgnoredInterceptorId<TBody> extends HttpRequest<TBod
 /**
  * Service used for disabling specific http client interceptor for one call, if you add interceptor you want to disable before call it will be disabled
  */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class IgnoredInterceptorsService
 {
     //######################### private fields #########################

@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 /**
  * Service used for transfering http status code for response
  */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class StatusCodeService
 {
     //######################### private fields #########################

@@ -21,11 +21,11 @@ export class NumeralPipe implements PipeTransform, OnDestroy
     //######################### constructors #########################
     constructor(globalizationSvc: GlobalizationService)
     {
-        numeral.locale(globalizationSvc.getLocale());
+        numeral.locale(globalizationSvc.locale);
 
         this._globalizationChangeSubscription = globalizationSvc
-            .getLocaleChange()
-            .subscribe(locale => numeral.locale(locale));
+            .localeChange
+            .subscribe(() => numeral.locale(globalizationSvc.locale));
     }
  
     //######################### public methods #########################

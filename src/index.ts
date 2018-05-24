@@ -30,7 +30,7 @@ export {CookieService} from './services/cookies/cookies.service';
 export {StatusCodeService} from './services/statusCode/statusCode.service';
 export {IgnoredInterceptorsService, IgnoredInterceptorId, HttpRequestIgnoredInterceptorId} from './services/ignoredInterceptors/ignoredInterceptors.service';
 export {NgComponentOutletEx} from "./directives/ngComponentOutletEx/ngComponentOutletEx.directive";
-export {APP_STABLE, APP_STABLE_PROVIDER, extractAppStableResolve} from "./utils/utils.common";
+export {APP_STABLE, extractAppStableResolve} from "./utils/utils.common";
 export * from './misc';
 export {isPresent,
         isBlank,

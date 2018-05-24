@@ -1,4 +1,4 @@
-import {NgModuleRef, ApplicationRef, InjectionToken, FactoryProvider} from "@angular/core";
+import {NgModuleRef, ApplicationRef, InjectionToken} from "@angular/core";
 import {enableDebugTools} from '@angular/platform-browser';
 import {filter, first} from 'rxjs/operators';
 import * as extend from 'extend';
@@ -13,17 +13,12 @@ export function extractAppStableResolve(appStablePromise: Promise<void>): () => 
 }
 
 /**
- * Injection token used for obtaining promise that is resolved when application is first time stable
- */
-export const APP_STABLE: InjectionToken<Promise<void>> = new InjectionToken<Promise<void>>("APP_STABLE");
-
-/**
  * Factory used for creating APP_STABLE promise
  */
 export function appStablePromiseFactory()
 {
     let appStableResolve;
-    let appStablePromise = new Promise(resolve => appStableResolve = resolve);
+    let appStablePromise = new Promise<void>(resolve => appStableResolve = resolve);
 
     (appStablePromise as any).__resolve = appStableResolve;
 
@@ -31,13 +26,9 @@ export function appStablePromiseFactory()
 }
 
 /**
- * Provider used for providing APP_STABLE promise
+ * Injection token used for obtaining promise that is resolved when application is first time stable
  */
-export const APP_STABLE_PROVIDER = <FactoryProvider>
-{
-    provide: APP_STABLE,
-    useFactory: appStablePromiseFactory
-};
+export const APP_STABLE: InjectionToken<Promise<void>> = new InjectionToken<Promise<void>>("APP_STABLE", {providedIn: 'root', factory: appStablePromiseFactory});
 
 /**
  * Common utility methods

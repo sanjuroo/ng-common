@@ -1,11 +1,13 @@
-import {PLATFORM_ID, Inject, Optional} from '@angular/core';
+import {PLATFORM_ID, Inject, Optional, Injectable} from '@angular/core';
 import {isPlatformBrowser} from '@angular/common';
+
 import {SERVER_COOKIE_HEADER} from '../../types/tokens';
 import {isBlank} from '../../utils/lang';
 
 /**
  * Class that is used as wrapper for working with cookies
  */
+@Injectable({providedIn: 'root'})
 export class CookieService
 {
     //######################### private fields #########################

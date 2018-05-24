@@ -5,7 +5,7 @@ import {isPresent} from '../../utils/lang';
 /**
  * Special implementation of router that allows routing with sending complex data to routed component
  */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class DataRouter
 {
     //######################### private fields #########################
