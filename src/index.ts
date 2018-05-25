@@ -25,7 +25,7 @@ export {MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective, Numb
 export const NUMBER_INPUT_DIRECTIVES = [NumberInputControlValueAccessor, NumberInputValidatorDirective, MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective];
 export {CommonModule} from './modules/common.module';
 export {ProgressIndicatorModule} from './modules/progressIndicator.module';
-export {SERVER_BASE_URL, SERVER_AUTH_HEADER, SERVER_COOKIE_HEADER, SCROLL_MAGIC_CONTROLLER} from './types/tokens';
+export * from './types/tokens';
 export {CookieService} from './services/cookies/cookies.service';
 export {StatusCodeService} from './services/statusCode/statusCode.service';
 export {IgnoredInterceptorsService, IgnoredInterceptorId, HttpRequestIgnoredInterceptorId} from './services/ignoredInterceptors/ignoredInterceptors.service';

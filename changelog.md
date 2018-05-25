@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 5.0.0-beta.3
+ - `@anglr/common` is now marked as *sideEffects* free
+ - *injection token* `SCROLL_MAGIC_CONTROLLER` removed
+
 ## Version 5.0.0-beta.2
  - `ProgressIndicatorService` reworked as *tree-shakeable*
  - removed `forRoot` methods from `ProgressIndicatorModule`, options for `ProgressIndicatorService` must be overriden directly
