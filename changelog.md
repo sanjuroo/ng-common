@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 5.0.0
+ - stabilized for angular v6
+
 ## Version 5.0.0-beta.3
  - `@anglr/common` is now marked as *sideEffects* free
  - *injection token* `SCROLL_MAGIC_CONTROLLER` removed
