@@ -12,6 +12,8 @@ import {ComponentFactoryResolver,
         Type,
         ViewContainerRef,
         Output} from '@angular/core';
+        
+import {nameof} from '../../types/nameof';
 
 /**
  * Instantiates a single {@link Component} type and inserts its Host View into current View.
@@ -99,7 +101,7 @@ export class NgComponentOutletEx<TComponent> implements OnChanges, OnDestroy
         {
             const elInjector = this.ngComponentOutletExInjector || this._viewContainerRef.parentInjector;
 
-            if (changes['ngComponentOutletNgModuleFactory'])
+            if (changes[nameof<NgComponentOutletEx<TComponent>>('ngComponentOutletExNgModuleFactory')])
             {
                 if (this._moduleRef)
                 {
