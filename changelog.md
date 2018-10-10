@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 5.0.1
+ - fixed `NgComponentOutletEx<TComponent>`, now works with external module
+
 ## Version 5.0.0
  - stabilized for angular v6
 
