@@ -1,25 +1,10 @@
 import {NgForm, FormGroup} from '@angular/forms';
 import {NgModuleRef} from '@angular/core';
 import {Route} from '@angular/router';
-import ViewTemplate from './utils.viewTemplate';
 import Encoder from './utils.encoder';
 import RouterHelper from './utils.routerHelper';
 import Common from './utils.common';
 import Forms from './utils.forms';
-
-/**
- * View template manipulation methods
- */
-export interface IViewTemplate
-{
-    /**
-     * Compiles template into component for dynamic use
-     * @param  {string} template Template string that will be compiled
-     * @param  {any} data Data object passed to template
-     * @returns Function Component that can be inserted into html
-     */
-    compileToComponent(template: string, data?: any): Function;
-}
 
 /**
  * Used for encoding/decoding strings
@@ -150,14 +135,6 @@ export interface IForms
  */
 class Utils
 {
-    /**
-     * View template manipulation methods
-     */
-    static get viewTemplate(): IViewTemplate
-    {
-        return ViewTemplate;
-    }
-
     /**
      * Encoder of strings
      */

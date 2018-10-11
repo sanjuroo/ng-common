@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 5.0.2
+ - completely removed `Utils.viewTemplate` method and everything connected with it
+
 ## Version 5.0.1
  - fixed `NgComponentOutletEx<TComponent>`, now works with external module
 
