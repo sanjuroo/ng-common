@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 5.0.4
+ - fixed missing export of `htmlToElement`
+
 ## Version 5.0.3
  - added new method `htmlToElement` for conversion html string into html DOM
 

@@ -32,22 +32,6 @@ export {IgnoredInterceptorsService, IgnoredInterceptorId, HttpRequestIgnoredInte
 export {NgComponentOutletEx} from "./directives/ngComponentOutletEx/ngComponentOutletEx.directive";
 export {APP_STABLE, extractAppStableResolve} from "./utils/utils.common";
 export * from './misc';
-export {isPresent,
-        isBlank,
-        isBoolean,
-        isNumber,
-        isString,
-        isFunction,
-        isType,
-        isStringMap,
-        isStrictStringMap,
-        isArray,
-        isDate,
-        noop,
-        normalizeBlank,
-        isJsObject,
-        isPrimitive,
-        hasConstructor,
-        isEmptyObject} from './utils/lang';
+export * from './utils/lang';
 export {hmrAccept, hmrFinishedNotification} from './utils/utils.hmr';
 export {PROGRESS_INTERCEPTOR_PROVIDER, ProgressInterceptor} from './interceptors/progressInterceptor/progressInterceptor';
