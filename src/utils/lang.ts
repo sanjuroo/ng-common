@@ -83,10 +83,31 @@ export function isEmptyObject(obj: any)
 {
     var name;
 
-    for (name in obj) 
+    for (name in obj)
     {
         return false;
     }
-    
+
     return true;
+}
+
+/**
+ * Converts html string into html DOM
+ * @param html Html string to be converted to DOM
+ * @param doc Optional html document to be used
+ */
+export function htmlToElement(html: string, doc?: HTMLDocument)
+{
+    let htmlDocument = document;
+
+    if(isPresent(doc))
+    {
+        htmlDocument = doc;
+    }
+
+    let template = htmlDocument.createElement('template');
+    html = html.trim();
+    template.innerHTML = html;
+
+    return template.content.firstChild;
 }
