@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Router, NavigationEnd, NavigationError} from '@angular/router';
-import {isPresent} from '../../utils/lang';
+import {isPresent} from '@jscrpt/common';
 
 /**
  * Special implementation of router that allows routing with sending complex data to routed component

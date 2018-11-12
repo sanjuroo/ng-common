@@ -1,4 +1,4 @@
-import {isPresent} from '../../utils/lang';
+import {isPresent} from '@jscrpt/common';
 
 /**
  * Configuration object that is used by ProgressIndicatorService, overriding its properties allows you to customize configuration

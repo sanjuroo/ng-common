@@ -1,7 +1,7 @@
 import {NG_VALIDATORS, AbstractControl, Validator, ValidatorFn, ValidationErrors} from '@angular/forms';
 import {ExistingProvider, Input, forwardRef, Directive, Attribute, OnChanges, SimpleChanges} from '@angular/core';
+import {isBlank, isPresent} from '@jscrpt/common';
 
-import {isBlank, isPresent} from '../../utils/lang';
 import {Validators} from '../../misc';
 
 /**

@@ -12,8 +12,8 @@ import {ComponentFactoryResolver,
         Type,
         ViewContainerRef,
         Output} from '@angular/core';
+import {nameof} from '@jscrpt/common';
         
-import {nameof} from '../../types/nameof';
 
 /**
  * Instantiates a single {@link Component} type and inserts its Host View into current View.

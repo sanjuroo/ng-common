@@ -1,6 +1,7 @@
 import {Route} from '@angular/router';
+import {isBlank, isPresent} from '@jscrpt/common';
+
 import {RouteDecoratedComponent} from './componentRoute.decorator';
-import {isBlank, isPresent} from '../utils/lang';
 
 /**
  * Extended type with redirect route definition

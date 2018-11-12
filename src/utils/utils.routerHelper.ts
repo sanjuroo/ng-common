@@ -1,7 +1,8 @@
 import {Route} from '@angular/router';
+import {isPresent} from '@jscrpt/common';
+
 import {RouteDecoratedComponent} from '../decorators/componentRoute.decorator';
 import {RedirectRouteDecoratedComponent} from '../decorators/componentRedirectRoute.decorator';
-import {isPresent} from './lang';
 
 /**
  * All types of route decorated components
