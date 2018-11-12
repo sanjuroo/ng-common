@@ -1,5 +1,5 @@
 import {Route} from '@angular/router';
-import {isBlank} from '../utils/lang';
+import {isBlank} from '@js/common';
 
 /**
  * Extended type with route definition

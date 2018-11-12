@@ -9,10 +9,7 @@ import {ProgressIndicatorService} from './progressIndicator.service';
 @Component(
 {
     selector: "progress-indicator",
-    template:
-   `<div [ngClass]="appliedClass">
-        <div></div>
-    </div>`,
+    templateUrl: 'progressIndicator.component.html',
     styles:
     [`
         .progress-indicator

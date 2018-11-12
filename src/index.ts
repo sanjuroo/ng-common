@@ -8,11 +8,6 @@ export {ComponentRedirectRoute} from './decorators/componentRedirectRoute.decora
 export {HmrData} from './decorators/hmrData.decorator';
 export {HmrServiceData} from './decorators/hmrServiceData.decorator';
 export {HmrServiceDataConstructor} from './decorators/hmrServiceDataConstructor.decorator';
-export {Dictionary, StringDictionary} from './types/dictionaries';
-export {ValueNamePair} from './types/valueNamePair';
-export {Paginator} from './types/paginator';
-export {OrderByDirection} from './types/orderByDirection.enum';
-export {nameof} from './types/nameof';
 export {DataRouter} from './services/routing/dataRouter';
 export {DataRouterData} from './services/routing/dataRouterData';
 export {GlobalizationService} from './services/globalization/globalization.service';
@@ -32,6 +27,5 @@ export {IgnoredInterceptorsService, IgnoredInterceptorId, HttpRequestIgnoredInte
 export {NgComponentOutletEx} from "./directives/ngComponentOutletEx/ngComponentOutletEx.directive";
 export {APP_STABLE, extractAppStableResolve} from "./utils/utils.common";
 export * from './misc';
-export * from './utils/lang';
 export {hmrAccept, hmrFinishedNotification} from './utils/utils.hmr';
 export {PROGRESS_INTERCEPTOR_PROVIDER, ProgressInterceptor} from './interceptors/progressInterceptor/progressInterceptor';
