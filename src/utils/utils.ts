@@ -13,7 +13,7 @@ export interface IRouterHelper
 {
     /**
      * Extracts route definitions from components if routes are set using decorator ComponentRoute
-     * @param  {any[]} components Array of components to be used for extraction
+     * @param components Array of components to be used for extraction
      * @returns RouteDefinition Extracted routes
      */
     extractRoutes(components: any[]): Route[];
@@ -26,9 +26,9 @@ export interface ICommon
 {
     /**
      * Runs callback function when angular module is bootstrapped and stable
-     * @param {Promise<NgModuleRef<{}>>} moduleRefPromise Promise for module that was bootstrapped
-     * @param {(moduleRef: NgModuleRef<{}>) => void} callback Callback that is called
-     * @param {boolean} angularProfiler Indication that angular profiler should be enabled
+     * @param moduleRefPromise Promise for module that was bootstrapped
+     * @param callback Callback that is called
+     * @param angularProfiler Indication that angular profiler should be enabled
      */
     runWhenModuleStable(moduleRefPromise: Promise<NgModuleRef<{}>>, callback: (moduleRef: NgModuleRef<{}>) => void, angularProfiler?: boolean): void;
 }
@@ -40,34 +40,34 @@ export interface IForms
 {
     /**
      * Gets indication whether controls have errors, with custom indication of submitted
-     * @param  {NgForm|FormGroup} form Form containing controls
-     * @param  {string[]} controls Array of controls names to be checked for errors
-     * @param  {boolean} submitted Indication whether form was submitted, defaults to false
+     * @param form Form containing controls
+     * @param controls Array of controls names to be checked for errors
+     * @param submitted Indication whether form was submitted, defaults to false
      */
     hasErrorCustom(form: NgForm|FormGroup, controls: string[], submitted?: boolean): boolean;
 
     /**
      * Gets indication whether hide alerts or not for control, with custom indication of submitted
-     * @param  {NgForm|FormGroup} form Form containing controls
-     * @param  {string} control Controls name that will be checked
-     * @param  {string[]} errors Array of validation errors to be checked for existance
-     * @param  {boolean} submitted Indication whether form was submitted, defaults to false
+     * @param form Form containing controls
+     * @param control Controls name that will be checked
+     * @param errors Array of validation errors to be checked for existance
+     * @param submitted Indication whether form was submitted, defaults to false
      */
     alertHiddenCustom(form: NgForm|FormGroup, control: string, errors?: string[], submitted?: boolean): boolean;
 
     /**
      * Gets indication whether controls have errors
-     * @param  {NgForm} form Form containing controls
-     * @param  {string[]} controls Array of controls names to be checked for errors
+     * @param form Form containing controls
+     * @param controls Array of controls names to be checked for errors
      */
     hasError(form: NgForm, controls: string[]): boolean;
 
 
     /**
      * Gets indication whether hide alerts or not for control
-     * @param  {NgForm} form Form containing controls
-     * @param  {string} control Controls name that will be checked
-     * @param  {string[]} errors Array of validation errors to be checked for existance
+     * @param form Form containing controls
+     * @param control Controls name that will be checked
+     * @param errors Array of validation errors to be checked for existance
      */
     alertHidden(form: NgForm, control: string, errors: string[]): void;
 }

@@ -9,9 +9,9 @@ export default class Forms
     
     /**
      * Gets indication whether controls have errors, with custom indication of submitted
-     * @param  {NgForm|FormGroup} form Form containing controls
-     * @param  {string[]} controls Array of controls names to be checked for errors
-     * @param  {boolean} submitted Indication whether form was submitted
+     * @param form Form containing controls
+     * @param controls Array of controls names to be checked for errors
+     * @param submitted Indication whether form was submitted
      */
     public static hasErrorCustom(form: NgForm|FormGroup, controls: string[], submitted: boolean = false)
     {
@@ -35,10 +35,10 @@ export default class Forms
 
     /**
      * Gets indication whether hide alerts or not for control, with custom indication of submitted
-     * @param  {NgForm|FormGroup} form Form containing controls
-     * @param  {string} control Controls name that will be checked
-     * @param  {string[]} errors Array of validation errors to be checked for existance
-     * @param  {boolean} submitted Indication whether form was submitted
+     * @param form Form containing controls
+     * @param control Controls name that will be checked
+     * @param errors Array of validation errors to be checked for existance
+     * @param submitted Indication whether form was submitted
      */
     public static alertHiddenCustom(form: NgForm|FormGroup, control: string, errors: string[] = [], submitted: boolean = false)
     {
@@ -59,8 +59,8 @@ export default class Forms
 
     /**
      * Gets indication whether controls have errors
-     * @param  {NgForm} form Form containing controls
-     * @param  {string[]} controls Array of controls names to be checked for errors
+     * @param form Form containing controls
+     * @param controls Array of controls names to be checked for errors
      */
     public static hasError(form: NgForm, controls: string[])
     {
@@ -84,9 +84,9 @@ export default class Forms
 
     /**
      * Gets indication whether hide alerts or not for control
-     * @param  {NgForm} form Form containing controls
-     * @param  {string} control Controls name that will be checked
-     * @param  {string[]} errors Array of validation errors to be checked for existance
+     * @param form Form containing controls
+     * @param control Controls name that will be checked
+     * @param errors Array of validation errors to be checked for existance
      */
     public static alertHidden(form: NgForm, control: string, errors: string[] = [])
     {

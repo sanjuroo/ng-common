@@ -83,8 +83,8 @@ export class MaxValueNumberValidatorDirective implements Validator, OnChanges
 
     /**
      * Validates input and returns validation result
-     * @param  {Control} control Control that is being validated
-     * @returns {[key: string]: any} validation results
+     * @param control Control that is being validated
+     * @returns validation results
      */
     public validate(control: AbstractControl): ValidationErrors|null
     {

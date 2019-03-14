@@ -44,8 +44,8 @@ export class IgnoredInterceptorsService
 
     /**
      * Adds interceptor type that should be ignored for specified url
-     * @param {Type<TType>} interceptorType Type of interceptor should be ignored
-     * @param {IgnoredInterceptorId} requestId Object containing request id
+     * @param interceptorType Type of interceptor should be ignored
+     * @param requestId Object containing request id
      */
     public addInterceptor<TType>(interceptorType: Type<TType>, requestId: IgnoredInterceptorId): void
     {
@@ -66,8 +66,8 @@ export class IgnoredInterceptorsService
 
     /**
      * Checks specified interceptor whether is ingored
-     * @param {Type<TType>} interceptorType Type of interceptor that is checked whether is ignored
-     * @param {IgnoredInterceptorId} url Object containing request id
+     * @param interceptorType Type of interceptor that is checked whether is ignored
+     * @param url Object containing request id
      */
     public isIgnored<TType>(interceptorType: Type<TType>, requestId: IgnoredInterceptorId): boolean
     {

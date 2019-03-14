@@ -85,8 +85,8 @@ export class DataRouter
 
     /**
      * Navigate based on the provided Route Link DSL. This method also allows you to provide complex data for your route
-     * @param  {any[]} linkParams Link params that are used as for standard router
-     * @param  {any} routeData Any type of object that can be passed to your routed component
+     * @param linkParams Link params that are used as for standard router
+     * @param routeData Any type of object that can be passed to your routed component
      * @returns Promise
      */
     public navigate(linkParams: any[], routeData: any): Promise<any>

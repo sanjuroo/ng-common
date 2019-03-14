@@ -27,7 +27,7 @@ export class StatusCodeService
 
     /**
      * Sets current status code
-     * @param {number} code Status code value that will be set
+     * @param code Status code value that will be set
      */
     public setStatusCode(code?: number)
     {

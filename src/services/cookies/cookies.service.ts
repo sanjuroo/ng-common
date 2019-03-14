@@ -29,7 +29,7 @@ export class CookieService
     /**
      * Retrieves a single cookie by it's name
      *
-     * @param  {string} name Identification of the Cookie
+     * @param name Identification of the Cookie
      * @returns The Cookie's value
      */
     public getCookie(name: string): any
@@ -59,11 +59,11 @@ export class CookieService
     /**
      * Save the Cookie
      *
-     * @param  {string} name Cookie's identification
-     * @param  {any} value Cookie's value
-     * @param  {number} expires Cookie's expiration date in days from now. If it's undefined the cookie is a session Cookie
-     * @param  {string} path Path relative to the domain where the cookie should be avaiable. Default /
-     * @param  {string} domain Domain where the cookie should be avaiable. Default current domain
+     * @param name Cookie's identification
+     * @param value Cookie's value
+     * @param expires Cookie's expiration date in days from now. If it's undefined the cookie is a session Cookie
+     * @param path Path relative to the domain where the cookie should be avaiable. Default /
+     * @param domain Domain where the cookie should be avaiable. Default current domain
      */
     public setCookie(name: string, value: any, expires?: number, path?: string, domain?: string)
     {
@@ -96,9 +96,9 @@ export class CookieService
     /**
      * Removes specified Cookie
      *
-     * @param  {string} name Cookie's identification
-     * @param  {string} path Path relative to the domain where the cookie should be avaiable. Default /
-     * @param  {string} domain Domain where the cookie should be avaiable. Default current domain
+     * @param name Cookie's identification
+     * @param path Path relative to the domain where the cookie should be avaiable. Default /
+     * @param domain Domain where the cookie should be avaiable. Default current domain
      */
     public deleteCookie(name: string, path?: string, domain?: string)
     {

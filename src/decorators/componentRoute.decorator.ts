@@ -14,7 +14,7 @@ export interface RouteDecoratedComponent
 
 /**
  * Defines route for component on which is this decorator applied
- * @param  {Route} route Definition of route, does not require component to be set
+ * @param  route Definition of route, does not require component to be set
  * @returns ClassDecorator
  */
 export function ComponentRoute(route: Route): ClassDecorator

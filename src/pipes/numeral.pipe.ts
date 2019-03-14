@@ -32,8 +32,8 @@ export class NumeralPipe implements PipeTransform, OnDestroy
     
     /**
      * Formats number value as slovak format string
-     * @param {number} value Number to format
-     * @param {string} format Format string (optional) 
+     * @param value Number to format
+     * @param format Format string (optional) 
      */   
     public transform(value: number, format: any): string
     {

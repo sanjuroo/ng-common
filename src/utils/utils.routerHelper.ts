@@ -20,7 +20,7 @@ export default class RouterHelper
     
     /**
      * Extracts route definitions from components if routes are set using decorator ComponentRoute
-     * @param  {any[]} components Array of components to be used for extraction
+     * @param components Array of components to be used for extraction
      * @returns RouteDefinition Extracted routes
      */
     public static extractRoutes(components: any[]): Route[]
