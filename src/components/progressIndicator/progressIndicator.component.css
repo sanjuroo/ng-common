@@ -1,0 +1,49 @@
+
+.progress-indicator
+{
+    -webkit-transition: all 250ms linear;
+    -moz-transition: all 250ms linear;
+    transition: all 250ms linear;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 23456;
+    opacity: 0;
+    visibility: hidden;
+}
+.progress-indicator.running
+{
+    visibility: visible;
+    opacity: 1;
+}
+.progress-indicator.running > div
+{
+    border-left: 4px solid #eee;
+    border-radius: 25px;
+    border-top: 4px solid #eee;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    width: 40px;
+    animation-name: rotate-progress;
+    animation-duration: 350ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate-progress
+{
+    from
+    {
+        transform: rotate(0deg);
+    }
+    to
+    {
+        transform: rotate(360deg);
+    }
+}

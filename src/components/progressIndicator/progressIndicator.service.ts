@@ -89,7 +89,7 @@ export class ProgressIndicatorService
 
     /**
      * Hides progress indicator
-     * @param {boolean} force Indication that indicator should be hidden even if some processes are running
+     * @param force Indication that indicator should be hidden even if some processes are running
      */
     public hideProgress(force?: boolean)
     {

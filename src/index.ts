@@ -17,7 +17,6 @@ export {ProgressIndicatorOptions} from './components/progressIndicator/progressI
 export {ProgressIndicatorService} from './components/progressIndicator/progressIndicator.service';
 export {ProgressIndicatorComponent} from './components/progressIndicator/progressIndicator.component';
 export {MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective, NumberInputValidatorDirective, NumberInputControlValueAccessor};
-export const NUMBER_INPUT_DIRECTIVES = [NumberInputControlValueAccessor, NumberInputValidatorDirective, MaxValueNumberValidatorDirective, MinValueNumberValidatorDirective];
 export {CommonModule} from './modules/common.module';
 export {ProgressIndicatorModule} from './modules/progressIndicator.module';
 export * from './types/tokens';

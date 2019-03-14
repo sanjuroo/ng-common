@@ -4,7 +4,7 @@ import {filter, first} from 'rxjs/operators';
 
 /**
  * Method used for extraction of resolve method for promise
- * @param {Promise<void>} appStablePromise Promise which contains resolve method that is going to be extracted
+ * @param appStablePromise Promise which contains resolve method that is going to be extracted
  */
 export function extractAppStableResolve(appStablePromise: Promise<void>): () => void
 {
@@ -38,9 +38,9 @@ export default class Common
     
     /**
      * Runs callback function when angular module is bootstrapped and stable
-     * @param {Promise<NgModuleRef<{}>>} moduleRefPromise Promise for module that was bootstrapped
-     * @param {(moduleRef: NgModuleRef<{}>) => void} callback Callback that is called
-     * @param {boolean} angularProfiler Indication that angular profiler should be enabled
+     * @param moduleRefPromise Promise for module that was bootstrapped
+     * @param callback Callback that is called
+     * @param angularProfiler Indication that angular profiler should be enabled
      */
     public static runWhenModuleStable(moduleRefPromise: Promise<NgModuleRef<{}>>, callback: (moduleRef: NgModuleRef<{}>) => void, angularProfiler?: boolean): void
     {

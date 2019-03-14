@@ -9,7 +9,7 @@ export class Validators
 {
     /**
      * Validates control if its value is number
-     * @param {AbstractControl} control Control which value to be validated
+     * @param control Control which value to be validated
      */
     public static number(control: AbstractControl): ValidationErrors|null
     {
@@ -25,7 +25,7 @@ export class Validators
 
     /**
      * Creates validator function that validates control if its value is higher than max value
-     * @param {number|null} max Max value that should be validated
+     * @param max Max value that should be validated
      */
     public static max(max: number|null): ValidatorFn
     {
@@ -45,7 +45,7 @@ export class Validators
 
     /**
      * Creates validator function that validates control if its value is lower than min value
-     * @param {number|null} min Min value that should be validated
+     * @param min Min value that should be validated
      */
     public static min(min: number|null): ValidatorFn
     {

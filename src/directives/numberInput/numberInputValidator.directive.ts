@@ -27,8 +27,8 @@ export class NumberInputValidatorDirective implements Validator
 
     /**
      * Validates input and returns validation result
-     * @param  {Control} control Control that is being validated
-     * @returns {ValidationErrors} validation results
+     * @param control Control that is being validated
+     * @returns validation results
      */
     public validate(control: AbstractControl): ValidationErrors|null
     {

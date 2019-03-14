@@ -1,9 +1,11 @@
 # Changelog
 
-## Version 6.0.0-beta #1
- - added support for ES2015 compilation and Ivy Compilation
+## Version 6.0.0-beta
+ - Angular IVY ready (APF compliant package)
+ - added support for ES2015 compilation
  - moved all common stuff into `@js/common`
     - removed stuff `Encoder`, `Paginator`, `OrderByDirection`, `Dictionary`, `StringDictionary`, `ValueNamePair`, `reverseString`, `extend`, `merge`, `generateId`, `firstToLowerCase`, `htmlToElement`, `isPresent`, `isBlank`, `isBoolean`, `isNumber`, `isString`, `isFunction`, `isType`, `isStringMap`, `isStrictStringMap`, `isArray`, `isDate`, `noop`, `normalizeBlank`, `isJsObject`, `isPrimitive`, `hasConstructor`, `isEmptyObject`, `nameof`
+    - removed also most of `Utils.common`
 
 ## Version 5.0.4
  - fixed missing export of `htmlToElement`
