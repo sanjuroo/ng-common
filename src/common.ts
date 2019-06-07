@@ -8,6 +8,7 @@ export {ComponentRedirectRoute} from './decorators/componentRedirectRoute.decora
 export {HmrData} from './decorators/hmrData.decorator';
 export {HmrServiceData} from './decorators/hmrServiceData.decorator';
 export {HmrServiceDataConstructor} from './decorators/hmrServiceDataConstructor.decorator';
+export * from './decorators/moduleRoutes.decorator';
 export {DataRouter} from './services/routing/dataRouter';
 export {DataRouterData} from './services/routing/dataRouterData';
 export {GlobalizationService} from './services/globalization/globalization.service';
