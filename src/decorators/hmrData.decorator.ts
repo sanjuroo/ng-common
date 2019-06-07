@@ -1,5 +1,7 @@
 /**
  * Indicates that property value is stored during webpack HMR 
+ * 
+ * @deprecated
  */
 export function HmrData()
 {

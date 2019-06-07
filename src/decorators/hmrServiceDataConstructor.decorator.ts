@@ -1,5 +1,7 @@
 /**
  * Indicates that service class has properties values stored during webpack HMR 
+ * 
+ * @deprecated
  */
 export function HmrServiceDataConstructor()
 {
