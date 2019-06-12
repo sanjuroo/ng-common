@@ -1,35 +1,35 @@
 import {NG_VALIDATORS, AbstractControl, Validator, ValidatorFn, ValidationErrors} from '@angular/forms';
-import {ExistingProvider, Input, forwardRef, Directive, Attribute, OnChanges, SimpleChanges} from '@angular/core';
+import {forwardRef, Directive, Attribute, Input, ExistingProvider, OnChanges, SimpleChanges} from '@angular/core';
 import {isBlank, isPresent} from '@js/common';
 
-import {Validators} from '../../misc';
+import {Validators} from '../../misc/validators';
 
 /**
- * Validator that is injected with directive MaxValueNumberValidatorDirective
+ * Validator that is injected with directive MinValueNumberValidatorDirective
  */
-const MAX_NUMBER_VALIDATOR = <ExistingProvider>
+const MIN_NUMBER_VALIDATOR = <ExistingProvider>
 {
     provide: NG_VALIDATORS,
-    useExisting: forwardRef(() => MaxValueNumberValidatorDirective),
+    useExisting: forwardRef(() => MinValueNumberValidatorDirective),
     multi: true
 };
 
 /**
- * Directive injecting checking for number max value validator
+ * Directive injecting checking for number min value validator
  */
 @Directive(
 {
-    selector: "input[number][maxValue][formControlName],input[number][maxValue][formControl],input[number][maxValue][ngModel]",
-    providers: [MAX_NUMBER_VALIDATOR]
+    selector: "input[number][minValue][formControlName],input[number][minValue][formControl],input[number][minValue][ngModel]",
+    providers: [MIN_NUMBER_VALIDATOR]
 })
-export class MaxValueNumberValidatorDirective implements Validator, OnChanges
+export class MinValueNumberValidatorDirective implements Validator, OnChanges
 {
     //######################### private fields #########################
 
     /**
-     * Current max value that is allowed
+     * Current min value that is allowed
      */
-    private _maxValue: number|null;
+    private _minValue: number|null;
 
     /**
      * Function used for validations
@@ -42,24 +42,23 @@ export class MaxValueNumberValidatorDirective implements Validator, OnChanges
     private _initialized: boolean = false;
 
     //######################### public properties - inputs #########################
-
     /**
-     * Bound max value that is allowed, which overrides value set to attribute maxValue
+     * Bound min value that is allowed, which overrides value set to attribute minValue
      */
     @Input()
-    public maxValue?: number;
+    public minValue?: number;
 
     //######################### constructor #########################
-    constructor(@Attribute("maxValue") maxValue: string)
+    constructor(@Attribute("minValue") minValue: string)
     {
         var value;
 
-        if(isBlank(maxValue) || maxValue.length < 1 || isNaN(value = parseFloat(maxValue.replace(",", "."))))
+        if(isBlank(minValue) || minValue.length < 1 || isNaN(value = parseFloat(minValue.replace(",", "."))))
         {
             value = null;
         }
 
-        this._maxValue = value;
+        this._minValue = value;
     }
 
     //######################### public methods - implementation of OnChanges #########################
@@ -70,12 +69,12 @@ export class MaxValueNumberValidatorDirective implements Validator, OnChanges
         {
             this._initialized = true;
 
-            this._validator = Validators.max(this._maxValue);
+            this._validator = Validators.min(this._minValue);
         }
 
-        if ('maxValue' in changes)
+        if ('minValue' in changes)
         {
-            this._validator = Validators.max(isPresent(this.maxValue) ? <number>this.maxValue! : this._maxValue);
+            this._validator = Validators.min(isPresent(this.minValue) ? <number>this.minValue! : this._minValue);
         }
     }
 

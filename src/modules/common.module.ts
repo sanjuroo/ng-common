@@ -1,11 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule as AngularCommonModule} from '@angular/common';
 
-import {NumeralPipe} from './../pipes/numeral.pipe';
-import {NumberInputValidatorDirective} from './../directives/numberInput/numberInputValidator.directive';
-import {NumberInputControlValueAccessor} from './../directives/numberInput/numberInputControlValueAccessor.directive';
-import {MinValueNumberValidatorDirective} from './../directives/numberInput/minValueNumberValidator.directive';
-import {MaxValueNumberValidatorDirective} from './../directives/numberInput/maxValueNumberValidator.directive';
 import {NgComponentOutletEx} from "../directives/ngComponentOutletEx/ngComponentOutletEx.directive";
 
 /**
@@ -14,18 +9,8 @@ import {NgComponentOutletEx} from "../directives/ngComponentOutletEx/ngComponent
 @NgModule(
 {
     imports: [AngularCommonModule],
-    declarations: [MaxValueNumberValidatorDirective,
-                   MinValueNumberValidatorDirective,
-                   NumberInputControlValueAccessor,
-                   NumberInputValidatorDirective,
-                   NumeralPipe,
-                   NgComponentOutletEx],
-    exports: [MaxValueNumberValidatorDirective,
-              MinValueNumberValidatorDirective,
-              NumberInputControlValueAccessor,
-              NumberInputValidatorDirective,
-              NumeralPipe,
-              NgComponentOutletEx]
+    declarations: [NgComponentOutletEx],
+    exports: [NgComponentOutletEx]
 })
 export class CommonModule
 {

@@ -1,0 +1,8 @@
+{
+    "name": "@anglr/common/numeral",
+    "module": "./dist/es5/numeral/numeral.js",
+    "esm2015": "./dist/es2015/numeral/numeral.js",
+    "esm5": "./dist/es5/numeral/numeral.js",
+    "typings": "./numeral.d.ts",
+    "sideEffects": false
+}

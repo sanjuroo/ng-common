@@ -1,0 +1,8 @@
+{
+    "name": "@anglr/common/router",
+    "module": "./dist/es5/router/router.js",
+    "esm2015": "./dist/es2015/router/router.js",
+    "esm5": "./dist/es5/router/router.js",
+    "typings": "./router.d.ts",
+    "sideEffects": false
+}

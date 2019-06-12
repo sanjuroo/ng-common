@@ -1,7 +1,7 @@
 import {NG_VALIDATORS, AbstractControl, Validator, ValidationErrors} from '@angular/forms';
 import {ExistingProvider, forwardRef, Directive} from '@angular/core';
 
-import {Validators} from '../../misc';
+import {Validators} from '../../misc/validators';
 
 /**
  * Validator that is injected with directive NumberInputValidatorDirective

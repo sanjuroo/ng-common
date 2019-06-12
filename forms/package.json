@@ -1,0 +1,8 @@
+{
+    "name": "@anglr/common/forms",
+    "module": "./dist/es5/forms/forms.js",
+    "esm2015": "./dist/es2015/forms/forms.js",
+    "esm5": "./dist/es5/forms/forms.js",
+    "typings": "./forms.d.ts",
+    "sideEffects": false
+}
