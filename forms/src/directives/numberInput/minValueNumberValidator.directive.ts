@@ -2,7 +2,7 @@ import {NG_VALIDATORS, AbstractControl, Validator, ValidatorFn, ValidationErrors
 import {forwardRef, Directive, Attribute, Input, ExistingProvider, OnChanges, SimpleChanges} from '@angular/core';
 import {isBlank, isPresent} from '@jscrpt/common';
 
-import {Validators} from '../../misc';
+import {Validators} from '../../misc/validators';
 
 /**
  * Validator that is injected with directive MinValueNumberValidatorDirective

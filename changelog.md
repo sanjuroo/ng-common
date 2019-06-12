@@ -1,5 +1,39 @@
 # Changelog
 
+## Version 6.2.0
+
+ - created *subpackage* `@anglr/common/numeral` containing all `numeral` library dependent code
+   - `NumeralPipe` added to this subpackage
+   - `NumeralModule` added to this subpackage
+ - created *subpackage* `@anglr/common/forms` containing all `@angular/forms` dependent code
+   - `MaxValueNumberValidatorDirective` added to this subpackage
+   - `MinValueNumberValidatorDirective` added to this subpackage
+   - `NumberInputControlValueAccessor` added to this subpackage
+   - `NumberInputValidatorDirective` added to this subpackage
+   - `Validators` added to this subpackage
+   - all *utils* exported as independent functions `hasErrorCustom`, `alertHiddenCustom`, `hasError`, `alertHidden`
+ - created *subpackage* `@anglr/common/router` containing all `@angular/router` dependent code
+   - `DataRouter` and `DataRouterData` added to this subpackage
+   - `ComponentRedirectRoute`, `ComponentRoute`, `ModuleRoutes` added to this subpackage
+   - `ModuleRoutesOptions` extended with `ExtraOptions` for `RouterModule.forRoot()`
+   - `extractRoutes` added as independent function
+ - **BREAKING CHANGES**
+   - `NumeralPipe` removed from `CommonModule` and from `@anglr/common`
+   - `MaxValueNumberValidatorDirective` removed from `CommonModule` and from `@anglr/common`
+   - `MinValueNumberValidatorDirective` removed from `CommonModule` and from `@anglr/common`
+   - `NumberInputControlValueAccessor` removed from `CommonModule` and from `@anglr/common`
+   - `NumberInputValidatorDirective` removed from `CommonModule` and from `@anglr/common`
+   - `Validators` removed from `@anglr/common`
+   - `DataRouter` and `DataRouterData` removed from `@anglr/common`
+   - `ComponentRedirectRoute`, `ComponentRoute`, `ModuleRoutes` removed from `@anglr/common`
+   - removed static class `Utils` and all its parts except `runWhenModuleStable`, `APP_STABLE`, `extractAppStableResolve` which are exported independently
+
+## Version 6.1.0
+ 
+ - created *subpackage* `@anglr/common/hmr` containing new HMR `hmrAccept` and `hmrFinishedNotification`
+    - `hmrAccept` and `hmrFinishedNotification` in `@anglr/common/` are deprecated
+ - added new decorator `ModuleRoutes` used with Angular IVY for setting routes to module combining with `ComponentRoute` and `ComponentRedirectRoute` decorators
+
 ## Version 6.0.0
 
  - Angular IVY ready (APF compliant package)

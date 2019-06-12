@@ -1,7 +1,7 @@
 import {Type} from '@angular/core';
-import {RouterModule, Route} from '@angular/router';
+import {RouterModule, Route, ExtraOptions} from '@angular/router';
 
-import {Utils} from '../utils/utils';
+import {extractRoutes} from '../misc/utils';
 
 /**
  * Describes options for ModuleRoutes decorator
@@ -12,6 +12,11 @@ export interface ModuleRoutesOptions
      * Indication that `forRoot` should be used during registration of routes
      */
     rootModule?: boolean;
+
+    /**
+     * Extra options used for `forRoot` module creation
+     */
+    rootModuleConfig?: ExtraOptions;
 
     /**
      * Routes that will be set before routedComponents
@@ -46,11 +51,11 @@ export function ModuleRoutes(routedComponents: Type<any>[], options: ModuleRoute
             let routes = 
             [
                 ...options.staticRoutesBefore || [],
-                ...Utils.routerHelper.extractRoutes(routedComponents),
+                ...extractRoutes(routedComponents),
                 ...options.staticRoutesAfter || []
             ];
 
-            ngModule.ngInjectorDef.imports.push(options.rootModule ? RouterModule.forRoot(routes) : RouterModule.forChild(routes));
+            ngModule.ngInjectorDef.imports.push(options.rootModule ? RouterModule.forRoot(routes, options.rootModuleConfig) : RouterModule.forChild(routes));
         }
 
         return target;

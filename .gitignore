@@ -6,6 +6,12 @@
 /src/**/*.json
 /hmr/**/*.d.ts
 /hmr/**/*.json
+/forms/**/*.d.ts
+/forms/**/*.json
+/router/**/*.d.ts
+/router/**/*.json
+/numeral/**/*.d.ts
+/numeral/**/*.json
 /*/dist
 /*.d.ts
 /*.metadata.json

@@ -1,9 +1,8 @@
 import {Pipe, PipeTransform, OnDestroy} from '@angular/core';
 import {isBlank} from '@jscrpt/common';
+import {GlobalizationService} from '@anglr/common';
 import {Subscription} from 'rxjs';
 import * as numeral from 'numeral';
-
-import {GlobalizationService} from '../services/globalization/globalization.service';
 
 /**
  * Pipe to transform numbers to regional formatting using numeraljs.

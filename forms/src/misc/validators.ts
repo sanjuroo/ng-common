@@ -1,5 +1,4 @@
 import {AbstractControl, ValidationErrors, ValidatorFn} from "@angular/forms";
-
 import {isPresent} from "@jscrpt/common";
 
 /**
