@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 6.3.0
+
+ - created *subpackage* `@anglr/common/hotkeys` containing all `angular2-hotkeys` library dependent code
+   - `AppHotkeysService` added to this subpackage
+
 ## Version 6.2.0
 
  - created *subpackage* `@anglr/common/numeral` containing all `numeral` library dependent code

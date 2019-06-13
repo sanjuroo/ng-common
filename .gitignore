@@ -12,6 +12,8 @@
 /router/**/*.json
 /numeral/**/*.d.ts
 /numeral/**/*.json
+/hotkeys/**/*.d.ts
+/hotkeys/**/*.json
 /*/dist
 /*.d.ts
 /*.metadata.json
