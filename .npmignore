@@ -18,6 +18,7 @@ ngv.config.json
 !/router/**/*.d.ts
 !/forms/**/*.d.ts
 !/numeral/**/*.d.ts
+!/hotkeys/**/*.d.ts
 
 *.log
 *.spec.js
