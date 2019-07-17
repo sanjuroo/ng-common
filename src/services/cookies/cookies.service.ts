@@ -30,9 +30,10 @@ export class CookieService
      * Retrieves a single cookie by it's name
      *
      * @param  {string} name Identification of the Cookie
+     * @param skipSerialization Indication whether skip deserialization from json string
      * @returns The Cookie's value
      */
-    public getCookie(name: string): any
+    public getCookie(name: string, skipSerialization?: boolean): any
     {
         if(!this._isBrowser && isBlank(this._serverCookies))
         {
@@ -53,7 +54,9 @@ export class CookieService
             result = regexp.exec(this._serverCookies);
         }
         
-        return (result === null) ? null : JSON.parse(decodeURIComponent(result[1]));
+        let val = decodeURIComponent(result[1]);
+
+        return (result === null) ? null : skipSerialization ? val : JSON.parse(val);
     }
 
     /**
@@ -64,15 +67,17 @@ export class CookieService
      * @param  {number} expires Cookie's expiration date in days from now. If it's undefined the cookie is a session Cookie
      * @param  {string} path Path relative to the domain where the cookie should be avaiable. Default /
      * @param  {string} domain Domain where the cookie should be avaiable. Default current domain
+     * @param skipSerialization Indication whether skip serialization to json string
      */
-    public setCookie(name: string, value: any, expires?: number, path?: string, domain?: string)
+    public setCookie(name: string, value: any, expires?: number, path?: string, domain?: string, skipSerialization?: boolean)
     {
         if(!this._isBrowser)
         {
             return;
         }
 
-        let cookieStr = encodeURIComponent(name) + '=' + encodeURIComponent(JSON.stringify(value)) + ';';
+        let val = skipSerialization ? value : JSON.stringify(value);
+        let cookieStr = encodeURIComponent(name) + '=' + encodeURIComponent(val) + ';';
 
         if (expires)
         {

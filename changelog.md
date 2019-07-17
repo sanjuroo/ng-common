@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 5.0.5
+ - added parameter `skipSerialization` to `CookieService` methods `getCookie` and `setCookie` allowing skip *JSON* serialization/deserialization
+
 ## Version 5.0.4
  - fixed missing export of `htmlToElement`
 
