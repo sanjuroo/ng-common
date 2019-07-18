@@ -53,10 +53,15 @@ export class CookieService
         {
             result = regexp.exec(this._serverCookies);
         }
-        
+
+        if(result === null)
+        {
+            return null;
+        }
+
         let val = decodeURIComponent(result[1]);
 
-        return (result === null) ? null : skipSerialization ? val : JSON.parse(val);
+        return skipSerialization ? val : JSON.parse(val);
     }
 
     /**
