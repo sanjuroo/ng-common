@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 5.0.6
+ - fixed `getCookie` of `CookieService` if no cookies are present
+
+## Version 5.0.5
+ - added parameter `skipSerialization` to `CookieService` methods `getCookie` and `setCookie` allowing skip *JSON* serialization/deserialization
+
 ## Version 6.3.0
 
  - created *subpackage* `@anglr/common/hotkeys` containing all `angular2-hotkeys` library dependent code
