@@ -1,0 +1,8 @@
+{
+    "name": "@anglr/common/store",
+    "module": "./dist/es5/store/store.js",
+    "esm2015": "./dist/es2015/store/store.js",
+    "esm5": "./dist/es5/store/store.js",
+    "typings": "./store.d.ts",
+    "sideEffects": false
+}

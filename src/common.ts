@@ -11,6 +11,8 @@ export * from './types/tokens';
 export * from './utils';
 export {CookieService} from './services/cookies/cookies.service';
 export {StatusCodeService} from './services/statusCode/statusCode.service';
+export {CookiePermanentStorageService, PermanentStorage} from './services/permanentStorage';
+export {NoStringLocalizationService, StringLocalization} from './services/stringLocalization';
 export {IgnoredInterceptorsService, IgnoredInterceptorId, HttpRequestIgnoredInterceptorId} from './services/ignoredInterceptors/ignoredInterceptors.service';
 export {NgComponentOutletEx} from "./directives/ngComponentOutletEx/ngComponentOutletEx.directive";
 export {APP_STABLE, extractAppStableResolve, } from "./utils";
