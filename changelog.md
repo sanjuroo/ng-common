@@ -1,5 +1,16 @@
 # Changelog
 
+## Version 6.4.0
+
+ - added parameter `skipSerialization` to `CookieService` methods `getCookie` and `setCookie` allowing skip *JSON* serialization/deserialization
+ - fixed `getCookie` of `CookieService` if no cookies are present
+ - added `StringLocalization` with `STRING_LOCALIZATION` token for injecting service that allows localization of strings
+ - added default implementation of `StringLocalization` `NoStringLocalizationService` which returns same value as localized key
+ - added `PermanentStorage` with `PERMANENT_STORAGE` token for injecting service that allows permanently storing od data
+ - added `CookiePermanentStorageService` allowing use session cookies as *permanent* storage
+ - created *subpackage* `@anglr/common/store` containing all `store` dependent code (browser LocalStorage)
+   - `LocalPermanentStorageService` as implementation of `PermanentStorage` using *LocalStorage*
+
 ## Version 5.0.6
  - fixed `getCookie` of `CookieService` if no cookies are present
 
