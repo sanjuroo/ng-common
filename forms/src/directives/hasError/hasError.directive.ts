@@ -1,24 +1,28 @@
-import {Directive, ElementRef, Optional, SkipSelf, OnInit, OnDestroy, Inject} from "@angular/core";
+import {Directive, ElementRef, Optional, SkipSelf, OnInit, OnDestroy, Inject, Input} from "@angular/core";
 import {DOCUMENT} from "@angular/common";
 import {FormControlDirective, FormControlName, FormControl} from "@angular/forms";
-import {extend, generateId, StringDictionary, format} from "@js/common";
+import {extend, generateId, StringDictionary} from "@js/common";
+import {StringLocalization, STRING_LOCALIZATION} from '@anglr/common';
 import {Subscription} from "rxjs";
 
 import {GroupHasErrorDirective} from "../groupHasError/groupHasError.directive";
 import {SubmittedService} from "../../services/submitted";
+import {HAS_ERROR_OPTIONS, HAS_ERROR_DEFAULT_MESSAGES} from "../../misc/types";
 
-//TODO - inputs for prefix suffix
-//TODO - global options using InjectionToken
+//TODO - custom component/template for displaying error messages
 
 /**
  * Default error messages displayed
  */
 const defaultErrorMessages: StringDictionary =
 {
-    required: 'Položka je požadovaná.',
-    number: 'Položka musí byť číslo.',
-    minValue: 'Minimálna povolená hodnota je %s.',
-    maxValue: 'Maximálna povolená hodnota je %s.'
+    required: 'Field is required.',
+    number: 'Value must be number.',
+    pattern: 'Value is not valid.',
+    minValue: 'Minimum allowed value is {min}.',
+    maxValue: 'Maximum allowed value is {max}.',
+    minlength: 'Minimum length is {requiredLength}.',
+    maxlength: 'Maximum length is {requiredLength}.'
 };
 
 /**
@@ -72,6 +76,11 @@ export class HasErrorDirective implements OnInit, OnDestroy
      * Subscription for changes of submitted
      */
     private _submittedChangeSubscription: Subscription;
+
+    /**
+     * Subscription for changes of language
+     */
+    private _textsChangedSubscription: Subscription;
 
     /**
      * Array storing last known errors css classes
@@ -128,7 +137,7 @@ export class HasErrorDirective implements OnInit, OnDestroy
     /**
      * Object storing error messages
      */
-    // @Input()
+    @Input()
     public errorMessages: StringDictionary;
 
     //######################### constructor #########################
@@ -137,10 +146,13 @@ export class HasErrorDirective implements OnInit, OnDestroy
                 @Optional() private _formControl: FormControlDirective,
                 @Optional() private _formControlName: FormControlName,
                 @Optional() private _submittedSvc: SubmittedService,
-                @Inject(DOCUMENT) private _document: HTMLDocument)
+                @Inject(DOCUMENT) private _document: HTMLDocument,
+                @Inject(STRING_LOCALIZATION) protected _stringLocalization: StringLocalization,
+                @Inject(HAS_ERROR_OPTIONS) @Optional() options?: HasErrorOptions,
+                @Inject(HAS_ERROR_DEFAULT_MESSAGES) @Optional() errorMessages?: HasErrorOptions)
     {
-        this._options = extend(true, {}, defaultOptions);
-        this.errorMessages = extend(true, {}, defaultErrorMessages);
+        this._options = extend(true, {}, defaultOptions, options);
+        this.errorMessages = extend(true, {}, defaultErrorMessages, errorMessages);
     }
 
     //######################### public methods - implementation of OnInit #########################
@@ -159,6 +171,8 @@ export class HasErrorDirective implements OnInit, OnDestroy
 
         this._errorDiv.attributes.setNamedItem(this._errorMessageAttr);
         this._element.nativeElement.after(this._errorDiv);
+
+        this._textsChangedSubscription = this._stringLocalization.textsChange.subscribe(() => this._updateStatus());
 
         if(this.control)
         {
@@ -197,6 +211,12 @@ export class HasErrorDirective implements OnInit, OnDestroy
         {
             this._submittedChangeSubscription.unsubscribe();
             this._submittedChangeSubscription = null;
+        }
+
+        if(this._textsChangedSubscription)
+        {
+            this._textsChangedSubscription.unsubscribe();
+            this._textsChangedSubscription = null;
         }
 
         if(this._groupHasError)
@@ -247,7 +267,7 @@ export class HasErrorDirective implements OnInit, OnDestroy
                     return null;
                 }
 
-                return format(this.errorMessages[error], this.control.errors[error]);
+                return this._stringLocalization.get(this.errorMessages[error], this.control.errors[error]);
             })
             .filter(itm => !!itm)
             .join(' ');

@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 6.4.1
+
+ - added directives `hasErrorDirective`, `groupHasErrorDirective` and service `SubmittedService` into `@anglr/forms`
+
 ## Version 6.4.0
 
  - added parameter `skipSerialization` to `CookieService` methods `getCookie` and `setCookie` allowing skip *JSON* serialization/deserialization
