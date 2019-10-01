@@ -7,5 +7,6 @@ export * from './directives/groupHasError/groupHasError.directive';
 export * from './services/submitted';
 export * from './misc/validators';
 export * from './misc/utils';
+export * from './misc/types';
 export * from './modules/numberInput.module';
 export * from './modules/hasError.module';
