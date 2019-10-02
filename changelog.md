@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 6.4.2
+
+ - fixed errorMessages handling in `hasErrorDirective`
+ - added `requriedClassDirective` into `hasErrorModule`
+
 ## Version 6.4.1
 
  - added directives `hasErrorDirective`, `groupHasErrorDirective` and service `SubmittedService` into `@anglr/forms`

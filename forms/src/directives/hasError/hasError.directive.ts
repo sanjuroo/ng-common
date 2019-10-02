@@ -19,10 +19,10 @@ const defaultErrorMessages: StringDictionary =
     required: 'Field is required.',
     number: 'Value must be number.',
     pattern: 'Value is not valid.',
-    minValue: 'Minimum allowed value is {min}.',
-    maxValue: 'Maximum allowed value is {max}.',
-    minlength: 'Minimum length is {requiredLength}.',
-    maxlength: 'Maximum length is {requiredLength}.'
+    minValue: 'Value is too small.',
+    maxValue: 'Value is too big.',
+    minlength: 'Value is short.',
+    maxlength: 'Value is too long.'
 };
 
 /**
@@ -93,6 +93,11 @@ export class HasErrorDirective implements OnInit, OnDestroy
     private _errors: string[] = [];
 
     /**
+     * Object storing error messages
+     */
+    private _errorMessages: StringDictionary;
+
+    /**
      * Options for directive
      */
     private _options: HasErrorOptions = null;
@@ -138,7 +143,14 @@ export class HasErrorDirective implements OnInit, OnDestroy
      * Object storing error messages
      */
     @Input()
-    public errorMessages: StringDictionary;
+    public set errorMessages(errorMessages: StringDictionary)
+    {
+        this._errorMessages = extend(true, {}, defaultErrorMessages, this._globalErrorMessages, errorMessages);
+    };
+    public get errorMessages(): StringDictionary
+    {
+        return this._errorMessages;
+    }
 
     //######################### constructor #########################
     constructor(private _element: ElementRef<HTMLElement>,
@@ -149,10 +161,10 @@ export class HasErrorDirective implements OnInit, OnDestroy
                 @Inject(DOCUMENT) private _document: HTMLDocument,
                 @Inject(STRING_LOCALIZATION) protected _stringLocalization: StringLocalization,
                 @Inject(HAS_ERROR_OPTIONS) @Optional() options?: HasErrorOptions,
-                @Inject(HAS_ERROR_DEFAULT_MESSAGES) @Optional() errorMessages?: HasErrorOptions)
+                @Inject(HAS_ERROR_DEFAULT_MESSAGES) @Optional() private _globalErrorMessages?: StringDictionary)
     {
         this._options = extend(true, {}, defaultOptions, options);
-        this.errorMessages = extend(true, {}, defaultErrorMessages, errorMessages);
+        this.errorMessages = this._globalErrorMessages;
     }
 
     //######################### public methods - implementation of OnInit #########################
@@ -267,6 +279,7 @@ export class HasErrorDirective implements OnInit, OnDestroy
                     return null;
                 }
 
+                console.log("get message for", this.errorMessages[error], this.control.errors[error]);
                 return this._stringLocalization.get(this.errorMessages[error], this.control.errors[error]);
             })
             .filter(itm => !!itm)
