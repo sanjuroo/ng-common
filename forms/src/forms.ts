@@ -5,7 +5,7 @@ export * from './directives/numberInput/numberInputControlValueAccessor.directiv
 export * from './directives/hasError/hasError.directive';
 export * from './directives/groupHasError/groupHasError.directive';
 export * from './directives/requiredClass/requiredClass.directive';
-export * from './services/submitted';
+export * from './services/submitted/submitted.service';
 export * from './misc/validators';
 export * from './misc/utils';
 export * from './misc/types';
