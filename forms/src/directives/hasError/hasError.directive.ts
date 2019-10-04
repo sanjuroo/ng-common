@@ -279,7 +279,6 @@ export class HasErrorDirective implements OnInit, OnDestroy
                     return null;
                 }
 
-                console.log("get message for", this.errorMessages[error], this.control.errors[error]);
                 return this._stringLocalization.get(this.errorMessages[error], this.control.errors[error]);
             })
             .filter(itm => !!itm)
