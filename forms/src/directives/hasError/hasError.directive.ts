@@ -6,7 +6,7 @@ import {StringLocalization, STRING_LOCALIZATION} from '@anglr/common';
 import {Subscription} from "rxjs";
 
 import {GroupHasErrorDirective} from "../groupHasError/groupHasError.directive";
-import {SubmittedService} from "../../services/submitted";
+import {SubmittedService} from "../../services/submitted/submitted.service";
 import {HAS_ERROR_OPTIONS, HAS_ERROR_DEFAULT_MESSAGES} from "../../misc/types";
 
 //TODO - custom component/template for displaying error messages

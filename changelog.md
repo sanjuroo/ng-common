@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 6.4.3
+
+ - fixed compilation problem with AOT when `HasErrorModule` used in application
+
 ## Version 6.4.2
 
  - fixed errorMessages handling in `hasErrorDirective`
