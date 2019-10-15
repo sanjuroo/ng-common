@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy} from '@angular/core';
+import {Component, Input, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/core';
 import {Subscription} from 'rxjs';
 
 import {ProgressIndicatorService} from './progressIndicator.service';
@@ -10,7 +10,8 @@ import {ProgressIndicatorService} from './progressIndicator.service';
 {
     selector: "progress-indicator",
     templateUrl: 'progressIndicator.component.html',
-    styleUrls: ['progressIndicator.component.css']
+    styleUrls: ['progressIndicator.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProgressIndicatorComponent implements OnDestroy
 {
@@ -36,6 +37,7 @@ export class ProgressIndicatorComponent implements OnDestroy
     {
         this.appliedClass = {};
         this.appliedClass[cssClass] = true;
+        this._changeDetector.detectChanges();
     }
 
     //######################### private properties #########################
@@ -49,10 +51,15 @@ export class ProgressIndicatorComponent implements OnDestroy
     };
 
     //######################### constructor #########################
-    constructor(private _service: ProgressIndicatorService)
+    constructor(private _service: ProgressIndicatorService,
+                private _changeDetector: ChangeDetectorRef)
     {
         this.running = this._service.running;
-        this._subscription = this._service.runningChanged.subscribe(running => this.running = running);
+        this._subscription = this._service.runningChanged.subscribe(running => 
+        {
+            this.running = running;
+            this._changeDetector.detectChanges();
+        });
     }
 
     //######################### public methods - implementation of OnDestroy #########################

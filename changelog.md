@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 6.4.4
+
+ - added support for expiration date into `PermanentStorage`
+ - added changeDetection.OnPush for `ProgressIndicator` component
+
 ## Version 6.4.3
 
  - fixed compilation problem with AOT when `HasErrorModule` used in application
