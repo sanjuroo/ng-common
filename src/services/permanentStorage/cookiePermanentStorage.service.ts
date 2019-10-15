@@ -1,4 +1,5 @@
 import {Injectable} from "@angular/core";
+import * as moment from "moment";
 
 import {PermanentStorage} from "./permanentStorage.interface";
 import {CookieService} from "../cookies/cookies.service";
@@ -30,9 +31,25 @@ export class CookiePermanentStorageService implements PermanentStorage
      * @param name Name with which will be value stored
      * @param value Value to be stored
      */
-    public set(name: string, value: any): void
+    public set(name: string, value: any): void;
+
+    /**
+     * Sets value that will be stored with 'name' in permanent storage until expiration date
+     * @param name Name with which will be value stored
+     * @param value Value to be stored
+     * @param expires Time when value should expire
+     */
+    public set(name: string, value: any, expires: moment.Moment): void;
+
+    /**
+     * Sets value that will be stored with 'name' in permanent storage until expiration date
+     * @param name Name with which will be value stored
+     * @param value Value to be stored
+     * @param expires Time when value should expire
+     */
+    public set(name: string, value: any, expires?: moment.Moment): void
     {
-        this._cookies.setCookie(name, value, null, '/');
+        this._cookies.setCookie(name, value, expires ? expires.valueOf() : null, '/');
     }
 
     /**
