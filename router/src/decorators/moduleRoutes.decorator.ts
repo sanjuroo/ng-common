@@ -40,13 +40,13 @@ export function ModuleRoutes(routedComponents: Type<any>[], options: ModuleRoute
     {
         let ngModule: 
         {
-            ngInjectorDef:
+            ɵinj:
             {
                 imports: any[]
             }
         } = target as any;
         
-        if(ngModule.ngInjectorDef && Array.isArray(ngModule.ngInjectorDef.imports))
+        if(ngModule.ɵinj && Array.isArray(ngModule.ɵinj.imports))
         {
             let routes = 
             [
@@ -55,7 +55,7 @@ export function ModuleRoutes(routedComponents: Type<any>[], options: ModuleRoute
                 ...options.staticRoutesAfter || []
             ];
 
-            ngModule.ngInjectorDef.imports.push(options.rootModule ? RouterModule.forRoot(routes, options.rootModuleConfig) : RouterModule.forChild(routes));
+            ngModule.ɵinj.imports.push(options.rootModule ? RouterModule.forRoot(routes, options.rootModuleConfig) : RouterModule.forChild(routes));
         }
 
         return target;

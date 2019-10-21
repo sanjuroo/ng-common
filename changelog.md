@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 6.4.5
+
+ - `ModuleRoutes` now working with latest Angular 9-next.10+
+
 ## Version 6.4.4
 
  - added support for expiration date into `PermanentStorage`
