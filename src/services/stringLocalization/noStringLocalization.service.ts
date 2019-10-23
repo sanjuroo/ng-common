@@ -30,7 +30,7 @@ export class NoStringLocalizationService implements StringLocalization
 
     /**
      * Gets localized string for specified key, interpolation might be used
-     * @param key Key to be localizaed
+     * @param key Key to be localized
      * @param interpolateParams Optional object storing interpolation parameters
      */
     public get(key: string, interpolateParams?: Object): string

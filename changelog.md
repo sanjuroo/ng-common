@@ -1,5 +1,17 @@
 # Changelog
 
+## Version 6.5.0
+
+ - completely refactored *ProgressIndicator*
+ - `ProgressIndicatorComponent` now supports displaying *messages*
+ - `ProgressIndicatorService` now supports displaying *messages* and also supports displaying progress indicator *groups* (overlays)
+ - added `ProgressOverlayDirective` which allows displaying custom progress indicator *groups* on specified html elements
+ - added `LOGGER` token for injecting generic `Logger` which allows logging (with default dummy logging)
+ - added `IsPresentPipe` which allows checking whether value is different from `null` or `undefined`
+ - added `IsNaNPipe` which allows checking whether value is `NaN`
+ - added `LocalizePipe` which allows to use `StringLocalization` within angular templates
+ - added `UrlEncodePipe` which allows to use `serializeToUrlQuery` within angular templates
+
 ## Version 6.4.5
 
  - `ModuleRoutes` now working with latest Angular 9-next.10+

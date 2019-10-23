@@ -3,7 +3,7 @@ import {HttpEvent, HttpInterceptor, HttpHandler, HttpEventType, HTTP_INTERCEPTOR
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 
-import {ProgressIndicatorService} from '../../components/progressIndicator/progressIndicator.service';
+import {ProgressIndicatorService} from '../../modules/progressIndicator/services/progressIndicator.service';
 import {IgnoredInterceptorsService, HttpRequestIgnoredInterceptorId} from '../../services/ignoredInterceptors/ignoredInterceptors.service';
 
 /**
