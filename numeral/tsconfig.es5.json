@@ -17,7 +17,7 @@
         "annotateForClosureCompiler": true,
         "strictMetadataEmit": false,
         "skipTemplateCodegen": true,
-        "flatModuleOutFile": "numeral.js",
+        "flatModuleOutFile": "index.js",
         "flatModuleId": "@anglr/common/numeral"
     }
 }

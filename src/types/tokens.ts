@@ -2,6 +2,7 @@ import {InjectionToken} from '@angular/core';
 
 import {StringLocalization, NoStringLocalizationService} from '../services/stringLocalization';
 import {PermanentStorage} from '../services/permanentStorage';
+import {Logger, DummyLoggerService} from '../services/logger';
 
 /**
  * Base url used during SSR when using HTTP (example: http://localhost:8888/)
@@ -17,6 +18,11 @@ export const SERVER_COOKIE_HEADER: InjectionToken<string> = new InjectionToken<s
  * Token is used to transfer server authentication header
  */
 export const SERVER_AUTH_HEADER: InjectionToken<string> = new InjectionToken<string>('serverAuthHeader');
+
+/**
+ * Token used for injecting Logger implementation
+ */
+export const LOGGER: InjectionToken<Logger> = new InjectionToken<Logger>('LOGGER', {providedIn: 'root', factory: () => new DummyLoggerService()});
 
 /**
  * Token used for injecting StringLocalization service implementation

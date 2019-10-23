@@ -1,10 +1,10 @@
 import {Component, Input, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/core';
 import {Subscription} from 'rxjs';
 
-import {ProgressIndicatorService} from './progressIndicator.service';
+import {ProgressIndicatorService, DEFAULT_PROGRESS_NAME} from '../../services/progressIndicator.service';
 
 /**
- * Component that is used for displaying progress indicator
+ * Component that is used for displaying global progress indicator
  */
 @Component(
 {
@@ -15,20 +15,29 @@ import {ProgressIndicatorService} from './progressIndicator.service';
 })
 export class ProgressIndicatorComponent implements OnDestroy
 {
-    //######################### public properties #########################
+    //######################### private fields #########################
     
     /**
      * Subscription for changes in ProgressIndicatorService
      */
     private _subscription: Subscription|null;
     
-    //######################### public properties - inputs #########################
+    //######################### public properties - template bindings #########################
 
     /**
      * Applied css classes
+     * @internal
      */
     public appliedClass: {[key: string]: boolean} = { "progress-indicator": true };
-    
+
+    /**
+     * Array of messages that should be displayed
+     * @internal
+     */
+    public messages: string[];
+
+    //######################### public properties - inputs #########################
+
     /**
      * Sets css classes that will be applied to indicator
      */
@@ -54,11 +63,18 @@ export class ProgressIndicatorComponent implements OnDestroy
     constructor(private _service: ProgressIndicatorService,
                 private _changeDetector: ChangeDetectorRef)
     {
-        this.running = this._service.running;
-        this._subscription = this._service.runningChanged.subscribe(running => 
+        this.running = this._service.running[DEFAULT_PROGRESS_NAME];
+        this.messages = this._service.messages[DEFAULT_PROGRESS_NAME] || [];
+
+        this._subscription = this._service.stateChange.subscribe(name => 
         {
-            this.running = running;
-            this._changeDetector.detectChanges();
+            if(name == DEFAULT_PROGRESS_NAME)
+            {
+                this.running = this._service.running[DEFAULT_PROGRESS_NAME];
+                this.messages = this._service.messages[DEFAULT_PROGRESS_NAME] || [];
+
+                this._changeDetector.detectChanges();
+            }
         });
     }
 
