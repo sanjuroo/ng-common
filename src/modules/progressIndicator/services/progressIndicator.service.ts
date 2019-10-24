@@ -59,6 +59,11 @@ export class ProgressIndicatorService
      */
     private _stateChange: Subject<string> = new Subject<string>();
 
+    /**
+     * Object storing registered overlay groups
+     */
+    private _registeredOverlays: {[group: string]: number} = {};
+
     //######################### public properties #########################
 
     /**
@@ -155,13 +160,17 @@ export class ProgressIndicatorService
             }
         }
 
+        name = this._getName(name);
+
         let group = this._getGroup(name);
+
+        group.messages = [...(group.messages || []), ...(messages && messages.length ? messages : [])];
 
         if(!group.timeout && group.runningRequests < 1)
         {
             group.timeout = setTimeout(() =>
             {
-                this._onRunning(name, true, messages);
+                this._onRunning(name, true, group.messages);
 
                 clearTimeout(group.timeout);
                 group.timeout = null;
@@ -222,6 +231,8 @@ export class ProgressIndicatorService
             }
         }
 
+        name = this._getName(name);
+
         let group = this._getGroup(name);
 
         if(force)
@@ -273,6 +284,8 @@ export class ProgressIndicatorService
             message = nameOrMessage;
         }
 
+        name = this._getName(name);
+
         let group = this._getGroup(name);
 
         this._onRunning(name, group.running, [...(group.messages || []), message]);
@@ -289,12 +302,68 @@ export class ProgressIndicatorService
             name = DEFAULT_PROGRESS_NAME;
         }
 
+        name = this._getName(name);
+
         let group = this._getGroup(name);
 
         this._onRunning(name, group.running, null);
     }
 
+    /**
+     * Registers overlay group
+     * @param name Name of group to be registered
+     * @internal
+     */
+    public registerOverlayGroup(name: string): void
+    {
+        if(!this._registeredOverlays[name])
+        {
+            this._registeredOverlays[name] = 0;
+        }
+
+        this._registeredOverlays[name]++;
+    }
+
+    /**
+     * Unregisters overlay group
+     * @param name Name of group to be unregistered
+     * @internal
+     */
+    public unregisterOverlayGroup(name: string): void
+    {
+        if(!this._registeredOverlays[name])
+        {
+            return;
+        }
+
+        this._registeredOverlays[name]--;
+
+        if(this._registeredOverlays[name] <= 0)
+        {
+            delete this._registeredOverlays[name];
+        }
+    }
+
     //######################### private methods #########################
+
+    /**
+     * Gets name of group based on existance of this group
+     * @param name Name of group that is requested
+     */
+    private _getName(name): string
+    {
+        if(name == DEFAULT_PROGRESS_NAME || !this.config.fallbackToDefault)
+        {
+            return name;
+        }
+
+        if(this._registeredOverlays[name])
+        {
+            return name;
+        }
+
+        return DEFAULT_PROGRESS_NAME;
+    }
 
     /**
      * Used for invoking 'stateChange' event
