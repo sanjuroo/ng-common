@@ -80,6 +80,8 @@ export class ProgressOverlayDirective implements OnInit, OnDestroy
      */
     public ngOnInit()
     {
+        this._service.registerOverlayGroup(this.name);
+
         this._running = this._service.running[this.name];
         this._messages = this._service.messages[this.name] || [];
         this._renderProgressOverlay();
@@ -102,6 +104,8 @@ export class ProgressOverlayDirective implements OnInit, OnDestroy
      */
     public ngOnDestroy()
     {
+        this._service.unregisterOverlayGroup(this.name);
+
         if(this._subscription)
         {
             this._subscription.unsubscribe();

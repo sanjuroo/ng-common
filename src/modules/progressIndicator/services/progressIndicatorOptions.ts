@@ -11,13 +11,23 @@ export class ProgressIndicatorOptions
      * Timeout length after which will be progress indication displayed
      */
     public timeout: number = 220;
+
+    /**
+     * Indication whether fallback to default group name
+     */
+    public fallbackToDefault: boolean = true;
     
     //######################### constructor #########################
-    constructor(timeout?: number)
+    constructor(timeout?: number, fallbackToDefault?: boolean)
     {
         if(isPresent(timeout))
         {
             this.timeout = timeout as number;
+        }
+
+        if(isPresent(fallbackToDefault))
+        {
+            this.fallbackToDefault = fallbackToDefault as boolean;
         }
     }
 }
