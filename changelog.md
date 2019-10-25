@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 6.5.1
+
+ - fixed *AOT* compilation for `ProgressIndicatorModule`
+
 ## Version 6.5.0
 
  - completely refactored *ProgressIndicator*
