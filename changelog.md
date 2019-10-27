@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 6.6.0
+
+
+
 ## Version 6.5.1
 
  - fixed *AOT* compilation for `ProgressIndicatorModule`
