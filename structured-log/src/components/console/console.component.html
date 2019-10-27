@@ -1,0 +1,7 @@
+<div class="console-data thin-scrollbar">
+    <div class="console-log" [ngClass]="log?.logLevel" *ngFor="let log of currentLogs">{{log?.text}}</div>
+
+    <div class="copy-icon" (click)="copy()" title="copy to clipboard" *ngIf="canCopy">
+        <div class="fa fa-copy"></div>
+    </div>
+</div>

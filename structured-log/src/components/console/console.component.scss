@@ -1,0 +1,57 @@
+:host
+{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 50%;
+}
+
+.console-data
+{
+    background-color: #000000c7;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    border-radius: 0;
+    color: #EEE;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+}
+
+.copy-icon
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px;
+
+    div:hover
+    {
+        color: #31A1FF;
+        cursor: pointer;
+    }
+}
+
+.console-log
+{
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 12px;
+    white-space: pre;
+
+    &.error,
+    &.fatal
+    {
+        color: #FF3131;
+    }
+
+    &.warning
+    {
+        color: #FFC531;
+    }
+
+    &.debug,
+    &.verbose
+    {
+        color: #31A1FF;
+    }
+}

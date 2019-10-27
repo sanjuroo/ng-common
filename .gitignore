@@ -16,6 +16,10 @@
 /hotkeys/**/*.json
 /store/**/*.d.ts
 /store/**/*.json
+/moment/**/*.d.ts
+/moment/**/*.json
+/structured-log/**/*.d.ts
+/structured-log/**/*.json
 /*/dist
 /*.d.ts
 /*.metadata.json

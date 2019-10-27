@@ -23,6 +23,8 @@ ngv.config.json
 !/numeral/**/*.d.ts
 !/hotkeys/**/*.d.ts
 !/store/**/*.d.ts
+!/moment/**/*.d.ts
+!/structured-log/**/*.d.ts
 
 *.log
 *.spec.js
