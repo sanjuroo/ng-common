@@ -52,6 +52,17 @@ export class ConsoleComponentSinkService implements Sink, ConsoleComponentSink
         return this._currentLogs;
     }
 
+    //######################### public methods - implementation of ConsoleComponentSink #########################
+
+    /**
+     * Clears all current logs
+     */
+    public clear()
+    {
+        this._currentLogs = [];
+        this._logsChangeSubject.next();
+    }
+
     //######################### public methods - implementation of Sink #########################
 
     public emit(events: LogEvent[])

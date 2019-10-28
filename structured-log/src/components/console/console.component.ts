@@ -11,7 +11,7 @@ import {ConsoleComponentSink, ConsoleComponentLog} from "../../types/logger.inte
 {
     selector: 'console',
     templateUrl: 'console.component.html',
-    styleUrls: ['console.component.scss'],
+    styleUrls: ['console.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConsoleComponent implements OnInit, OnDestroy
@@ -84,5 +84,13 @@ export class ConsoleComponent implements OnInit, OnDestroy
         }
 
         navigator.clipboard.writeText(this.currentLogs.map(log => log.text).join('\n'));
+    }
+
+    /**
+     * Clears existing logs
+     */
+    public clear()
+    {
+        this._consoleSvc.clear();
     }
 }
