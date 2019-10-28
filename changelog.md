@@ -2,7 +2,19 @@
 
 ## Version 6.6.0
 
-
+- created *subpackage* `@anglr/common/moment` containing all `moment` library dependent code
+   - added `MomentConvertPipe` allowing conversion value to `moment`
+   - added `MomentFormatPipe` allowing formatting of value using `moment` format function
+- created *subpackage* `@anglr/common/structured-log` containing all `structured-log` dependent code
+   - added `ConsoleComponent` used for displaying logs from `ConsoleComponentSinkService`
+   - added `consoleAnimationTrigger` can be used for animating `ConsoleComponent`
+   - added `toText` method allowing displaying whole stringified json
+   - added `ConsoleLogModule` containing `ConsoleComponent`, contains also method `forRoot` that allows register `structured-log` as `Logger` (with `CONSOLE_COMPONENT_SINK`)
+   - added `ConsoleComponentSinkService` as implementation of `structured-log` sink
+   - added `LoggerService` as implementation of `Logger` from `@anglr/common` using `structured-log`
+   - added `LOGGER_SINKS` injection token allowing providing multiple sinks for `structured-log` logger
+   - added `CONSOLE_COMPONENT_SINK_SERVICE` injection token for injecting implementation of `ConsoleComponentSink`
+   - added `CONSOLE_COMPONENT_SINK`, `STRUCTURED_LOG_LOGGER` providers
 
 ## Version 6.5.1
 

@@ -1,8 +1,10 @@
-import {InjectionToken, Provider, ExistingProvider} from "@angular/core";
+import {InjectionToken, Provider, ExistingProvider, ClassProvider} from "@angular/core";
+import {LOGGER} from "@anglr/common";
 import {Sink} from "structured-log";
 
 import {ConsoleComponentSink} from "./logger.interface";
 import {ConsoleComponentSinkService} from "../services/consoleComponentSink.service";
+import {LoggerService} from "../services/logger.service";
 
 /**
  * Factory method for `ConsoleComponentSink`
@@ -32,3 +34,13 @@ export const CONSOLE_COMPONENT_SINK: Provider =
     useExisting: CONSOLE_COMPONENT_SINK_SERVICE,
     multi: true
 };
+
+/**
+ * Provider for logger that is using structured log implementation
+ */
+export const STRUCTURED_LOG_LOGGER: Provider =
+<ClassProvider>
+{
+    provide: LOGGER,
+    useClass: LoggerService
+}
