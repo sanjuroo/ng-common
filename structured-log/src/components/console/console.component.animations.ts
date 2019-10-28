@@ -1,7 +1,7 @@
 import {trigger, transition, style, group, animate} from '@angular/animations';
 
 /**
- * Show hide animation for console
+ * Show hide animation for console component
  */
 export const consoleAnimationTrigger = trigger('consoleAnimation', 
 [

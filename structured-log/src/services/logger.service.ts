@@ -5,7 +5,7 @@ import {configure, Sink, Logger} from 'structured-log';
 import {LOGGER_SINKS} from '../types/tokens';
 
 /**
- * Service used for logging
+ * Service used for logging using structured-log
  */
 @Injectable()
 export class LoggerService implements LoggerInterface

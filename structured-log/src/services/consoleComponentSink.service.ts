@@ -5,6 +5,7 @@ import {ConsoleComponentSink, ConsoleComponentLog} from "../types/logger.interfa
 import {toText} from "../misc/utils";
 
 //TODO - set max length from configuration
+//TODO - also provide way to set restricted level
 
 /**
  * Maximal number of logs that could be stored
