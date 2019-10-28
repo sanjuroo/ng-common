@@ -14,6 +14,11 @@ export interface ConsoleComponentSink
      * Gets current logs
      */
     readonly logs: ConsoleComponentLog[];
+
+    /**
+     * Clears all current logs
+     */
+    clear();
 }
 
 /**

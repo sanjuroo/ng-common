@@ -18,18 +18,25 @@
     position: relative;
 }
 
-.copy-icon
+.copy-icon,
+.clear-icon
 {
     position: absolute;
     top: 0;
     right: 0;
     padding: 4px;
+}
 
-    div:hover
-    {
-        color: #31A1FF;
-        cursor: pointer;
-    }
+.copy-icon
+{
+    margin-right: 20px;
+}
+
+.clear-icon div:hover,
+.copy-icon div:hover
+{
+    color: #31A1FF;
+    cursor: pointer;
 }
 
 .console-log
@@ -37,21 +44,21 @@
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 12px;
     white-space: pre;
+}
 
-    &.error,
-    &.fatal
-    {
-        color: #FF3131;
-    }
+.console-log.error,
+.console-log.fatal
+{
+    color: #FF3131;
+}
 
-    &.warning
-    {
-        color: #FFC531;
-    }
+.console-log.warning
+{
+    color: #FFC531;
+}
 
-    &.debug,
-    &.verbose
-    {
-        color: #31A1FF;
-    }
+.console-log.debug,
+.console-log.verbose
+{
+    color: #31A1FF;
 }
