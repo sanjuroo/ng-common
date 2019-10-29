@@ -35,6 +35,11 @@ export class ConsoleComponent implements OnInit, OnDestroy
      */
     public canCopy = navigator && navigator.clipboard;
 
+    /**
+     * Current value of filter
+     */
+    public filterValue: string = "";
+
     //######################### constructor #########################
     constructor(@Inject(CONSOLE_COMPONENT_SINK_SERVICE) private _consoleSvc: ConsoleComponentSink,
                 private _changeDetector: ChangeDetectorRef)
@@ -48,11 +53,11 @@ export class ConsoleComponent implements OnInit, OnDestroy
      */
     public ngOnInit()
     {
-        this.currentLogs = this._consoleSvc.logs;
+        this.setMessages();
         
         this._logsChangeSubscription = this._consoleSvc.logsChange.subscribe(() =>
         {
-            this.currentLogs = this._consoleSvc.logs;
+            this.setMessages();
             this._changeDetector.detectChanges();
         });
     }
@@ -87,10 +92,39 @@ export class ConsoleComponent implements OnInit, OnDestroy
     }
 
     /**
+     * Copies message to clipboard
+     * @param message Message to be copied
+     */
+    public copyMessage(message: string)
+    {
+        if(!navigator || !navigator.clipboard)
+        {
+            return;
+        }
+
+        navigator.clipboard.writeText(message);
+    }
+
+    /**
      * Clears existing logs
      */
     public clear()
     {
         this._consoleSvc.clear();
+    }
+
+    /**
+     * Sets messages using filter
+     */
+    public setMessages()
+    {
+        if(!this.filterValue)
+        {
+            this.currentLogs = this._consoleSvc.logs;
+        }
+        else
+        {
+            this.currentLogs = this._consoleSvc.logs.filter(log => log.text.toLowerCase().indexOf(this.filterValue) >= 0);
+        }
     }
 }

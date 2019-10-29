@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 6.6.1
+
+- *subpackage* `@anglr/common/structured-log`
+   - added filter to `ConsoleComponent`
+   - now each log row can be copied in `ConsoleComponent`
+   - styling of `ConsoleComponent` copy and clear is not positioned on top
+
 ## Version 6.6.0
 
 - created *subpackage* `@anglr/common/moment` containing all `moment` library dependent code
