@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 6.6.2
+
+- *subpackage* `@anglr/common/structured-log`
+   - added possibility to *expand/collapse* each line in `ConsoleComponent`
+
 ## Version 6.6.1
 
 - *subpackage* `@anglr/common/structured-log`

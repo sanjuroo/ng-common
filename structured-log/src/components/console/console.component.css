@@ -62,7 +62,8 @@
 {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 12px;
-    white-space: pre;
+    display: flex;
+    flex-direction: row;
 }
 
 .console-log.error,
@@ -80,4 +81,32 @@
 .console-log.verbose
 {
     color: #31A1FF;
+}
+
+.console-log-icon
+{
+    color: #FFF;
+    align-self: center;
+    font-weight: bold;
+    margin: 2px 4px 0;
+}
+
+.console-log-icon.fa-angle-down
+{
+    margin: 3px 3px 0 2px;
+}
+
+.console-log-text
+{
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.console-log-text.expanded
+{
+    white-space: pre;
+    text-overflow: initial;
 }

@@ -124,7 +124,7 @@ export class ConsoleComponent implements OnInit, OnDestroy
         }
         else
         {
-            this.currentLogs = this._consoleSvc.logs.filter(log => log.text.toLowerCase().indexOf(this.filterValue) >= 0);
+            this.currentLogs = this._consoleSvc.logs.filter(log => log.text.toLowerCase().indexOf(this.filterValue.toLowerCase()) >= 0);
         }
     }
 }
