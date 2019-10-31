@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 6.6.3
+
+- *subpackage* `@anglr/common/structured-log`
+   - fixed position of *expand/collapse* icon in expanded state for `ConsoleComponent`
+
 ## Version 6.6.2
 
 - *subpackage* `@anglr/common/structured-log`
