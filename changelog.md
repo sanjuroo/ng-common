@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 6.6.4
+
+- *style.scss* now correctly included also as part of src
+
 ## Version 6.6.3
 
 - *subpackage* `@anglr/common/structured-log`
