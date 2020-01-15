@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 6.6.5
+
+- added support for extracting routes from *children components* when `ModuleRoutes` is used
+
 ## Version 6.6.4
 
 - *style.scss* now correctly included also as part of src
