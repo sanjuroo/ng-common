@@ -11,7 +11,7 @@ export class UrlEncodePipe implements PipeTransform
     
     /**
      * Encodes data for URL
-     * @param value Value to be encoded
+     * @param value - Value to be encoded
      */   
     public transform(value: object): string
     {

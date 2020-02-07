@@ -1,4 +1,4 @@
 # Angular module for common stuff
 
-General module for angular 
+General module for angular
 

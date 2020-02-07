@@ -13,7 +13,7 @@ export class IsNaNPipe implements PipeTransform
 
     /**
      * Checks whether is value NaN
-     * @param value Value to be checked
+     * @param value - Value to be checked
      */
     public transform(value: any): boolean
     {

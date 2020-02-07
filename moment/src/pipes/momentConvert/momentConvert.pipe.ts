@@ -15,7 +15,7 @@ export class MomentConvertPipe implements PipeTransform
 
     /**
      * Transforms 'date' string to moment
-     * @param value Value to be converted to moment
+     * @param value - Value to be converted to moment
      */
     public transform(value: string | moment.Moment): moment.Moment
     {

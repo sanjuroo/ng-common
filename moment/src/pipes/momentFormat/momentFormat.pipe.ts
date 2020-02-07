@@ -15,8 +15,8 @@ export class MomentFormatPipe implements PipeTransform
 
     /**
      * Transforms 'date' string to moment and formats it
-     * @param value Value to be converted to moment
-     * @param format Formats used for formatting moment
+     * @param value - Value to be converted to moment
+     * @param format - Formats used for formatting moment
      */
     public transform(value: string | moment.Moment, format: string = "L"): string
     {

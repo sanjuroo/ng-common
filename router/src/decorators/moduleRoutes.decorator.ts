@@ -42,7 +42,7 @@ export interface ModuleRoutesOptions
 
 /**
  * Extracts routes from children components
- * @param route Route which can contain array of components with routes
+ * @param route - Route which can contain array of components with routes
  */
 function extractChildrenComponents(route: ComponentRouteChildren): Route
 {
@@ -69,8 +69,8 @@ function extractChildrenComponents(route: ComponentRouteChildren): Route
 
 /**
  * Registers routes for module to which is attached
- * @param routedComponents Array of components that will be used for routes extration
- * @param options Optional options for defining routes
+ * @param routedComponents - Array of components that will be used for routes extration
+ * @param options - Optional options for defining routes
  */
 export function ModuleRoutes(routedComponents: Type<any>[], options: ModuleRoutesOptions = {rootModule: false, staticRoutesAfter: [], staticRoutesBefore: []})
 {

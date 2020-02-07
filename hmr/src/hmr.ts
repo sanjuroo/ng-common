@@ -3,7 +3,7 @@ import '@jscrpt/common';
 
 /**
  * Enables Webpack Hot Module Replacement, call this at application entry file after module['hot'].accept()
- * @param _platform Platform used for bootstraping main module
+ * @param _platform - Platform used for bootstraping main module
  */
 export function hmrAccept(platformGet: () => PlatformRef, rootComponentSelector: string = 'app')
 {

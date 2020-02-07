@@ -1,7 +1,7 @@
 /**
  * Indicates that property value of service is stored during webpack HMR 
  * 
- * @deprecated
+ * @deprecated No replacement yet
  */
 export function HmrServiceData()
 {

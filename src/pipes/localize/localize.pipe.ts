@@ -30,8 +30,8 @@ export class LocalizePipe implements PipeTransform, OnInit, OnDestroy
 
     /**
      * Gets localized string for specified key, interpolation might be used
-     * @param key Key to be localized
-     * @param interpolateParams Optional object storing interpolation parameters
+     * @param key - Key to be localized
+     * @param interpolateParams - Optional object storing interpolation parameters
      */
     public transform(key: string, interpolateParams?: Object): string
     {

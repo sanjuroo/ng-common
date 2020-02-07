@@ -41,7 +41,7 @@ export class SubmittedService
 
     /**
      * Sets submitted to true
-     * @param submitted If set to false, sets submitted to false
+     * @param submitted - If set to false, sets submitted to false
      */
     public setSubmitted(submitted: boolean = true)
     {

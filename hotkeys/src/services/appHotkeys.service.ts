@@ -67,8 +67,8 @@ export class AppHotkeysService
 
     /**
      * Creates scoped hotkeys for html element
-     * @param element Html element used as scope base for hotkeys
-     * @param scopedInitialization Method used for initialization scoped hotkeys, hotkeys can be initialized only inside this method
+     * @param element - Html element used as scope base for hotkeys
+     * @param scopedInitialization - Method used for initialization scoped hotkeys, hotkeys can be initialized only inside this method
      */
     public withScope(element: HTMLElement, scopedInitialization: (appHotkeysService: AppHotkeysService) => void)
     {
@@ -141,7 +141,7 @@ export class AppHotkeysService
 
     /**
      * Process added hotkeys, stores old ones
-     * @param hotkey Hotkey to be added
+     * @param hotkey - Hotkey to be added
      */
     private _processAddedHotkeys(hotkey: Hotkey | Hotkey[])
     {

@@ -2,9 +2,9 @@ import {NgForm, FormGroup} from '@angular/forms';
 
 /**
  * Gets indication whether controls have errors, with custom indication of submitted
- * @param form Form containing controls
- * @param controls Array of controls names to be checked for errors
- * @param submitted Indication whether form was submitted
+ * @param form - Form containing controls
+ * @param controls - Array of controls names to be checked for errors
+ * @param submitted - Indication whether form was submitted
  */
 export function hasErrorCustom(form: NgForm|FormGroup, controls: string[], submitted: boolean = false)
 {
@@ -27,10 +27,10 @@ export function hasErrorCustom(form: NgForm|FormGroup, controls: string[], submi
 
 /**
  * Gets indication whether hide alerts or not for control, with custom indication of submitted
- * @param form Form containing controls
- * @param control Controls name that will be checked
- * @param errors Array of validation errors to be checked for existance
- * @param submitted Indication whether form was submitted
+ * @param form - Form containing controls
+ * @param control - Controls name that will be checked
+ * @param errors - Array of validation errors to be checked for existance
+ * @param submitted - Indication whether form was submitted
  */
 export function alertHiddenCustom(form: NgForm|FormGroup, control: string, errors: string[] = [], submitted: boolean = false)
 {
@@ -51,8 +51,8 @@ export function alertHiddenCustom(form: NgForm|FormGroup, control: string, error
 
 /**
  * Gets indication whether controls have errors
- * @param form Form containing controls
- * @param controls Array of controls names to be checked for errors
+ * @param form - Form containing controls
+ * @param controls - Array of controls names to be checked for errors
  */
 export function hasError(form: NgForm, controls: string[])
 {
@@ -75,9 +75,9 @@ export function hasError(form: NgForm, controls: string[])
 
 /**
  * Gets indication whether hide alerts or not for control
- * @param form Form containing controls
- * @param control Controls name that will be checked
- * @param errors Array of validation errors to be checked for existance
+ * @param form - Form containing controls
+ * @param control - Controls name that will be checked
+ * @param errors - Array of validation errors to be checked for existance
  */
 export function alertHidden(form: NgForm, control: string, errors: string[] = [])
 {

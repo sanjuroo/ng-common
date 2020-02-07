@@ -1,6 +1,6 @@
 /**
  * Transforms property to text
- * @param property Property to be transformed to text
+ * @param property - Property to be transformed to text
  */
 export function toText(property: any): string 
 {

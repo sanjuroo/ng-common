@@ -1,5 +1,5 @@
 {
-    "name": "@anglr/common/hmr",
+    "name": "@anglr/common-hmr",
     "module": "./dist/es5/hmr/index.js",
     "esm2015": "./dist/es2015/hmr/index.js",
     "esm5": "./dist/es5/hmr/index.js",

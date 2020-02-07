@@ -16,7 +16,7 @@ import {nameof} from '@jscrpt/common';
         
 
 /**
- * Instantiates a single {@link Component} type and inserts its Host View into current View.
+ * Instantiates a single Component type and inserts its Host View into current View.
  */
 @Directive(
 {

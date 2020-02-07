@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 7.0.0
+
+- updated to latest stable *Angular* 9
+
 ## Version 6.6.5
 
 - added support for extracting routes from *children components* when `ModuleRoutes` is used

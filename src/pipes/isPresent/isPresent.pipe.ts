@@ -14,7 +14,7 @@ export class IsPresentPipe implements PipeTransform
 
     /**
      * Checks whether is value different from null or undefined
-     * @param value Value to be checked
+     * @param value - Value to be checked
      */
     public transform(value: any): boolean
     {

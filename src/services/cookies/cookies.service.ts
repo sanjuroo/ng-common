@@ -29,8 +29,8 @@ export class CookieService
     /**
      * Retrieves a single cookie by it's name
      *
-     * @param name Identification of the Cookie
-     * @param skipSerialization Indication whether skip deserialization from json string
+     * @param name - Identification of the Cookie
+     * @param skipSerialization - Indication whether skip deserialization from json string
      * @returns The Cookie's value
      */
     public getCookie(name: string, skipSerialization?: boolean): any
@@ -67,12 +67,12 @@ export class CookieService
     /**
      * Save the Cookie
      *
-     * @param name Cookie's identification
-     * @param value Cookie's value
-     * @param expires Cookie's expiration date in days from now. If it's undefined the cookie is a session Cookie
-     * @param path Path relative to the domain where the cookie should be avaiable. Default /
-     * @param domain Domain where the cookie should be avaiable. Default current domain
-     * @param skipSerialization Indication whether skip serialization to json string
+     * @param name - Cookie's identification
+     * @param value - Cookie's value
+     * @param expires - Cookie's expiration date in days from now. If it's undefined the cookie is a session Cookie
+     * @param path - Path relative to the domain where the cookie should be avaiable. Default /
+     * @param domain - Domain where the cookie should be avaiable. Default current domain
+     * @param skipSerialization - Indication whether skip serialization to json string
      */
     public setCookie(name: string, value: any, expires?: number, path?: string, domain?: string, skipSerialization?: boolean)
     {
@@ -106,9 +106,9 @@ export class CookieService
     /**
      * Removes specified Cookie
      *
-     * @param name Cookie's identification
-     * @param path Path relative to the domain where the cookie should be avaiable. Default /
-     * @param domain Domain where the cookie should be avaiable. Default current domain
+     * @param name - Cookie's identification
+     * @param path - Path relative to the domain where the cookie should be avaiable. Default /
+     * @param domain - Domain where the cookie should be avaiable. Default current domain
      */
     public deleteCookie(name: string, path?: string, domain?: string)
     {

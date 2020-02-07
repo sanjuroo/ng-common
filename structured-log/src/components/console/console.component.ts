@@ -93,7 +93,7 @@ export class ConsoleComponent implements OnInit, OnDestroy
 
     /**
      * Copies message to clipboard
-     * @param message Message to be copied
+     * @param message - Message to be copied
      */
     public copyMessage(message: string)
     {

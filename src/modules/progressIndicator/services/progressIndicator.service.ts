@@ -116,27 +116,27 @@ export class ProgressIndicatorService
 
     /**
      * Displays progress indicator after short delay
-     * @param name Name of progress group (separate counter)
+     * @param name - Name of progress group (separate counter)
      */
     public showProgress(name: string): void;
 
     /**
      * Displays progress indicator after short delay
-     * @param messages Array of messages to display what is happening
+     * @param messages - Array of messages to display what is happening
      */
     public showProgress(messages: string[]): void;
 
     /**
      * Displays progress indicator after short delay
-     * @param name Name of progress group (separate counter)
-     * @param messages Array of messages to display what is happening
+     * @param name - Name of progress group (separate counter)
+     * @param messages - Array of messages to display what is happening
      */
     public showProgress(name: string, messages: string[]): void;
 
     /**
      * Displays progress indicator after short delay
-     * @param nameOrMessages Name of progress group (separate counter) or Array of messages to display what is happening
-     * @param messages Array of messages to display what is happening
+     * @param nameOrMessages - Name of progress group (separate counter) or Array of messages to display what is happening
+     * @param messages - Array of messages to display what is happening
      */
     public showProgress(nameOrMessages?: string|string[], messages?: string[]): void
     {
@@ -187,27 +187,27 @@ export class ProgressIndicatorService
 
     /**
      * Hides progress indicator
-     * @param name Name of progress group (separate counter)
+     * @param name - Name of progress group (separate counter)
      */
     public hideProgress(name: string): void;
 
     /**
      * Hides progress indicator
-     * @param force Indication that indicator should be hidden even if some processes are running
+     * @param force - Indication that indicator should be hidden even if some processes are running
      */
     public hideProgress(force: boolean): void;
 
     /**
      * Hides progress indicator
-     * @param name Name of progress group (separate counter)
-     * @param force Indication that indicator should be hidden even if some processes are running
+     * @param name - Name of progress group (separate counter)
+     * @param force - Indication that indicator should be hidden even if some processes are running
      */
     public hideProgress(name: string, force: boolean): void;
 
     /**
      * Hides progress indicator
-     * @param nameOrForce Name of progress group (separate counter) or Indication that indicator should be hidden even if some processes are running
-     * @param force Indication that indicator should be hidden even if some processes are running
+     * @param nameOrForce - Name of progress group (separate counter) or Indication that indicator should be hidden even if some processes are running
+     * @param force - Indication that indicator should be hidden even if some processes are running
      */
     public hideProgress(nameOrForce?: boolean | string, force?: boolean): void
     {
@@ -255,21 +255,21 @@ export class ProgressIndicatorService
 
     /**
      * Adds message to progress indicator group
-     * @param message Message to display what is happening
+     * @param message - Message to display what is happening
      */
     public addMessage(message: string): void;
 
     /**
      * Adds message to progress indicator group
-     * @param name Name of progress group (separate counter)
-     * @param message Message to display what is happening
+     * @param name - Name of progress group (separate counter)
+     * @param message - Message to display what is happening
      */
     public addMessage(name: string, message?: string): void;
 
     /**
      * Adds message to progress indicator group
-     * @param nameOrMessage Name of progress group (separate counter) or Message to display what is happening
-     * @param message Message to display what is happening
+     * @param nameOrMessage - Name of progress group (separate counter) or Message to display what is happening
+     * @param message - Message to display what is happening
      */
     public addMessage(nameOrMessage?: string, message?: string): void
     {
@@ -293,7 +293,7 @@ export class ProgressIndicatorService
 
     /**
      * Clears all messages for progress group
-     * @param name Name of progress group (separate counter)
+     * @param name - Name of progress group (separate counter)
      */
     public clearMessages(name?: string): void
     {
@@ -311,7 +311,7 @@ export class ProgressIndicatorService
 
     /**
      * Registers overlay group
-     * @param name Name of group to be registered
+     * @param name - Name of group to be registered
      * @internal
      */
     public registerOverlayGroup(name: string): void
@@ -326,7 +326,7 @@ export class ProgressIndicatorService
 
     /**
      * Unregisters overlay group
-     * @param name Name of group to be unregistered
+     * @param name - Name of group to be unregistered
      * @internal
      */
     public unregisterOverlayGroup(name: string): void
@@ -348,7 +348,7 @@ export class ProgressIndicatorService
 
     /**
      * Gets name of group based on existance of this group
-     * @param name Name of group that is requested
+     * @param name - Name of group that is requested
      */
     private _getName(name): string
     {
@@ -367,9 +367,9 @@ export class ProgressIndicatorService
 
     /**
      * Used for invoking 'stateChange' event
-     * @param name Name of group which has changes its state
-     * @param value Value whether is progress running
-     * @param messages Messages to be displayed for this group
+     * @param name - Name of group which has changes its state
+     * @param value - Value whether is progress running
+     * @param messages - Messages to be displayed for this group
      */
     private _onRunning(name: string, value: boolean, messages: string[])
     {
@@ -402,7 +402,7 @@ export class ProgressIndicatorService
 
     /**
      * Gets object for progress group
-     * @param name Name of group to be obtained
+     * @param name - Name of group to be obtained
      */
     private _getGroup(name: string): RunningProgressGroup
     {

@@ -300,9 +300,9 @@ export class HasErrorDirective implements OnInit, OnDestroy
 
     /**
      * Calls action when form is submitted or control is dirty
-     * @param action Action to be called when form is submitted or control dirty
-     * @param falseAction Action to be called when form is not submitted and control is not dirty
-     * @param additionalCondition Additional condition to be evaluated
+     * @param action - Action to be called when form is submitted or control dirty
+     * @param falseAction - Action to be called when form is not submitted and control is not dirty
+     * @param additionalCondition - Additional condition to be evaluated
      */
     private _isSubmittedOrDirty(action: () => void, falseAction: () => void = () => {}, additionalCondition: boolean = true)
     {

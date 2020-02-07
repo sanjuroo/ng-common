@@ -51,7 +51,7 @@ export class GroupHasErrorDirective
 
     /**
      * Registers control as invalid control
-     * @param id Name of control to be registered
+     * @param id - Name of control to be registered
      */
     public registerControl(id: string)
     {
@@ -66,7 +66,7 @@ export class GroupHasErrorDirective
 
     /**
      * Unregisters control from invalid controls
-     * @param id Id of control to be unregistered
+     * @param id - Id of control to be unregistered
      */
     public unregisterControl(id: string)
     {
