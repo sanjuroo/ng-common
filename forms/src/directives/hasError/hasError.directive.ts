@@ -143,13 +143,13 @@ export class HasErrorDirective implements OnInit, OnDestroy
      * Object storing error messages
      */
     @Input()
-    public set errorMessages(errorMessages: StringDictionary)
-    {
-        this._errorMessages = extend(true, {}, defaultErrorMessages, this._globalErrorMessages, errorMessages);
-    };
     public get errorMessages(): StringDictionary
     {
         return this._errorMessages;
+    }
+    public set errorMessages(errorMessages: StringDictionary)
+    {
+        this._errorMessages = extend(true, {}, defaultErrorMessages, this._globalErrorMessages, errorMessages);
     }
 
     //######################### constructor #########################

@@ -15,7 +15,7 @@ export interface RedirectRouteDecoratedComponent
 }
 
 /**
- * Defines redirection route to component`s route on which is this decorator applied
+ * Defines redirection route to component's route on which is this decorator applied
  * @param redirectFrom - Path from which should redirection occur
  * @param redirectTo - Path to which should be redirect performed, if not specified and only one route is defined, its path will be used
  * @param pathMatchFull - Indication that full path match should be used, default is true
