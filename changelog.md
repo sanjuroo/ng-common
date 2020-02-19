@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 7.0.1
+
+- *style.scss* is not included in index, have to be custom included during build
+
 ## Version 7.0.0
 
 - updated to latest stable *Angular* 9
