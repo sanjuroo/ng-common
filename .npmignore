@@ -22,6 +22,7 @@ ngv.config.json
 !/store/**/*.d.ts
 !/moment/**/*.d.ts
 !/structured-log/**/*.d.ts
+!/positions/**/*.d.ts
 
 *.log
 *.spec.js

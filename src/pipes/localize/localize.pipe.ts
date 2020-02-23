@@ -9,7 +9,8 @@ import {StringLocalization} from "../../services/stringLocalization";
  */
 @Pipe(
 {
-    name: "localize"
+    name: "localize",
+    pure: false
 })
 export class LocalizePipe implements PipeTransform, OnInit, OnDestroy
 {

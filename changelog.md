@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 7.1.0
+
+- `LocalizePipe` changed to not `pure`
+- added *subpackage* `@anglr/common/positions`
+- *subpackage* `@anglr/common/positions`
+   - new method `positionsWithFlip` that uses `positions` and flips location if it conflicts with viewport
+
 ## Version 7.0.0
 
 - updated to latest stable *Angular* 9

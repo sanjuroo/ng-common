@@ -21,6 +21,8 @@ temp/
 /moment/**/*.json
 /structured-log/**/*.d.ts
 /structured-log/**/*.json
+/positions/**/*.d.ts
+/positions/**/*.json
 /*/dist
 /*.d.ts
 /*.metadata.json
