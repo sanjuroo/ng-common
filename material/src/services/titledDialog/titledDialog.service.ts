@@ -20,8 +20,8 @@ export class TitledDialogService
 
     /**
      * Opens a modal dialog containing the given component.
-     * @param componentOrTemplateRef Type of the component to load into the dialog, or a TemplateRef to instantiate as the dialog content.
-     * @param config Extra configuration options.
+     * @param componentOrTemplateRef - Type of the component to load into the dialog, or a TemplateRef to instantiate as the dialog content.
+     * @param config - Extra configuration options.
      * @returns Reference to the newly-opened dialog.
      */
     public open<T, D = any, R = any>(componentOrTemplateRef: ComponentType<T> | TemplateRef<T>, config?: TitledDialogConfig<D>): MatDialogRef<T, R>
