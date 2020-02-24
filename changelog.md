@@ -1,5 +1,19 @@
 # Changelog
 
+## Version 7.2.0
+
+- added *subpackage* `@anglr/common/material`
+- *subpackage* `@anglr/common/material`
+   - added `TitledDialogComponent` wrapping `@angular/material/dialog`, adding title
+   - added `TitledDialogModule` containing `TitledDialogComponent` and `TitledDialogService`
+   - added `TitledDialogService` used for opening *titled dialog*
+   - added `TITLED_DIALOG_DATA` token for obtaining passed data inside
+- added `DebugDataComponent` used for displaying debug data
+- added `DebugDataEnabledService` handling enabled/visibility state of `DebugDataComponent`
+- added `DebugDataModule` containing `DebugDataComponent`
+- *subpackage* `@anglr/common/structured-log`
+   - added `ConsoleSinkConfigService` used for handling configuration for `ConsoleComponentSinkService`
+
 ## Version 7.0.1
 
 - *style.scss* is not included in index, have to be custom included during build

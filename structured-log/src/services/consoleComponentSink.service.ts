@@ -2,19 +2,14 @@ import {Sink, LogEvent, LogEventLevel} from "structured-log";
 import {Observable, Subject} from "rxjs";
 
 import {ConsoleComponentSink, ConsoleComponentLog} from "../types/logger.interface";
-import {toText} from "../misc/utils";
-
-//TODO - set max length from configuration
-//TODO - also provide way to set restricted level
-
-/**
- * Maximal number of logs that could be stored
- */
-const MAX_LOGS: number = 1500;
+import {toText, isEnabled} from "../misc/utils";
+import {ConsoleSinkConfigService} from "./consoleSinkConfig.service";
+import {Injectable} from "@angular/core";
 
 /**
  * Sink that is used for storing logs in `ConsoleComponent`
  */
+@Injectable()
 export class ConsoleComponentSinkService implements Sink, ConsoleComponentSink
 {
     //######################### private fields #########################
@@ -52,6 +47,11 @@ export class ConsoleComponentSinkService implements Sink, ConsoleComponentSink
         return this._currentLogs;
     }
 
+    //######################### constructor #########################
+    constructor(private _configSvc: ConsoleSinkConfigService)
+    {
+    }
+
     //######################### public methods - implementation of ConsoleComponentSink #########################
 
     /**
@@ -81,10 +81,10 @@ export class ConsoleComponentSinkService implements Sink, ConsoleComponentSink
                 this._prototypeUpdated = true;
             }
 
-            // if (!isEnabled(this.options.restrictedToMinimumLevel, e.level))
-            // {
-            //     return;
-            // }
+            if (!isEnabled(this._configSvc.restrictToLevel, e.level))
+            {
+                return;
+            }
 
             let logLevel = LogEventLevel[e.level];
             let output = `${e.timestamp} [${logLevel.toUpperCase()}] ${e.messageTemplate.render(e.properties)}`;
@@ -96,9 +96,9 @@ export class ConsoleComponentSinkService implements Sink, ConsoleComponentSink
             });
 
             //TRIM LOGS
-            if(this._currentLogs.length > MAX_LOGS)
+            if(this._currentLogs.length > this._configSvc.maxLogsCount)
             {
-                let removeCount = this._currentLogs.length - MAX_LOGS;
+                let removeCount = this._currentLogs.length - this._configSvc.maxLogsCount;
 
                 this._currentLogs.splice(0, removeCount);
             }

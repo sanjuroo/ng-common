@@ -5,4 +5,5 @@ export * from './misc/utils';
 export * from './types/tokens';
 export * from './types/logger.interface';
 export * from './services/consoleComponentSink.service';
+export * from './services/consoleSinkConfig.service';
 export * from './services/logger.service';

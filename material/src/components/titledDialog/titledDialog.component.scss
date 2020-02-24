@@ -1,0 +1,19 @@
+.titled-dialog-title
+{
+    padding: 10px;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: bold;
+
+    .close-dialog
+    {
+        margin-left: 10px;
+    }
+}
+
+.titled-dialog-content
+{
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}

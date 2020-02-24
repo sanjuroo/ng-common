@@ -7,6 +7,9 @@ export {ProgressIndicatorOptions} from './modules/progressIndicator/services/pro
 export {ProgressIndicatorComponent} from './modules/progressIndicator/components/progressIndicator/progressIndicator.component';
 export {ProgressIndicatorModule} from './modules/progressIndicator/modules/progressIndicator.module';
 export {ProgressIndicatorService} from './modules/progressIndicator/services/progressIndicator.service';
+export {DebugDataModule} from './modules/debugData/modules/debugData.module';
+export {DebugDataComponent} from './modules/debugData/components/debugData/debugData.component';
+export {DebugDataEnabledService} from './modules/debugData/services/debugDataEnabled/debugDataEnabled.service';
 export * from './types/tokens';
 export * from './utils';
 export {IsNaNPipe} from './pipes/isNaN/isNaN.pipe';

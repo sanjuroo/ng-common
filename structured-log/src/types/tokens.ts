@@ -1,17 +1,18 @@
-import {InjectionToken, Provider, ExistingProvider, ClassProvider} from "@angular/core";
+import {InjectionToken, Provider, ExistingProvider, ClassProvider, FactoryProvider} from "@angular/core";
 import {LOGGER} from "@anglr/common";
 import {Sink} from "structured-log";
 
 import {ConsoleComponentSink} from "./logger.interface";
 import {ConsoleComponentSinkService} from "../services/consoleComponentSink.service";
 import {LoggerService} from "../services/logger.service";
+import {ConsoleSinkConfigService} from "../services/consoleSinkConfig.service";
 
 /**
  * Factory method for `ConsoleComponentSink`
  */
-export function consoleComponentSinkFactory()
+export function consoleComponentSinkFactory(configSvc: ConsoleSinkConfigService)
 {
-    return new ConsoleComponentSinkService();
+    return new ConsoleComponentSinkService(configSvc);
 }
 
 /**
@@ -22,7 +23,18 @@ export const LOGGER_SINKS: InjectionToken<Sink[]> = new InjectionToken<Sink[]>('
 /**
  * Injection token for obtaining sink service for `ConsoleComponent`
  */
-export const CONSOLE_COMPONENT_SINK_SERVICE: InjectionToken<ConsoleComponentSink> = new InjectionToken<ConsoleComponentSink>('CONSOLE_COMPONENT_SINK_SERVICE', {providedIn: 'root', factory: consoleComponentSinkFactory});
+export const CONSOLE_COMPONENT_SINK_SERVICE: InjectionToken<ConsoleComponentSink> = new InjectionToken<ConsoleComponentSink>('CONSOLE_COMPONENT_SINK_SERVICE');
+
+/**
+ * Provider for ConsoleComponentSinkService for logger
+ */
+export const CONSOLE_COMPONENT_SINK_SERVICE_PROVIDER: Provider =
+<FactoryProvider>
+{
+    provide: CONSOLE_COMPONENT_SINK_SERVICE,
+    useFactory: consoleComponentSinkFactory,
+    deps: [ConsoleSinkConfigService]
+};
 
 /**
  * Provider for ConsoleComponentSink for logger
@@ -43,4 +55,4 @@ export const STRUCTURED_LOG_LOGGER: Provider =
 {
     provide: LOGGER,
     useClass: LoggerService
-}
+};

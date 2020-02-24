@@ -23,6 +23,8 @@ temp/
 /structured-log/**/*.json
 /positions/**/*.d.ts
 /positions/**/*.json
+/material/**/*.d.ts
+/material/**/*.json
 /*/dist
 /*.d.ts
 /*.metadata.json
