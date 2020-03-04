@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {Injectable, Inject, Injector} from "@angular/core";
 import {isBlank} from "@jscrpt/common";
 import {LogEventLevel} from 'structured-log';
 
@@ -20,7 +20,7 @@ export class ConsoleSinkConfigService
      * @param maxLogsCount - Maximal number of logs that can be stored
      * @param restrictToLevel - Minimal log level to be displayed
      */
-    constructor(public maxLogsCount?: number, public restrictToLevel?: LogEventLevel)
+    constructor(@Inject(Injector) public maxLogsCount?: number, @Inject(Injector) public restrictToLevel?: LogEventLevel)
     {
         if(isBlank(maxLogsCount))
         {
