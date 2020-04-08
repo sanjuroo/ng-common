@@ -19,6 +19,7 @@ export {UrlEncodePipe} from './pipes/urlEncode/urlEncode.pipe';
 export {CookieService} from './services/cookies/cookies.service';
 export {StatusCodeService} from './services/statusCode/statusCode.service';
 export {CookiePermanentStorageService, PermanentStorage} from './services/permanentStorage';
+export {MemoryTemporaryStorageService, TemporaryStorage} from './services/temporaryStorage';
 export {NoStringLocalizationService, StringLocalization} from './services/stringLocalization';
 export {Logger} from './services/logger';
 export {IgnoredInterceptorsService, IgnoredInterceptorId, HttpRequestIgnoredInterceptorId} from './services/ignoredInterceptors/ignoredInterceptors.service';

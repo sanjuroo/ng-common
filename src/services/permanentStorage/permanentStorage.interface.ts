@@ -30,5 +30,5 @@ export interface PermanentStorage
      * Removes value stored with 'name' from permanent storage
      * @param name - Name of stored value that will be removed
      */
-    remove(name): void;
+    remove(name: string): void;
 }

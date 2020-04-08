@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 7.3.0
+
+- added `TemporaryStorage` interface used as api for temporary storage implementation
+- added `MemoryTemporaryStorageService` as default implementation of `TemporaryStorage`, using process memory as storage
+- added `TEMPORARY_STORAGE` token for injecting `TemporaryStorage` implementation, defaults to `MemoryTemporaryStorageService`
+
 ## Version 7.2.0
 
 - added *subpackage* `@anglr/common/material`
