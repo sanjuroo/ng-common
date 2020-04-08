@@ -56,7 +56,7 @@ export class CookiePermanentStorageService implements PermanentStorage
      * Removes value stored with 'name' from permanent storage
      * @param name - Name of stored value that will be removed
      */
-    public remove(name): void
+    public remove(name: string): void
     {
         this._cookies.deleteCookie(name, '/');
     }

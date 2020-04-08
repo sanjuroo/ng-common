@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 7.3.1
+
+- fixed `LocalPermanentStorageService` now correctly stores data indefinitely if `expire` is not provided or it is null
+
 ## Version 7.3.0
 
 - added `TemporaryStorage` interface used as api for temporary storage implementation

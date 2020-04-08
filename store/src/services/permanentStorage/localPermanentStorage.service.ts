@@ -51,14 +51,21 @@ export class LocalPermanentStorageService implements PermanentStorage
      */
     public set(name: string, value: any, expires?: moment.Moment): void
     {
-        store.set(name, value, expires ? expires.valueOf() : null);
+        if(expires)
+        {
+            store.set(name, value, expires.valueOf());
+        }
+        else
+        {
+            store.set(name, value);
+        }
     }
 
     /**
      * Removes value stored with 'name' from permanent storage
      * @param name - Name of stored value that will be removed
      */
-    public remove(name): void
+    public remove(name: string): void
     {
         store.remove(name);
     }
