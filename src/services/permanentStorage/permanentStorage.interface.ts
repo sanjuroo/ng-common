@@ -1,5 +1,3 @@
-import * as moment from 'moment';
-
 /**
  * Provides api for implementing permanent storage
  */
@@ -24,7 +22,7 @@ export interface PermanentStorage
      * @param value - Value to be stored
      * @param expires - Time when value should expire
      */
-    set(name: string, value: any, expires: moment.Moment)
+    set(name: string, value: any, expires: Date)
 
     /**
      * Removes value stored with 'name' from permanent storage

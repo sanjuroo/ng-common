@@ -2,7 +2,6 @@ import {Injectable} from "@angular/core";
 import {PermanentStorage} from "@anglr/common";
 import * as store from 'store';
 import * as expirePlugin from 'store/plugins/expire';
-import * as moment from 'moment';
 
 /**
  * Implementation of permanent storage using LocalStorage
@@ -41,7 +40,7 @@ export class LocalPermanentStorageService implements PermanentStorage
      * @param value - Value to be stored
      * @param expires - Time when value should expire
      */
-    public set(name: string, value: any, expires: moment.Moment): void;
+    public set(name: string, value: any, expires: Date): void;
 
     /**
      * Sets value that will be stored with 'name' in permanent storage until expiration date
@@ -49,7 +48,7 @@ export class LocalPermanentStorageService implements PermanentStorage
      * @param value - Value to be stored
      * @param expires - Time when value should expire
      */
-    public set(name: string, value: any, expires?: moment.Moment): void
+    public set(name: string, value: any, expires?: Date): void
     {
         if(expires)
         {
